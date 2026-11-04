@@ -54,7 +54,7 @@
    "planted": null,
    "ambiguous": "subtrahend not drawn: only 85 and 39 visible → the right outcome is needs_review",
    "found": true,
-   "read_ok": false,
+   "read_ok": true,
    "pred": "needs_review",
    "pred_mis": null,
    "agreement": null,
@@ -87,7 +87,7 @@
    "read_ok": true,
    "pred": "wrong",
    "pred_mis": "zero_minus_digit_flipped",
-   "agreement": "2/2",
+   "agreement": "2/3",
    "base": "wrong"
   },
   {
@@ -415,9 +415,9 @@
    "ambiguous": null,
    "found": true,
    "read_ok": true,
-   "pred": "needs_review",
-   "pred_mis": null,
-   "agreement": null,
+   "pred": "wrong",
+   "pred_mis": "decimal_addition_points_not_aligned",
+   "agreement": "2/2",
    "base": "wrong"
   },
   {
@@ -432,7 +432,7 @@
    "read_ok": true,
    "pred": "wrong",
    "pred_mis": "smaller_from_larger_in_each_column",
-   "agreement": "2/3",
+   "agreement": "2/2",
    "base": "wrong"
   },
   {
@@ -491,7 +491,7 @@
    "found": true,
    "read_ok": true,
    "pred": "wrong",
-   "pred_mis": "table_fact_neighbour_substituted",
+   "pred_mis": "multiplication_worked_as_addition_of_factors",
    "agreement": "2/3",
    "base": "wrong"
   },
@@ -631,8 +631,8 @@
   "pipeline": {
    "status_accuracy": {
     "n": 40,
-    "ok": 39,
-    "rate": 0.975
+    "ok": 40,
+    "rate": 1.0
    },
    "false_wrong (correct work marked wrong)": {
     "n": 22,
@@ -646,8 +646,8 @@
    },
    "needs_review": {
     "n": 40,
-    "ok": 1,
-    "rate": 0.025
+    "ok": 0,
+    "rate": 0.0
    }
   },
   "baseline_model_only": {
@@ -668,14 +668,14 @@
    }
   },
   "misconception_exact": {
-   "n": 15,
+   "n": 16,
    "ok": 13,
-   "rate": 0.867
+   "rate": 0.812
   },
   "misconception_same_concept_or_root": {
-   "n": 15,
+   "n": 16,
    "ok": 14,
-   "rate": 0.933
+   "rate": 0.875
   },
   "ambiguous_cases": [
    {
@@ -708,8 +708,8 @@
    "detail": "4 hints repaired/replaced; remaining issues: none"
   }
  ],
- "cost_usd_total": 1.3,
- "seconds_per_page_median": 50.2,
+ "cost_usd_total": 1.118,
+ "seconds_per_page_median": 94.9,
  "raw": [
   {
    "page": "p01_sub_borrow",
@@ -721,50 +721,55 @@
     ],
     "problems": [
      {
-      "number": "1.",
-      "problem_text": "52\n28",
+      "number": "1",
+      "problem_text": "52 - 28",
       "problem_expr": "52 - 28",
       "concept_id": "subtraction_with_borrow",
       "answer_text": "36",
       "expected": "24",
       "status": "wrong",
       "box_px": [
-       128,
-       379,
-       555,
-       686
+       126,
+       425,
+       554,
+       615
       ],
       "answer_px": [
-       321,
-       547,
-       427,
-       605
+       315,
+       538,
+       396,
+       612
       ],
-      "answer_ink_px": null,
+      "answer_ink_px": [
+       323,
+       497,
+       401,
+       550
+      ],
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Look closely at the ones column – can you really take 8 away from 2?",
-       "child_hint_hi": "इकाई वाले अंक को ध्यान से देखो – क्या 2 में से 8 निकाल सकते हो?",
-       "child_hint_ta": "ஒன்றுகள் இலக்கத்தை நன்றாகப் பார் – 2-லிருந்து 8-ஐ எடுக்க முடியுமா?",
+       "child_hint_en": "You did 8 minus 2, can you check if we can take 8 away from 2 in the ones?",
+       "child_hint_hi": "तुमने 8 में से 2 घटाया, सोचो क्या इकाई में 2 में से 8 घटा सकते हैं?",
+       "child_hint_ta": "நீ 8-லிருந்து 2-ஐ கழித்தாய், ஒன்றுகளில் 2-லிருந்து 8-ஐ எடுக்க முடியுமா என்று பார்?",
        "concept_id": "subtraction_with_borrow",
-       "confidence": 0.95,
+       "confidence": 0.9,
        "first_error_step": -1,
        "misconception_id": "smaller_from_larger_in_each_column",
-       "pen_note": "2-8? borrow!",
-       "teacher_note": "Child got 36 = (5-2)|(8-2), showing smaller-from-larger in each column instead of borrowing for 2-8.",
+       "pen_note": "2-8 needs borrow!",
+       "teacher_note": "Child answered 36 for 52-28, matching smaller-from-larger in each column (8-2=6, 5-2=3) instead of borrowing.",
        "agreement": "2/2"
       },
       "trace": [
        "sympy: 52 - 28 → 24",
        "read 1 (full page) '36': false",
-       "read 2 (zoomed) '36': false → readings agree",
+       "read 2 skipped: crop showed '28 / 36', not this problem",
        "diagnosis: 2 independent passes agree on smaller_from_larger_in_each_column"
       ]
      },
      {
-      "number": "2.",
-      "problem_text": "74\n39",
+      "number": "2",
+      "problem_text": "74 - 39",
       "problem_expr": "74 - 39",
       "concept_id": "subtraction_with_borrow",
       "answer_text": "35",
@@ -772,15 +777,15 @@
       "status": "correct",
       "box_px": [
        128,
-       724,
-       464,
-       896
+       639,
+       501,
+       841
       ],
       "answer_px": [
-       310,
+       317,
        777,
-       401,
-       837
+       413,
+       836
       ],
       "answer_ink_px": [
        319,
@@ -798,8 +803,8 @@
       ]
      },
      {
-      "number": "3.",
-      "problem_text": "61\n27",
+      "number": "3",
+      "problem_text": "61 - 27",
       "problem_expr": "61 - 27",
       "concept_id": "subtraction_with_borrow",
       "answer_text": "46",
@@ -807,15 +812,15 @@
       "status": "wrong",
       "box_px": [
        128,
-       919,
-       480,
-       1098
+       869,
+       513,
+       1072
       ],
       "answer_px": [
-       309,
-       1033,
-       390,
-       1091
+       307,
+       1019,
+       385,
+       1079
       ],
       "answer_ink_px": [
        311,
@@ -826,15 +831,15 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Check each column carefully - can you really take 7 away from 1?",
-       "child_hint_hi": "हर अंक को ध्यान से देखो - क्या 1 में से 7 निकाल सकते हो?",
-       "child_hint_ta": "ஒவ்வொரு இடத்தையும் பார் - 1-லிருந்து 7-ஐ எடுக்க முடியுமா?",
+       "child_hint_en": "Look at the ones column - can you take 7 away from 1, or did you swap them around?",
+       "child_hint_hi": "इकाई वाले अंक को देखो - क्या 1 में से 7 घटा सकते हो, या तुमने उल्टा कर दिया?",
+       "child_hint_ta": "ஒன்றுகள் இலக்கத்தைப் பார் - 1-லிருந்து 7-ஐ எடுக்க முடியுமா, அல்லது மாற்றி செய்துவிட்டாயா?",
        "concept_id": "subtraction_with_borrow",
-       "confidence": 0.92,
+       "confidence": 0.9,
        "first_error_step": -1,
        "misconception_id": "smaller_from_larger_in_each_column",
-       "pen_note": "7-1 or 1-7?",
-       "teacher_note": "61-27 needs borrow. Child got 46 = 6-2 in tens and 7-1 in units, i.e. smaller-from-larger in each column.",
+       "pen_note": "1-7? borrow!",
+       "teacher_note": "Child got 46 from 61-27 by doing 7-1=6 and 6-2=4, i.e. smaller-from-larger in each column instead of borrowing.",
        "agreement": "2/2"
       },
       "trace": [
@@ -845,33 +850,37 @@
       ]
      },
      {
-      "number": "4.",
-      "problem_text": "85\n39",
-      "problem_expr": "85 - 39",
+      "number": "4",
+      "problem_text": "85",
+      "problem_expr": "85",
       "concept_id": "subtraction_with_borrow",
-      "answer_text": "",
-      "expected": "46",
+      "answer_text": "39",
+      "expected": "85",
       "status": "needs_review",
       "box_px": [
        128,
-       1114,
-       437,
+       1091,
+       466,
        1270
       ],
       "answer_px": [
-       98,
-       1095,
-       98,
-       1095
+       303,
+       1200,
+       391,
+       1265
       ],
-      "answer_ink_px": null,
+      "answer_ink_px": [
+       311,
+       1201,
+       386,
+       1253
+      ],
       "steps": [],
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 85 - 39 → 46",
-       "read 1 (full page) '': unparseable",
-       "read 2 (zoomed): not legible"
+       "sympy: 85 → 85",
+       "problem incomplete or unreadable → teacher review"
       ]
      }
     ],
@@ -909,7 +918,7 @@
       "problem": "85"
      }
     ],
-    "seconds": 16.6
+    "seconds": 31.1
    }
   },
   {
@@ -930,16 +939,16 @@
       "expected": "225",
       "status": "correct",
       "box_px": [
-       168,
-       418,
-       558,
-       637
+       162,
+       440,
+       564,
+       632
       ],
       "answer_px": [
-       294,
-       569,
-       515,
-       623
+       279,
+       566,
+       500,
+       622
       ],
       "answer_ink_px": [
        365,
@@ -966,15 +975,15 @@
       "status": "wrong",
       "box_px": [
        156,
-       661,
-       509,
-       893
+       672,
+       528,
+       909
       ],
       "answer_px": [
-       335,
-       811,
+       357,
+       822,
        484,
-       885
+       883
       ],
       "answer_ink_px": [
        360,
@@ -985,22 +994,23 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Can you borrow from the hundreds and think what 0 minus 3 really means?",
-       "child_hint_hi": "सैकड़े से उधार लेकर सोचो, 0 में से 3 घटाने पर सच में क्या होगा?",
-       "child_hint_ta": "நூற்றிலக்கத்திடம் கடன் வாங்கி 0-லிருந்து 3-ஐ கழித்தால் என்ன வரும் என்று யோசி?",
+       "child_hint_en": "Great effort — can you check what we need to do before taking away from a zero in the ones place?",
+       "child_hint_hi": "बहुत अच्छी कोशिश — क्या आप देख सकते हैं कि इकाई के स्थान पर शून्य से घटाने से पहले हमें क्या करना होगा?",
+       "child_hint_ta": "நன்றாக முயற்சித்தீர்கள் — ஒன்றுகள் இடத்தில் பூஜ்ஜியத்திலிருந்து கழிப்பதற்கு முன் என்ன செய்ய வேண்டும் என்று பார்க்க முடியுமா?",
        "concept_id": "subtraction_borrow_across_zero",
-       "confidence": 0.92,
+       "confidence": 0.68,
        "first_error_step": -1,
        "misconception_id": "zero_minus_digit_flipped",
-       "pen_note": "0-3 is not 3-0!",
-       "teacher_note": "Child flipped 0-digit to digit-0 in units and tens (3-0=3, 6-0=6) to get 363 instead of borrowing across zeros from 400.",
-       "agreement": "2/2"
+       "pen_note": "0-3? borrow first!",
+       "teacher_note": "Both stuck columns have 0 on top and answer matches 3-0, 6-0, 4-1; more specific zero-flip than general smaller-from-larger.",
+       "agreement": "2/3"
       },
       "trace": [
        "sympy: 400 - 163 → 237",
        "read 1 (full page) '363': false",
        "read 2 (zoomed) '363': false → readings agree",
-       "diagnosis: 2 independent passes agree on zero_minus_digit_flipped"
+       "diagnosis: passes disagree (smaller_from_larger_in_each_column vs zero_minus_digit_flipped) → Muse Wonder adjudicates",
+       "adjudication: zero_minus_digit_flipped (sides with one pass)"
       ]
      },
      {
@@ -1013,15 +1023,15 @@
       "status": "correct",
       "box_px": [
        162,
-       909,
-       505,
-       1131
+       936,
+       528,
+       1144
       ],
       "answer_px": [
-       352,
-       1064,
-       459,
-       1124
+       368,
+       1080,
+       486,
+       1143
       ],
       "answer_ink_px": [
        355,
@@ -1047,16 +1057,16 @@
       "expected": "157",
       "status": "wrong",
       "box_px": [
-       168,
-       1136,
-       509,
-       1320
+       162,
+       1149,
+       528,
+       1333
       ],
       "answer_px": [
-       363,
-       1296,
-       482,
-       1341
+       357,
+       1292,
+       491,
+       1350
       ],
       "answer_ink_px": [
        353,
@@ -1067,15 +1077,15 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "You borrowed for the ones, check what should happen to the 3 in hundreds?",
-       "child_hint_hi": "तुमने इकाई के लिए उधार लिया, सोचो सैकड़े वाले 3 का क्या होना चाहिए?",
-       "child_hint_ta": "ஒன்றுகளுக்காக கடன் வாங்கினாய், நூறுகளில் உள்ள 3-க்கு என்ன ஆக வேண்டும் என்று பார்?",
+       "child_hint_en": "Great try, can you check what happens to the hundreds digit after borrowing?",
+       "child_hint_hi": "बहुत अच्छी कोशिश, क्या आप सोच सकते हैं कि उधार देने के बाद सैकड़े के अंक का क्या होता है?",
+       "child_hint_ta": "நன்றாக முயற்சித்தீர்கள், கடன் கொடுத்த பிறகு நூற்றிலக்கத்திற்கு என்ன ஆகும் என்று பார்க்க முடியுமா?",
        "concept_id": "subtraction_borrow_across_zero",
-       "confidence": 0.8,
+       "confidence": 0.85,
        "first_error_step": -1,
        "misconception_id": "borrow_across_zero_hundreds_not_reduced",
-       "pen_note": "reduce 3 to 2!",
-       "teacher_note": "No working shown but 257 vs 157 shows units 12-5=7 and tens 9-4=5 correct, but hundreds 3-1=2 instead of 2-1=1. Child borrowed across zero but did not reduce hundreds.",
+       "pen_note": "3->2 after borrow",
+       "teacher_note": "Ones 12-5=7 and tens 9-4=5 are correct, but hundreds left as 3-1=2 to give 257 instead of reducing 3 to 2 after borrowing across zero to give 157.",
        "agreement": "2/2"
       },
       "trace": [
@@ -1088,7 +1098,32 @@
     ],
     "guardrails": {
      "warnings": [],
-     "hint_review": []
+     "hint_review": [
+      {
+       "problem": 3,
+       "lang": "en",
+       "issues": [
+        "model review: reveals answer"
+       ],
+       "action": "repaired"
+      },
+      {
+       "problem": 3,
+       "lang": "hi",
+       "issues": [
+        "model review: reveals answer"
+       ],
+       "action": "repaired"
+      },
+      {
+       "problem": 3,
+       "lang": "ta",
+       "issues": [
+        "model review: reveals answer"
+       ],
+       "action": "repaired"
+      }
+     ]
     },
     "score": {
      "correct": 2,
@@ -1100,7 +1135,7 @@
    "baseline": {
     "problems": [
      {
-      "child_answer": "- 225",
+      "child_answer": "225",
       "is_correct": true,
       "problem": "503 - 278"
      },
@@ -1120,7 +1155,7 @@
       "problem": "302 - 145"
      }
     ],
-    "seconds": 10.5
+    "seconds": 20.1
    }
   },
   {
@@ -1134,142 +1169,237 @@
     "problems": [
      {
       "number": "1",
-      "problem_text": "1. 48 + 37",
+      "problem_text": "48 + 37",
       "problem_expr": "48 + 37",
       "concept_id": "addition_with_carry",
       "answer_text": "715",
       "expected": "85",
       "status": "wrong",
       "box_px": [
-       139,
-       350,
-       499,
-       641
+       132,
+       358,
+       534,
+       801
       ],
       "answer_px": [
-       278,
-       539,
-       392,
-       597
+       261,
+       560,
+       384,
+       618
       ],
       "answer_ink_px": null,
-      "steps": [],
-      "error_step": null,
+      "steps": [
+       {
+        "box": [
+         220,
+         445,
+         350,
+         515
+        ],
+        "claim": "48 + 37 = 715",
+        "text": "715",
+        "check": {
+         "status": "false",
+         "claim": "48 + 37 = 715",
+         "expected": "85",
+         "detail": ""
+        },
+        "box_px": [
+         253,
+         692,
+         402,
+         801
+        ],
+        "ink_px": [
+         264,
+         659,
+         377,
+         838
+        ]
+       }
+      ],
+      "error_step": 0,
       "diagnosis": {
-       "child_hint_en": "You added the ones and tens well, can you check what you should carry when the ones make more than 9?",
-       "child_hint_hi": "तुमने इकाई और दहाई अच्छा जोड़ा, देखो जब इकाई 9 से ज़्यादा हो जाए तो हासिल में क्या जाता है?",
-       "child_hint_ta": "ஒன்றுகளையும் பத்துகளையும் நன்றாகக் கூட்டினாய், ஒன்றுகள் 9-ஐத் தாண்டும்போது என்ன மீதமாக எடுத்துச் செல்ல வேண்டும் என்று பார்?",
+       "child_hint_en": "You added the ones well, can you think where the new ten from 8+7 should really go?",
+       "child_hint_hi": "इकाई को तुमने अच्छा जोड़ा, अब सोचो 8+7 से मिली दहाई कहाँ जानी चाहिए।",
+       "child_hint_ta": "ஒன்றுகளை நன்றாகக் கூட்டினாய், 8+7 இல் கிடைத்த பத்து எங்கே போக வேண்டும் என்று யோசி.",
        "concept_id": "addition_with_carry",
-       "confidence": 0.95,
-       "first_error_step": -1,
+       "confidence": 0.96,
+       "first_error_step": 0,
        "misconception_id": "addition_carry_written_as_answer_digit",
-       "pen_note": "carry only 1!",
-       "teacher_note": "Child added 8+7=15 and 4+3=7 then concatenated as 715 instead of carrying 1 ten to get 85. Classic carry-written-as-answer-digit error.",
+       "pen_note": "carry can't stay!",
+       "teacher_note": "Child added ones 8+7=15 and tens 4+3=7 then concatenated as 7-15 to get 715 instead of carrying the 1 ten to tens to make 85. Matches carry-written-as-answer-digit pattern.",
        "agreement": "2/2"
       },
       "trace": [
        "sympy: 48 + 37 → 85",
        "read 1 (full page) '715': false",
        "read 2 (zoomed) '715': false → readings agree",
+       "steps verified: 0/1 true, first false step [0]",
        "diagnosis: 2 independent passes agree on addition_carry_written_as_answer_digit"
       ]
      },
      {
       "number": "2",
-      "problem_text": "2. 56 + 29",
+      "problem_text": "56 + 29",
       "problem_expr": "56 + 29",
       "concept_id": "addition_with_carry",
       "answer_text": "85",
       "expected": "85",
       "status": "correct",
       "box_px": [
-       139,
-       717,
-       498,
-       1011
+       132,
+       824,
+       540,
+       1104
       ],
       "answer_px": [
-       318,
-       879,
-       391,
-       946
+       253,
+       995,
+       385,
+       1104
       ],
-      "answer_ink_px": null,
-      "steps": [],
+      "answer_ink_px": [
+       249,
+       951,
+       373,
+       1127
+      ],
+      "steps": [
+       {
+        "box": [
+         220,
+         640,
+         335,
+         710
+        ],
+        "claim": "56 + 29 = 85",
+        "text": "85",
+        "check": {
+         "status": "true",
+         "claim": "56 + 29 = 85",
+         "expected": "85",
+         "detail": ""
+        },
+        "box_px": [
+         253,
+         995,
+         385,
+         1104
+        ],
+        "ink_px": [
+         249,
+         951,
+         373,
+         1127
+        ]
+       }
+      ],
       "error_step": null,
       "diagnosis": null,
       "trace": [
        "sympy: 56 + 29 → 85",
        "read 1 (full page) '85': true",
-       "read 2 (zoomed) '85': true → readings agree"
+       "read 2 skipped: crop showed '+ 29', not this problem",
+       "steps verified: 1/1 true"
       ]
      },
      {
       "number": "3",
-      "problem_text": "3. 67 + 25",
+      "problem_text": "67 + 25",
       "problem_expr": "67 + 25",
       "concept_id": "addition_with_carry",
       "answer_text": "82",
       "expected": "92",
       "status": "wrong",
       "box_px": [
-       139,
-       1043,
-       499,
-       1336
+       132,
+       1112,
+       540,
+       1361
       ],
       "answer_px": [
-       293,
-       1164,
-       367,
-       1233
+       253,
+       1252,
+       385,
+       1361
       ],
       "answer_ink_px": [
-       287,
-       1153,
-       365,
-       1205
+       245,
+       1235,
+       364,
+       1354
       ],
-      "steps": [],
-      "error_step": null,
+      "steps": [
+       {
+        "box": [
+         220,
+         805,
+         335,
+         875
+        ],
+        "claim": "67 + 25 = 82",
+        "text": "82",
+        "check": {
+         "status": "false",
+         "claim": "67 + 25 = 82",
+         "expected": "92",
+         "detail": ""
+        },
+        "box_px": [
+         253,
+         1252,
+         385,
+         1361
+        ],
+        "ink_px": [
+         245,
+         1235,
+         364,
+         1354
+        ]
+       }
+      ],
+      "error_step": 0,
       "diagnosis": {
-       "child_hint_en": "Great adding the ones - can you check what happens to the extra ten you made?",
-       "child_hint_hi": "इकाई को बहुत अच्छा जोड़ा, अब सोचो सात और पाँच से बनी अतिरिक्त दहाई का क्या करोगे?",
-       "child_hint_ta": "ஒன்றுகளை நன்றாக கூட்டினாய் - 7+5 இல் வந்த கூடுதல் பத்தை என்ன செய்வாய் பார்?",
+       "child_hint_en": "Great adding of the ones, can you check where the ten from 7+5 went?",
+       "child_hint_hi": "इकाई को बहुत अच्छा जोड़ा, अब सोचो 7+5 से बनी दहाई कहाँ गई?",
+       "child_hint_ta": "ஒன்றுகளை நன்றாகக் கூட்டினாய், 7+5 இல் வந்த பத்து எங்கே போனது என்று பார்க்க முடியுமா?",
        "concept_id": "addition_with_carry",
-       "confidence": 0.85,
-       "first_error_step": -1,
+       "confidence": 0.92,
+       "first_error_step": 0,
        "misconception_id": "addition_carry_dropped",
        "pen_note": "carry the 1!",
-       "teacher_note": "67+25 needs carry from 7+5=12. Child kept 2 but dropped the carried 1, giving 6+2=8 instead of 9, so 82 not 92.",
+       "teacher_note": "Units 7+5=12 gives 2 and 1 ten to carry; child wrote 2 but dropped the carry so tens 6+2=8 instead of 9, giving 82 for 92.",
        "agreement": "2/2"
       },
       "trace": [
        "sympy: 67 + 25 → 92",
        "read 1 (full page) '82': false",
-       "read 2 (zoomed) '82': false → readings agree",
+       "read 2 skipped: crop showed '+ 25', not this problem",
+       "steps verified: 0/1 true, first false step [0]",
        "diagnosis: 2 independent passes agree on addition_carry_dropped"
       ]
      },
      {
       "number": "4",
-      "problem_text": "4. 38 + 45",
+      "problem_text": "38 + 45",
       "problem_expr": "38 + 45",
       "concept_id": "addition_with_carry",
       "answer_text": "83",
       "expected": "83",
       "status": "correct",
       "box_px": [
-       139,
-       1353,
-       501,
-       1524
+       132,
+       1368,
+       540,
+       1532
       ],
       "answer_px": [
-       311,
-       1451,
-       396,
-       1519
+       253,
+       1431,
+       385,
+       1532
       ],
       "answer_ink_px": [
        290,
@@ -1277,13 +1407,43 @@
        362,
        1494
       ],
-      "steps": [],
+      "steps": [
+       {
+        "box": [
+         220,
+         920,
+         335,
+         985
+        ],
+        "claim": "38 + 45 = 83",
+        "text": "83",
+        "check": {
+         "status": "true",
+         "claim": "38 + 45 = 83",
+         "expected": "83",
+         "detail": ""
+        },
+        "box_px": [
+         253,
+         1431,
+         385,
+         1532
+        ],
+        "ink_px": [
+         290,
+         1442,
+         362,
+         1494
+        ]
+       }
+      ],
       "error_step": null,
       "diagnosis": null,
       "trace": [
        "sympy: 38 + 45 → 83",
        "read 1 (full page) '83': true",
-       "read 2 (zoomed) '83': true → readings agree"
+       "read 2 skipped: crop showed '+ 45', not this problem",
+       "steps verified: 1/1 true"
       ]
      }
     ],
@@ -1291,8 +1451,8 @@
      "warnings": [],
      "hint_review": [
       {
-       "problem": 2,
-       "lang": "hi",
+       "problem": 0,
+       "lang": "ta",
        "issues": [
         "model review: tone/language"
        ],
@@ -1330,7 +1490,7 @@
       "problem": "38 + 45"
      }
     ],
-    "seconds": 9.0
+    "seconds": 9.3
    }
   },
   {
@@ -1343,141 +1503,141 @@
     ],
     "problems": [
      {
-      "number": "1.",
+      "number": "1",
       "problem_text": "23 x 4",
-      "problem_expr": "23*4",
+      "problem_expr": "23 * 4",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "92",
       "expected": "92",
       "status": "correct",
       "box_px": [
-       109,
-       491,
-       520,
-       772
+       120,
+       475,
+       497,
+       764
       ],
       "answer_px": [
-       291,
-       694,
-       429,
-       772
+       304,
+       555,
+       424,
+       632
       ],
       "answer_ink_px": [
-       289,
-       700,
-       394,
-       763
+       359,
+       561,
+       412,
+       610
       ],
       "steps": [],
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 23*4 → 92",
+       "sympy: 23 * 4 → 92",
        "read 1 (full page) '92': true",
-       "read 2 skipped: crop showed 'x 4', not this problem"
+       "read 2 (zoomed) '92': true → readings agree"
       ]
      },
      {
-      "number": "2.",
+      "number": "2",
       "problem_text": "34 x 12",
-      "problem_expr": "34*12",
+      "problem_expr": "34 * 12",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "102",
       "expected": "408",
       "status": "wrong",
       "box_px": [
-       109,
-       834,
-       566,
-       1052
+       120,
+       772,
+       531,
+       1037
       ],
       "answer_px": [
-       280,
-       943,
-       451,
-       1045
+       313,
+       908,
+       418,
+       961
       ],
       "answer_ink_px": [
-       293,
-       1003,
-       365,
-       1058
+       326,
+       884,
+       418,
+       932
       ],
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Great start, can you check what the 1 in 12 really means before adding your two parts?",
-       "child_hint_hi": "बहुत बढ़िया, अपने दोनों भागों को जोड़ने से पहले सोचो कि 12 में 1 का असली मान क्या है?",
-       "child_hint_ta": "நன்று, உன் இரண்டு பகுதிகளையும் கூட்டுவதற்கு முன் 12-ல் உள்ள 1 எதைக் குறிக்கிறது என்று பார்!",
+       "child_hint_en": "What is 34 times 10, and how can that help you with 34 times 12?",
+       "child_hint_hi": "34 को 10 से गुणा करने पर क्या मिलेगा, और इससे 34 को 12 से गुणा करने में कैसे मदद मिलेगी?",
+       "child_hint_ta": "34-ஐ 10-ஆல் பெருக்கினால் என்ன கிடைக்கும், அது 34-ஐ 12-ஆல் பெருக்க எப்படி உதவும்?",
        "concept_id": "multiplication_by_tens_hundreds",
-       "confidence": 0.8,
+       "confidence": 0.7,
        "first_error_step": -1,
        "misconception_id": "multiplies_tens_as_units",
-       "pen_note": "1 = 10 here!",
-       "teacher_note": "No working shown but 102 = 34x1 + 34x2, so child treated the 1 in 12 as 1 not 10 and lost the ten, getting 34+68 instead of 340+68.",
+       "pen_note": "1 ten = 10!",
+       "teacher_note": "No working shown but 102 = 34x1 + 34x2 = 34x3. Child treated the 1 ten in 12 as 1 one, losing the x10 shift, consistent with multiplies_tens_as_units.",
        "agreement": "2/2"
       },
       "trace": [
-       "sympy: 34*12 → 408",
+       "sympy: 34 * 12 → 408",
        "read 1 (full page) '102': false",
-       "read 2 skipped: crop showed 'x 12', not this problem",
+       "read 2 (zoomed) '102': false → readings agree",
        "diagnosis: 2 independent passes agree on multiplies_tens_as_units"
       ]
      },
      {
-      "number": "3.",
+      "number": "3",
       "problem_text": "15 x 6",
-      "problem_expr": "15*6",
+      "problem_expr": "15 * 6",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "90",
       "expected": "90",
       "status": "correct",
       "box_px": [
-       109,
-       1091,
-       520,
-       1278
+       120,
+       1052,
+       497,
+       1263
       ],
       "answer_px": [
-       280,
-       1169,
-       411,
-       1271
+       279,
+       1167,
+       374,
+       1225
       ],
       "answer_ink_px": [
-       278,
+       290,
        1144,
        380,
-       1310
+       1202
       ],
       "steps": [],
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 15*6 → 90",
+       "sympy: 15 * 6 → 90",
        "read 1 (full page) '90': true",
-       "read 2 skipped: crop showed 'x 6', not this problem"
+       "read 2 (zoomed) '90': true → readings agree"
       ]
      },
      {
-      "number": "4.",
+      "number": "4",
       "problem_text": "26 x 13",
-      "problem_expr": "26*13",
+      "problem_expr": "26 * 13",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "338",
       "expected": "338",
       "status": "correct",
       "box_px": [
-       97,
-       1294,
-       531,
-       1497
+       120,
+       1333,
+       520,
+       1520
       ],
       "answer_px": [
-       266,
-       1413,
-       413,
-       1490
+       240,
+       1411,
+       417,
+       1512
       ],
       "answer_ink_px": [
        270,
@@ -1489,9 +1649,9 @@
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 26*13 → 338",
+       "sympy: 26 * 13 → 338",
        "read 1 (full page) '338': true",
-       "read 2 (zoomed) '338': true → readings agree"
+       "read 2 skipped: crop showed 'x13', not this problem"
       ]
      }
     ],
@@ -1529,7 +1689,7 @@
       "problem": "26 x 13"
      }
     ],
-    "seconds": 5.4
+    "seconds": 7.7
    }
   },
   {
@@ -1544,64 +1704,59 @@
      {
       "number": "1",
       "problem_text": "96 ÷ 4",
-      "problem_expr": "96 / 4",
+      "problem_expr": "96/4",
       "concept_id": "long_division",
       "answer_text": "24",
       "expected": "24",
       "status": "correct",
       "box_px": [
-       143,
-       311,
-       717,
-       618
+       146,
+       315,
+       747,
+       658
       ],
       "answer_px": [
-       571,
-       392,
-       671,
-       457
+       628,
+       367,
+       715,
+       435
       ],
       "answer_ink_px": [
        632,
-       373,
-       668,
-       420
+       365,
+       707,
+       427
       ],
       "steps": [
        {
         "box": [
-         350,
-         295,
-         405,
-         325
+         314,
+         329,
+         370,
+         369
         ],
-        "claim": "4 * 2 = 8",
+        "claim": "9 - 8 = 1",
         "text": "8",
         "check": {
          "status": "true",
-         "claim": "4 * 2 = 8",
-         "expected": "8",
+         "claim": "9 - 8 = 1",
+         "expected": "1",
          "detail": ""
         },
         "box_px": [
-         412,
-         470,
-         476,
-         518
+         369,
+         524,
+         435,
+         588
         ],
-        "ink_px": [
-         425,
-         452,
-         458,
-         500
-        ]
+        "ink_px": null
        },
        {
         "box": [
-         352,
          333,
-         435,
-         366
+         379,
+         425,
+         424
         ],
         "claim": "16 - 16 = 0",
         "text": "16",
@@ -1612,24 +1767,24 @@
          "detail": ""
         },
         "box_px": [
-         414,
-         530,
-         512,
-         583
+         392,
+         604,
+         500,
+         675
         ],
         "ink_px": [
-         454,
-         540,
-         482,
-         582
+         395,
+         644,
+         435,
+         698
         ]
        },
        {
         "box": [
-         373,
-         362,
-         428,
-         389
+         343,
+         414,
+         409,
+         444
         ],
         "claim": "16 - 16 = 0",
         "text": "0",
@@ -1640,18 +1795,23 @@
          "detail": ""
         },
         "box_px": [
-         439,
-         577,
-         503,
-         620
+         403,
+         660,
+         481,
+         707
         ],
-        "ink_px": null
+        "ink_px": [
+         395,
+         644,
+         435,
+         698
+        ]
        }
       ],
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 96 / 4 → 24",
+       "sympy: 96/4 → 24",
        "read 1 (full page) '24': true",
        "read 2 (zoomed) '24': true → readings agree",
        "steps verified: 3/3 true"
@@ -1660,22 +1820,22 @@
      {
       "number": "2",
       "problem_text": "157 ÷ 5",
-      "problem_expr": "157 / 5",
-      "concept_id": "long_division",
+      "problem_expr": "157/5",
+      "concept_id": "division_with_remainder",
       "answer_text": "31",
       "expected": "31 R 2 (= 157/5 (31.4))",
       "status": "wrong",
       "box_px": [
-       139,
-       621,
-       782,
-       897
+       132,
+       682,
+       776,
+       965
       ],
       "answer_px": [
-       636,
-       738,
-       710,
-       789
+       613,
+       713,
+       708,
+       754
       ],
       "answer_ink_px": [
        618,
@@ -1686,41 +1846,13 @@
       "steps": [
        {
         "box": [
-         337,
-         477,
-         400,
-         508
-        ],
-        "claim": "5 * 3 = 15",
-        "text": "15",
-        "check": {
-         "status": "true",
-         "claim": "5 * 3 = 15",
-         "expected": "15",
-         "detail": ""
-        },
-        "box_px": [
-         396,
-         760,
-         470,
-         809
-        ],
-        "ink_px": [
-         434,
-         725,
-         476,
-         773
-        ]
-       },
-       {
-        "box": [
-         432,
-         475,
-         503,
-         508
+         304,
+         519,
+         379,
+         557
         ],
         "claim": "15 - 15 = 0",
-        "text": "07",
+        "text": "15",
         "check": {
          "status": "true",
          "claim": "15 - 15 = 0",
@@ -1728,38 +1860,10 @@
          "detail": ""
         },
         "box_px": [
-         508,
-         757,
-         592,
-         809
-        ],
-        "ink_px": [
-         485,
-         728,
-         521,
-         774
-        ]
-       },
-       {
-        "box": [
-         337,
-         507,
-         400,
-         535
-        ],
-        "claim": "5 * 1 = 5",
-        "text": "5",
-        "check": {
-         "status": "true",
-         "claim": "5 * 1 = 5",
-         "expected": "5",
-         "detail": ""
-        },
-        "box_px": [
-         396,
-         808,
-         470,
-         852
+         358,
+         827,
+         446,
+         887
         ],
         "ink_px": [
          377,
@@ -1770,24 +1874,24 @@
        },
        {
         "box": [
-         434,
-         505,
-         503,
-         537
+         438,
+         519,
+         528,
+         559
         ],
-        "claim": "7 - 5 = 2",
+        "claim": "07 = 7",
         "text": "07",
         "check": {
-         "status": "true",
-         "claim": "7 - 5 = 2",
-         "expected": "2",
-         "detail": ""
+         "status": "unparseable",
+         "claim": "07 = 7",
+         "expected": null,
+         "detail": "SyntaxError"
         },
         "box_px": [
-         510,
-         804,
-         592,
-         855
+         515,
+         827,
+         621,
+         890
         ],
         "ink_px": [
          522,
@@ -1798,10 +1902,38 @@
        },
        {
         "box": [
-         340,
-         532,
-         400,
-         563
+         306,
+         561,
+         366,
+         596
+        ],
+        "claim": "7 - 5 = 2",
+        "text": "5",
+        "check": {
+         "status": "true",
+         "claim": "7 - 5 = 2",
+         "expected": "2",
+         "detail": ""
+        },
+        "box_px": [
+         360,
+         894,
+         430,
+         949
+        ],
+        "ink_px": [
+         389,
+         890,
+         418,
+         925
+        ]
+       },
+       {
+        "box": [
+         302,
+         595,
+         377,
+         628
         ],
         "claim": "7 - 5 = 2",
         "text": "2",
@@ -1812,59 +1944,59 @@
          "detail": ""
         },
         "box_px": [
-         400,
-         847,
-         470,
-         897
+         355,
+         948,
+         443,
+         1000
         ],
         "ink_px": [
-         377,
-         832,
-         420,
-         925
+         336,
+         941,
+         422,
+         993
         ]
        }
       ],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Where should anything left over at the end go in your answer?",
-       "child_hint_hi": "अंत में जो कुछ बचता है उसे उत्तर में कहाँ लिखोगे?",
-       "child_hint_ta": "கடைசியில் ஏதாவது மீதம் இருந்தால் அதை விடையில் எங்கே எழுதுவாய்?",
+       "child_hint_en": "You divided so well, can you check what is still left over at the end?",
+       "child_hint_hi": "तुमने भाग बहुत अच्छे से किया, क्या देखोगे कि आखिर में क्या बचा है?",
+       "child_hint_ta": "நீ மிக நன்றாக வகுத்தாய், இறுதியில் என்ன மீதம் உள்ளது என்று பார்ப்பாயா?",
        "concept_id": "division_with_remainder",
-       "confidence": 0.97,
+       "confidence": 0.95,
        "first_error_step": -1,
        "misconception_id": "remainder_dropped_in_division",
-       "pen_note": "show remainder 2!",
-       "teacher_note": "Long division steps all correct to 31 R2, but final answer reports only quotient 31 and drops remainder 2.",
+       "pen_note": "show remainder!",
+       "teacher_note": "Long division steps are correct to give quotient 31 remainder 2, but final answer reports only 31. Child drops the remainder, classic remainder_dropped_in_division.",
        "agreement": "2/2"
       },
       "trace": [
-       "sympy: 157 / 5 → 31 R 2 (= 157/5 (31.4))",
+       "sympy: 157/5 → 31 R 2 (= 157/5 (31.4))",
        "read 1 (full page) '31': false",
        "read 2 (zoomed) '31': false → readings agree",
-       "steps verified: 5/5 true",
+       "steps verified: 3/4 true",
        "diagnosis: 2 independent passes agree on remainder_dropped_in_division"
       ]
      },
      {
       "number": "3",
       "problem_text": "432 ÷ 4",
-      "problem_expr": "432 / 4",
+      "problem_expr": "432/4",
       "concept_id": "long_division",
       "answer_text": "18",
       "expected": "108",
       "status": "wrong",
       "box_px": [
-       146,
-       892,
-       788,
-       1163
+       136,
+       964,
+       764,
+       1204
       ],
       "answer_px": [
-       590,
-       1029,
-       667,
-       1078
+       612,
+       1024,
+       698,
+       1093
       ],
       "answer_ink_px": [
        602,
@@ -1875,75 +2007,24 @@
       "steps": [
        {
         "box": [
-         338,
-         638,
-         402,
-         672
+         313,
+         678,
+         378,
+         711
         ],
-        "claim": "4 * 1 = 4",
-        "text": "4",
+        "claim": "15 = 15",
+        "text": "15",
         "check": {
          "status": "true",
-         "claim": "4 * 1 = 4",
-         "expected": "4",
+         "claim": "15 = 15",
+         "expected": "15",
          "detail": ""
         },
         "box_px": [
-         397,
-         1016,
-         473,
-         1070
-        ],
-        "ink_px": [
-         384,
-         1013,
-         468,
-         1065
-        ]
-       },
-       {
-        "box": [
-         433,
-         638,
-         503,
-         672
-        ],
-        "claim": "4 - 4 = 0",
-        "text": "4",
-        "check": {
-         "status": "true",
-         "claim": "4 - 4 = 0",
-         "expected": "0",
-         "detail": ""
-        },
-        "box_px": [
-         509,
-         1016,
-         592,
-         1070
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         338,
-         670,
-         402,
-         700
-        ],
-        "claim": "3 - 0 = 3",
-        "text": "5",
-        "check": {
-         "status": "true",
-         "claim": "3 - 0 = 3",
-         "expected": "3",
-         "detail": ""
-        },
-        "box_px": [
-         397,
-         1067,
-         473,
-         1115
+         368,
+         1080,
+         445,
+         1133
         ],
         "ink_px": [
          402,
@@ -1955,65 +2036,126 @@
        {
         "box": [
          432,
-         670,
-         510,
-         702
+         673,
+         490,
+         709
         ],
-        "claim": "2 - 2 = 0",
-        "text": "00",
+        "claim": "4 = 4",
+        "text": "4",
         "check": {
          "status": "true",
-         "claim": "2 - 2 = 0",
-         "expected": "0",
+         "claim": "4 = 4",
+         "expected": "4",
          "detail": ""
         },
         "box_px": [
          508,
-         1067,
-         600,
-         1118
+         1072,
+         576,
+         1129
         ],
         "ink_px": null
        },
        {
         "box": [
-         344,
-         700,
-         412,
-         730
+         309,
+         713,
+         368,
+         748
         ],
-        "claim": "32 - 32 = 0",
-        "text": "32",
+        "claim": "5 = 5",
+        "text": "5",
         "check": {
          "status": "true",
-         "claim": "32 - 32 = 0",
+         "claim": "5 = 5",
+         "expected": "5",
+         "detail": ""
+        },
+        "box_px": [
+         363,
+         1136,
+         433,
+         1192
+        ],
+        "ink_px": [
+         372,
+         1128,
+         451,
+         1220
+        ]
+       },
+       {
+        "box": [
+         428,
+         713,
+         520,
+         748
+        ],
+        "claim": "00 = 0",
+        "text": "00",
+        "check": {
+         "status": "true",
+         "claim": "00 = 0",
          "expected": "0",
          "detail": ""
         },
         "box_px": [
-         405,
-         1115,
-         485,
-         1163
+         503,
+         1136,
+         612,
+         1192
         ],
-        "ink_px": null
+        "ink_px": [
+         511,
+         1186,
+         545,
+         1221
+        ]
+       },
+       {
+        "box": [
+         313,
+         743,
+         405,
+         774
+        ],
+        "claim": "32 = 32",
+        "text": "32",
+        "check": {
+         "status": "true",
+         "claim": "32 = 32",
+         "expected": "32",
+         "detail": ""
+        },
+        "box_px": [
+         368,
+         1184,
+         476,
+         1233
+        ],
+        "ink_px": [
+         378,
+         1178,
+         451,
+         1220
+        ]
        }
       ],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Great start with 4! What should you write in the answer when 3 is too small to share with 4?",
-       "child_hint_hi": "शाबाश, 4 का भाग सही किया! सोचो जब 3 को 4 से नहीं बाँट सकते तो जगह सही रखने के लिए क्या लिखना चाहिए?",
-       "child_hint_ta": "4-ஐ சரியாகப் பிரித்தாய், சபாஷ்! 3-ஐ 4-ஆல் பகிர முடியாதபோது இடத்தைச் சரியாக வைக்க என்ன எழுத வேண்டும் என்று யோசி?",
+       "child_hint_en": "Great effort! Look again at the tens place - when 4 cannot go into 3, what should you write in the quotient?",
+       "child_hint_hi": "बहुत अच्छा प्रयास! दहाई वाले 3 को फिर देखो - जब 4 से 3 में भाग न जाए तो भागफल में क्या लिखोगे?",
+       "child_hint_ta": "அருமையான முயற்சி! பத்தாம் இடத்தில் உள்ள 3-ஐ மீண்டும் பார் - 3-இல் 4 போகாதபோது ஈவில் என்ன எழுத வேண்டும்?",
        "concept_id": "long_division",
        "confidence": 0.95,
        "first_error_step": -1,
        "misconception_id": "long_division_zero_quotient_digit_omitted",
-       "pen_note": "put 0 for 3÷4!",
-       "teacher_note": "Child did 4/4=1 correctly then faced 3<4. Instead of writing 0 as tens placeholder then dividing 32, they brought 3 and 2 together to make 32, giving 18 for 108. Teach zero as quotient placeholder.",
+       "pen_note": "missing 0!",
+       "teacher_note": "Child computed quotient digits 1, 0, 8 correctly but omitted the middle zero placeholder, writing 18 for 108. Classic zero-quotient-digit omission in long division.",
        "agreement": "2/2"
       },
       "trace": [
-       "sympy: 432 / 4 → 108",
+       "sympy: 432/4 → 108",
        "read 1 (full page) '18': false",
        "read 2 (zoomed) '18': false → readings agree",
        "steps verified: 5/5 true",
@@ -2023,22 +2165,22 @@
      {
       "number": "4",
       "problem_text": "85 ÷ 7",
-      "problem_expr": "85 / 7",
+      "problem_expr": "85/7",
       "concept_id": "division_with_remainder",
       "answer_text": "12 R 1",
       "expected": "12 R 1 (= 85/7 (12.14))",
       "status": "correct",
       "box_px": [
-       135,
-       1163,
-       800,
-       1497
+       129,
+       1204,
+       858,
+       1525
       ],
       "answer_px": [
-       583,
-       1330,
-       742,
-       1386
+       572,
+       1338,
+       799,
+       1391
       ],
       "answer_ink_px": [
        579,
@@ -2049,41 +2191,13 @@
       "steps": [
        {
         "box": [
-         365,
-         803,
-         425,
-         836
-        ],
-        "claim": "7 * 1 = 7",
-        "text": "7",
-        "check": {
-         "status": "true",
-         "claim": "7 * 1 = 7",
-         "expected": "7",
-         "detail": ""
-        },
-        "box_px": [
-         429,
-         1279,
-         500,
-         1332
-        ],
-        "ink_px": [
-         441,
-         1311,
-         477,
-         1357
-        ]
-       },
-       {
-        "box": [
-         360,
-         833,
-         427,
-         870
+         329,
+         840,
+         386,
+         880
         ],
         "claim": "8 - 7 = 1",
-        "text": "15",
+        "text": "7",
         "check": {
          "status": "true",
          "claim": "8 - 7 = 1",
@@ -2091,52 +2205,75 @@
          "detail": ""
         },
         "box_px": [
-         423,
-         1327,
-         502,
-         1386
+         387,
+         1338,
+         454,
+         1402
         ],
         "ink_px": [
-         441,
-         1311,
+         395,
+         1308,
          477,
-         1357
+         1420
         ]
        },
        {
         "box": [
-         460,
-         833,
-         535,
-         868
+         312,
+         878,
+         384,
+         924
         ],
-        "claim": "7 * 2 = 14",
-        "text": "14",
+        "claim": "15 = 15",
+        "text": "15",
         "check": {
          "status": "true",
-         "claim": "7 * 2 = 14",
-         "expected": "14",
+         "claim": "15 = 15",
+         "expected": "15",
          "detail": ""
         },
         "box_px": [
-         541,
-         1327,
-         629,
-         1383
+         367,
+         1399,
+         452,
+         1472
         ],
         "ink_px": [
-         579,
-         1303,
-         638,
-         1347
+         396,
+         1372,
+         440,
+         1475
         ]
        },
        {
         "box": [
-         488,
-         867,
-         530,
-         910
+         426,
+         878,
+         522,
+         922
+        ],
+        "claim": "15 - 14 = 1",
+        "text": "14",
+        "check": {
+         "status": "true",
+         "claim": "15 - 14 = 1",
+         "expected": "1",
+         "detail": ""
+        },
+        "box_px": [
+         501,
+         1399,
+         614,
+         1469
+        ],
+        "ink_px": null
+       },
+       {
+        "box": [
+         422,
+         918,
+         471,
+         959
         ],
         "claim": "15 - 14 = 1",
         "text": "1",
@@ -2147,80 +2284,27 @@
          "detail": ""
         },
         "box_px": [
-         574,
-         1381,
-         623,
-         1450
+         496,
+         1462,
+         554,
+         1528
         ],
         "ink_px": null
-       },
-       {
-        "box": [
-         540,
-         809,
-         612,
-         849
-        ],
-        "claim": "15 - 14 = 1",
-        "text": "R 1",
-        "check": {
-         "status": "true",
-         "claim": "15 - 14 = 1",
-         "expected": "1",
-         "detail": ""
-        },
-        "box_px": [
-         635,
-         1289,
-         720,
-         1352
-        ],
-        "ink_px": [
-         714,
-         1304,
-         742,
-         1348
-        ]
        }
       ],
       "error_step": null,
       "diagnosis": null,
       "trace": [
-       "sympy: 85 / 7 → 12 R 1 (= 85/7 (12.14))",
+       "sympy: 85/7 → 12 R 1 (= 85/7 (12.14))",
        "read 1 (full page) '12 R 1': true",
        "read 2 (zoomed) '12 R 1': true → readings agree",
-       "steps verified: 5/5 true"
+       "steps verified: 4/4 true"
       ]
      }
     ],
     "guardrails": {
      "warnings": [],
-     "hint_review": [
-      {
-       "problem": 1,
-       "lang": "en",
-       "issues": [
-        "model review: reveals answer"
-       ],
-       "action": "repaired"
-      },
-      {
-       "problem": 1,
-       "lang": "hi",
-       "issues": [
-        "model review: reveals answer"
-       ],
-       "action": "repaired"
-      },
-      {
-       "problem": 1,
-       "lang": "ta",
-       "issues": [
-        "model review: reveals answer"
-       ],
-       "action": "repaired"
-      }
-     ]
+     "hint_review": []
     },
     "score": {
      "correct": 2,
@@ -2252,7 +2336,7 @@
       "problem": "85 ÷ 7"
      }
     ],
-    "seconds": 7.8
+    "seconds": 15.9
    }
   },
   {
@@ -2266,42 +2350,42 @@
     "problems": [
      {
       "number": "1",
-      "problem_text": "1. 1/2 + 1/3 =",
+      "problem_text": "1/2 + 1/3 =",
       "problem_expr": "1/2 + 1/3",
       "concept_id": "fraction_addition_unlike_denominators",
       "answer_text": "2/5",
       "expected": "5/6 (0.8333)",
       "status": "wrong",
       "box_px": [
-       120,
-       512,
-       942,
-       808
+       132,
+       509,
+       896,
+       789
       ],
       "answer_px": [
-       817,
-       682,
-       911,
-       795
+       812,
+       665,
+       949,
+       780
       ],
       "answer_ink_px": [
        841,
-       702,
-       882,
-       841
+       624,
+       889,
+       754
       ],
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "You added tops with tops and bottoms with bottoms — can halves and thirds be added when they are different-sized pieces?",
-       "child_hint_hi": "तुमने ऊपर वालों को ऊपर से और नीचे वालों को नीचे से जोड़ दिया — क्या अलग-अलग आकार के टुकड़ों को ऐसे सीधे जोड़ सकते हैं?",
-       "child_hint_ta": "மேல் எண்களையும் கீழ் எண்களையும் நேரடியாகக் கூட்டிவிட்டாய் — வெவ்வேறு அளவு துண்டுகளை இப்படி நேரடியாகக் கூட்டலாமா?",
+       "child_hint_en": "Can you add halves and thirds directly, or do they need to be made the same kind of parts first?",
+       "child_hint_hi": "क्या आधे और तिहाई हिस्सों को सीधे जोड़ सकते हो, या पहले उन्हें एक जैसे हिस्सों में बदलना होगा?",
+       "child_hint_ta": "அரைப் பகுதிகளையும் மூன்றில் ஒரு பகுதிகளையும் நேரடியாகக் கூட்டலாமா, அல்லது முதலில் அவற்றை ஒரே மாதிரி பகுதிகளாக மாற்ற வேண்டுமா?",
        "concept_id": "fraction_addition_unlike_denominators",
-       "confidence": 0.98,
+       "confidence": 0.95,
        "first_error_step": -1,
        "misconception_id": "unlike_fractions_added_straight_across",
-       "pen_note": "need common denom!",
-       "teacher_note": "Child added numerators (1+1=2) and denominators (2+3=5) straight across to get 2/5 instead of converting to common denominator 6 to get 5/6.",
+       "pen_note": "same denominator?",
+       "teacher_note": "Child added unlike fractions straight across (1+1)/(2+3)=2/5 without converting to common denominator.",
        "agreement": "2/2"
       },
       "trace": [
@@ -2313,23 +2397,23 @@
      },
      {
       "number": "2",
-      "problem_text": "2. 2/5 + 1/5 = 3/10",
+      "problem_text": "2/5 + 1/5 = 3/10",
       "problem_expr": "2/5 + 1/5",
       "concept_id": "fraction_addition_like_denominators",
       "answer_text": "3/10",
       "expected": "3/5 (0.6)",
       "status": "wrong",
       "box_px": [
-       126,
-       824,
-       942,
-       984
+       130,
+       800,
+       898,
+       928
       ],
       "answer_px": [
-       798,
-       820,
-       945,
-       932
+       813,
+       795,
+       946,
+       918
       ],
       "answer_ink_px": [
        832,
@@ -2340,15 +2424,15 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Think: when you add fifths together, what size should the pieces in your answer be?",
-       "child_hint_hi": "सोचो, जब तुम पाँचवें हिस्सों को जोड़ते हो तो उत्तर में टुकड़ों का आकार क्या रहना चाहिए?",
-       "child_hint_ta": "யோசி: ஐந்தில் ஒரு பங்குத் துண்டுகளைக் கூட்டினால் விடையில் துண்டுகளின் அளவு என்னவாக இருக்க வேண்டும்?",
+       "child_hint_en": "Great try! Think, when you add slices of the same size, does the size of the slices change?",
+       "child_hint_hi": "बहुत अच्छा प्रयास! सोचो, जब एक ही आकार के टुकड़े जोड़ते हैं, क्या टुकड़ों का आकार बदल जाता है?",
+       "child_hint_ta": "நல்ல முயற்சி! ஒரே அளவு துண்டுகளைச் சேர்க்கும்போது துண்டின் அளவு மாறுமா என்று யோசி!",
        "concept_id": "fraction_addition_like_denominators",
        "confidence": 0.98,
        "first_error_step": -1,
        "misconception_id": "like_fractions_denominators_added",
-       "pen_note": "don't add 5+5",
-       "teacher_note": "Child added numerators and denominators: 2/5+1/5=3/10. Denominator names piece-size and stays 5 for like fractions.",
+       "pen_note": "keep denominator 5",
+       "teacher_note": "Child added numerators and denominators (2+1)/(5+5)=3/10 instead of keeping the like denominator 5 and adding only numerators to get 3/5.",
        "agreement": "2/2"
       },
       "trace": [
@@ -2360,23 +2444,23 @@
      },
      {
       "number": "3",
-      "problem_text": "3. 3/4 + 1/8 = 7/8",
+      "problem_text": "3/4 + 1/8 = 7/8",
       "problem_expr": "3/4 + 1/8",
       "concept_id": "fraction_addition_unlike_denominators",
       "answer_text": "7/8",
       "expected": "7/8 (0.875)",
       "status": "correct",
       "box_px": [
-       132,
-       984,
-       942,
-       1144
+       130,
+       936,
+       890,
+       1056
       ],
       "answer_px": [
-       831,
-       964,
-       951,
-       1094
+       797,
+       936,
+       930,
+       1070
       ],
       "answer_ink_px": [
        835,
@@ -2395,23 +2479,23 @@
      },
      {
       "number": "4",
-      "problem_text": "4. 1/3 + 1/3 = 2/3",
+      "problem_text": "1/3 + 1/3 = 2/3",
       "problem_expr": "1/3 + 1/3",
       "concept_id": "fraction_addition_like_denominators",
       "answer_text": "2/3",
       "expected": "2/3 (0.6667)",
       "status": "correct",
       "box_px": [
-       120,
-       1152,
-       942,
-       1312
+       125,
+       1080,
+       888,
+       1214
       ],
       "answer_px": [
-       817,
-       1133,
-       960,
-       1250
+       799,
+       1119,
+       937,
+       1228
       ],
       "answer_ink_px": [
        839,
@@ -2463,7 +2547,7 @@
       "problem": "1/3 + 1/3"
      }
     ],
-    "seconds": 5.7
+    "seconds": 7.4
    }
   },
   {
@@ -2477,7 +2561,7 @@
     "problems": [
      {
       "number": "1",
-      "problem_text": "compare 0.5 and 0.25 : 0.5 < 0.25",
+      "problem_text": "compare 0.5 and 0.25",
       "problem_expr": "0.5 ? 0.25",
       "concept_id": "decimal_comparison",
       "answer_text": "0.5 < 0.25",
@@ -2485,15 +2569,15 @@
       "status": "wrong",
       "box_px": [
        65,
-       347,
-       1046,
-       438
+       346,
+       1049,
+       436
       ],
       "answer_px": [
-       812,
-       389,
-       882,
-       415
+       822,
+       395,
+       894,
+       412
       ],
       "answer_ink_px": [
        816,
@@ -2504,15 +2588,15 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Remember place value and compare the tenths first, then the hundredths - what do you notice?",
-       "child_hint_hi": "दशमलव के स्थान को याद करो और पहले दशांश वाले अंक की तुलना करके देखो।",
-       "child_hint_ta": "தசம இட மதிப்பை நினைவில் கொள்ளுங்கள் - முதலில் பத்தில் ஒன்றுகளை ஒப்பிட்டுப் பாருங்கள், என்ன தெரிகிறது?",
+       "child_hint_en": "Can you check what the 5 in 0.5 and the 2 in 0.25 really mean - tenths or hundredths?",
+       "child_hint_hi": "0.5 में 5 और 0.25 में 2 का असली मतलब देखो — दसवाँ है या सौवाँ?",
+       "child_hint_ta": "0.5-இல் 5-ம் 0.25-இல் 2-ம் எதைக் குறிக்கிறது என்று பார் — பத்தில் ஒன்றா, நூறில் ஒன்றா?",
        "concept_id": "decimal_comparison",
        "confidence": 0.95,
        "first_error_step": -1,
        "misconception_id": "decimal_parts_compared_as_whole_numbers",
        "pen_note": "tenths first!",
-       "teacher_note": "Child treated .5 and .25 as whole numbers 5 and 25, concluding 5<25 so 0.5<0.25, ignoring place value (5 tenths vs 2 tenths). Same as catalogue example.",
+       "teacher_note": "Child judged 0.5 < 0.25 by comparing 5 and 25 as whole numbers, ignoring place value. Needs work on tenths vs hundredths value.",
        "agreement": "2/2"
       },
       "trace": [
@@ -2524,7 +2608,7 @@
      },
      {
       "number": "2",
-      "problem_text": "compare 0.7 and 0.65 : 0.7 > 0.65",
+      "problem_text": "compare 0.7 and 0.65",
       "problem_expr": "0.7 ? 0.65",
       "concept_id": "decimal_comparison",
       "answer_text": "0.7 > 0.65",
@@ -2532,15 +2616,15 @@
       "status": "correct",
       "box_px": [
        59,
-       432,
-       1039,
-       514
+       421,
+       1044,
+       504
       ],
       "answer_px": [
-       796,
-       459,
-       861,
-       502
+       802,
+       467,
+       877,
+       485
       ],
       "answer_ink_px": [
        810,
@@ -2559,23 +2643,23 @@
      },
      {
       "number": "3",
-      "problem_text": "2.5 + 1.25",
+      "problem_text": "5 + 1.25",
       "problem_expr": "2.5 + 1.25",
       "concept_id": "decimal_addition",
       "answer_text": "3.75",
       "expected": "15/4 (3.75)",
       "status": "correct",
       "box_px": [
-       67,
-       513,
-       508,
-       764
+       59,
+       496,
+       463,
+       775
       ],
       "answer_px": [
-       195,
-       768,
-       399,
-       795
+       174,
+       760,
+       343,
+       809
       ],
       "answer_ink_px": [
        206,
@@ -2586,10 +2670,10 @@
       "steps": [
        {
         "box": [
-         173,
-         375,
-         363,
-         418
+         150,
+         365,
+         335,
+         415
         ],
         "claim": "2.5 = 2.50",
         "text": "2.50",
@@ -2600,23 +2684,23 @@
          "detail": ""
         },
         "box_px": [
-         186,
-         564,
-         391,
-         629
+         161,
+         549,
+         360,
+         624
         ],
         "ink_px": [
          167,
          529,
-         397,
+         355,
          654
         ]
        },
        {
         "box": [
-         136,
-         422,
-         370,
+         130,
+         410,
+         365,
          465
         ],
         "claim": "2.50 + 1.25 = 3.75",
@@ -2628,42 +2712,14 @@
          "detail": ""
         },
         "box_px": [
-         146,
-         635,
-         398,
+         140,
+         617,
+         393,
          699
         ],
         "ink_px": [
          193,
          599,
-         390,
-         725
-        ]
-       },
-       {
-        "box": [
-         202,
-         464,
-         364,
-         503
-        ],
-        "claim": "2.50 + 1.25 = 3.75",
-        "text": "3.75",
-        "check": {
-         "status": "true",
-         "claim": "2.50 + 1.25 = 3.75",
-         "expected": "15/4 (3.75)",
-         "detail": ""
-        },
-        "box_px": [
-         217,
-         698,
-         392,
-         757
-        ],
-        "ink_px": [
-         249,
-         670,
          390,
          725
         ]
@@ -2675,28 +2731,28 @@
        "sympy: 2.5 + 1.25 → 15/4 (3.75)",
        "read 1 (full page) '3.75': true",
        "read 2 (zoomed) '3.75': true → readings agree",
-       "steps verified: 3/3 true"
+       "steps verified: 2/2 true"
       ]
      },
      {
       "number": "4",
-      "problem_text": "3.4 + 1.25",
+      "problem_text": "4 + 1.25",
       "problem_expr": "3.4 + 1.25",
       "concept_id": "decimal_addition",
       "answer_text": "1.59",
       "expected": "93/20 (4.65)",
-      "status": "needs_review",
+      "status": "wrong",
       "box_px": [
        54,
-       766,
-       511,
-       1045
+       767,
+       468,
+       1075
       ],
       "answer_px": [
-       184,
-       1046,
-       375,
-       1079
+       187,
+       1063,
+       345,
+       1107
       ],
       "answer_ink_px": [
        203,
@@ -2707,10 +2763,10 @@
       "steps": [
        {
         "box": [
-         214,
-         547,
-         381,
-         590
+         175,
+         550,
+         355,
+         605
         ],
         "claim": "3.4 = 3.40",
         "text": "3.40",
@@ -2721,24 +2777,24 @@
          "detail": ""
         },
         "box_px": [
-         230,
-         823,
-         410,
-         887
+         188,
+         827,
+         382,
+         910
         ],
         "ink_px": [
-         240,
+         171,
          826,
          390,
-         887
+         951
         ]
        },
        {
         "box": [
-         133,
-         592,
-         371,
-         633
+         130,
+         600,
+         360,
+         655
         ],
         "claim": "3.40 + 1.25 = 1.59",
         "text": "+ 1.25",
@@ -2749,54 +2805,38 @@
          "detail": ""
         },
         "box_px": [
-         143,
-         890,
-         399,
-         952
+         140,
+         902,
+         387,
+         985
         ],
         "ink_px": [
          206,
          895,
-         366,
-         951
-        ]
-       },
-       {
-        "box": [
-         184,
-         639,
-         366,
-         690
-        ],
-        "claim": "3.40 + 1.25 = 1.59",
-        "text": "1.59",
-        "check": {
-         "status": "false",
-         "claim": "3.40 + 1.25 = 1.59",
-         "expected": "93/20 (4.65)",
-         "detail": ""
-        },
-        "box_px": [
-         198,
-         961,
-         394,
-         1038
-        ],
-        "ink_px": [
-         244,
-         964,
          376,
          1017
         ]
        }
       ],
-      "error_step": null,
-      "diagnosis": null,
+      "error_step": 1,
+      "diagnosis": {
+       "child_hint_en": "You made 3.4 into 3.40 nicely - now check are the decimal points lined up one under the other?",
+       "child_hint_hi": "तुमने 3.4 को 3.40 बहुत अच्छा बनाया - अब देखो क्या दशमलव बिंदु एक के नीचे एक सीध में हैं?",
+       "child_hint_ta": "3.4 ஐ 3.40 ஆக மாற்றியது அருமை - இப்போது தசம புள்ளிகள் ஒன்றன் கீழ் ஒன்றாக நேராக உள்ளதா எனப் பார்?",
+       "concept_id": "decimal_addition",
+       "confidence": 0.88,
+       "first_error_step": 1,
+       "misconception_id": "decimal_addition_points_not_aligned",
+       "pen_note": "align decimal pts",
+       "teacher_note": "Child correctly showed 3.4=3.40 but then right-aligned digits like whole numbers (3 under 2, 4 under 5) instead of aligning decimal points, so 2+3=5 and 5+4=9 giving 1.59.",
+       "agreement": "2/2"
+      },
       "trace": [
        "sympy: 3.4 + 1.25 → 93/20 (4.65)",
        "read 1 (full page) '1.59': false",
-       "read 2 (zoomed): not legible",
-       "steps verified: 1/3 true, first false step [1]"
+       "read 2 (zoomed) '1.59': false → readings agree",
+       "steps verified: 1/2 true, first false step [1]",
+       "diagnosis: 2 independent passes agree on decimal_addition_points_not_aligned"
       ]
      }
     ],
@@ -2816,25 +2856,25 @@
      {
       "child_answer": "0.5 < 0.25",
       "is_correct": false,
-      "problem": "compare 0.5 and 0.25"
+      "problem": "1. compare 0.5 and 0.25"
      },
      {
       "child_answer": "0.7 > 0.65",
       "is_correct": true,
-      "problem": "compare 0.7 and 0.65"
+      "problem": "2. compare 0.7 and 0.65"
      },
      {
       "child_answer": "3.75",
       "is_correct": true,
-      "problem": "2.5 + 1.25"
+      "problem": "3. 2.5 + 1.25"
      },
      {
       "child_answer": "1.59",
       "is_correct": false,
-      "problem": "3.4 + 1.25"
+      "problem": "4. 3.4 + 1.25"
      }
     ],
-    "seconds": 6.0
+    "seconds": 30.2
    }
   },
   {
@@ -2856,15 +2896,15 @@
       "status": "wrong",
       "box_px": [
        430,
-       272,
-       775,
-       525
+       249,
+       748,
+       527
       ],
       "answer_px": [
-       525,
-       450,
-       645,
-       508
+       524,
+       437,
+       627,
+       505
       ],
       "answer_ink_px": [
        583,
@@ -2875,23 +2915,22 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Great effort — in the ones place, can we really take 8 away from 3, so what should we do first?",
-       "child_hint_hi": "बहुत बढ़िया कोशिश — इकाई के स्थान पर सोचो, क्या हम सच में 3 में से 8 घटा सकते हैं, तो पहले क्या करना चाहिए?",
-       "child_hint_ta": "நல்ல முயற்சி — ஒன்றுகள் இடத்தில் 3-லிருந்து 8-ஐ உண்மையில் கழிக்க முடியுமா, அப்படியானால் முதலில் என்ன செய்ய வேண்டும்?",
+       "child_hint_en": "Look at the ones: you have 3 and need to take away 8 - what can you do with the tens to help?",
+       "child_hint_hi": "इकाई का अंक देखो: तुम्हारे पास 3 है और 8 घटाना है - दहाई से कैसे मदद ले सकते हो?",
+       "child_hint_ta": "ஒன்றுகளைப் பார்: உன்னிடம் 3 இருக்கிறது, 8 எடுக்க வேண்டும் – பத்துகள் எப்படி உதவும்?",
        "concept_id": "subtraction_with_borrow",
-       "confidence": 0.52,
+       "confidence": 0.7,
        "first_error_step": -1,
        "misconception_id": "smaller_from_larger_in_each_column",
-       "pen_note": "8 > 3 — borrow!",
-       "teacher_note": "No working shown; 45 also fits borrow-without-decrement, so ambiguous. Smaller-from-larger is the simpler explanation without assuming a borrowing attempt.",
-       "agreement": "2/3"
+       "pen_note": "Borrow in ones!",
+       "teacher_note": "No working but 45 matches 8-3=5 and 6-2=4, classic smaller-from-larger instead of borrowing to get 13-8=5, 5-2=3 for 35. Note borrow-without-decrement also gives 45 here, so confirm by asking.",
+       "agreement": "2/2"
       },
       "trace": [
        "sympy: 63 - 28 → 35",
        "read 1 (full page) '45': false",
        "read 2 (zoomed) '45': false → readings agree",
-       "diagnosis: passes disagree (smaller_from_larger_in_each_column vs borrows_without_decrementing_tens) → Muse Wonder adjudicates",
-       "adjudication: smaller_from_larger_in_each_column (sides with one pass)"
+       "diagnosis: 2 independent passes agree on smaller_from_larger_in_each_column"
       ]
      },
      {
@@ -2904,19 +2943,19 @@
       "status": "correct",
       "box_px": [
        438,
-       535,
-       717,
-       753
+       546,
+       707,
+       755
       ],
       "answer_px": [
-       565,
-       665,
-       636,
-       726
+       542,
+       661,
+       625,
+       722
       ],
       "answer_ink_px": [
-       578,
-       677,
+       532,
+       676,
        617,
        732
       ],
@@ -2938,16 +2977,16 @@
       "expected": "63",
       "status": "correct",
       "box_px": [
-       438,
-       753,
-       707,
-       956
+       435,
+       768,
+       704,
+       1002
       ],
       "answer_px": [
-       523,
-       886,
-       620,
-       959
+       512,
+       897,
+       610,
+       953
       ],
       "answer_ink_px": [
        524,
@@ -3000,7 +3039,7 @@
       "problem": "9 x 7"
      }
     ],
-    "seconds": 4.7
+    "seconds": 8.3
    }
   },
   {
@@ -3030,7 +3069,7 @@
    },
    "baseline": {
     "problems": [],
-    "seconds": 3.7
+    "seconds": 3.5
    }
   },
   {
@@ -3044,23 +3083,23 @@
     "problems": [
      {
       "number": "1",
-      "problem_text": "12 x 5 = 60",
+      "problem_text": "12 × 5 = 60",
       "problem_expr": "12 * 5",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "60",
       "expected": "60",
       "status": "correct",
       "box_px": [
-       49,
-       84,
-       508,
-       165
+       24,
+       83,
+       536,
+       155
       ],
       "answer_px": [
-       451,
-       104,
-       553,
-       148
+       464,
+       89,
+       569,
+       144
       ],
       "answer_ink_px": [
        475,
@@ -3079,23 +3118,23 @@
      },
      {
       "number": "2",
-      "problem_text": "14 x 3 = 52",
+      "problem_text": "14 × 3 = 52",
       "problem_expr": "14 * 3",
       "concept_id": "multiplication_multi_digit",
       "answer_text": "52",
       "expected": "42",
       "status": "wrong",
       "box_px": [
-       49,
-       175,
-       508,
-       249
+       24,
+       181,
+       536,
+       256
       ],
       "answer_px": [
-       433,
-       179,
-       548,
-       239
+       429,
+       204,
+       546,
+       240
       ],
       "answer_ink_px": [
        466,
@@ -3106,25 +3145,23 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Good try — please check the tens part of 14 × 3 against your 3 times table and see if something looks different.",
-       "child_hint_hi": "बहुत अच्छा प्रयास — कृपया 14 × 3 के दहाई वाले हिस्से को 3 के पहाड़े से फिर जाँचकर देखो कि क्या कुछ अलग लगता है।",
-       "child_hint_ta": "நல்ல முயற்சி — 14 × 3 இல் பத்துகள் பகுதியை 3 இன் வாய்ப்பாட்டுடன் மீண்டும் சரிபார்த்து, ஏதேனும் வேறுபாடு தெரிகிறதா என்று பாருங்கள்.",
-       "concept_id": "multiplication_tables",
-       "confidence": 0.35,
+       "child_hint_en": "Good job on the ones place — now check the tens place and ask yourself whether you multiplied there or added!",
+       "child_hint_hi": "इकाई वाला हिस्सा बहुत अच्छा है — अब दहाई वाले हिस्से को देखो, वहाँ तुमने गुणा किया था या जोड़?",
+       "child_hint_ta": "ஒன்றுகள் இடத்தை நன்றாகச் செய்தாய் — இப்போது பத்துகள் இடத்தில் பெருக்கினாயா அல்லது கூட்டினாயா என்று சரிபார்!",
+       "concept_id": "multiplication_equal_groups",
+       "confidence": 0.45,
        "first_error_step": -1,
-       "misconception_id": "table_fact_neighbour_substituted",
-       "pen_note": "check 1×3 tens!",
-       "teacher_note": "No working shown. Answer is one ten too high while the ones digit from 4×3 is correct, suggesting a neighbouring tens fact rather than adding 14+3 overall; a carry-handling slip is also possible, so confidence is low.",
-       "agreement": "2/3",
-       "needs_teacher": true
+       "misconception_id": "multiplication_worked_as_addition_of_factors",
+       "pen_note": "1×3, not 1+3!",
+       "teacher_note": "No working; ones 2 from 4x3=12 is correct. Tens 5 fits 1+3=4 plus carry 1, adding tens factors instead of 1x3=3 plus carry. A 1x3 fact error is unlikely.",
+       "agreement": "2/3"
       },
       "trace": [
        "sympy: 14 * 3 → 42",
        "read 1 (full page) '52': false",
        "read 2 (zoomed) '52': false → readings agree",
        "diagnosis: passes disagree (table_fact_neighbour_substituted vs multiplication_worked_as_addition_of_factors) → Muse Wonder adjudicates",
-       "adjudication: table_fact_neighbour_substituted (sides with one pass)",
-       "low confidence → flagged for teacher review"
+       "adjudication: multiplication_worked_as_addition_of_factors (sides with one pass)"
       ]
      }
     ],
@@ -3152,7 +3189,7 @@
       "problem": "14 x 3"
      }
     ],
-    "seconds": 3.9
+    "seconds": 6.3
    }
   },
   {
@@ -3165,7 +3202,7 @@
     ],
     "problems": [
      {
-      "number": "1.",
+      "number": "1",
       "problem_text": "4738 x 26",
       "problem_expr": "4738 * 26",
       "concept_id": "multiplication_multi_digit",
@@ -3175,18 +3212,18 @@
       "box_px": [
        126,
        408,
-       1050,
-       728
+       972,
+       680
       ],
       "answer_px": [
-       616,
-       534,
-       981,
-       602
+       592,
+       600,
+       920,
+       667
       ],
       "answer_ink_px": [
-       565,
-       483,
+       567,
+       571,
        899,
        647
       ],
@@ -3200,7 +3237,7 @@
       ]
      },
      {
-      "number": "2.",
+      "number": "2",
       "problem_text": "9006 - 4587",
       "problem_expr": "9006 - 4587",
       "concept_id": "subtraction_borrow_across_zero",
@@ -3209,15 +3246,15 @@
       "status": "wrong",
       "box_px": [
        126,
-       736,
-       972,
-       984
+       688,
+       847,
+       936
       ],
       "answer_px": [
-       366,
-       879,
-       726,
-       947
+       417,
+       849,
+       677,
+       914
       ],
       "answer_ink_px": [
        407,
@@ -3228,15 +3265,15 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "You did well borrowing across the zeros - can you double-check what the tens digit became after it helped the ones?",
-       "child_hint_hi": "शून्यों के बीच से उधार लेना तुमने अच्छा किया - क्या तुम जाँचोगे कि इकाई की मदद करने के बाद दहाई का अंक क्या बचा?",
-       "child_hint_ta": "பூஜ்ஜியங்களைத் தாண்டி கடன் வாங்கியது அருமை - ஒன்றுகளுக்கு உதவிய பிறகு பத்துகள் இலக்கம் என்ன ஆனது என்று மீண்டும் பார்ப்பாயா?",
+       "child_hint_en": "Great borrowing to make the ones work — now check what is left in the tens after it lends to the ones?",
+       "child_hint_hi": "इकाई के लिए उधार लेना बहुत अच्छा रहा — अब सोचो इकाई को देने के बाद दहाई में कितना बचेगा?",
+       "child_hint_ta": "ஒன்றுகளுக்கு கடன் வாங்கியது அருமை — இப்போது ஒன்றுகளுக்கு கொடுத்த பிறகு பத்துகளில் எவ்வளவு மீதம் இருக்கும் என்று பார்?",
        "concept_id": "subtraction_borrow_across_zero",
-       "confidence": 0.7,
+       "confidence": 0.8,
        "first_error_step": -1,
        "misconception_id": "borrow_across_zero_hundreds_not_reduced",
-       "pen_note": "tens 10 to 9!",
-       "teacher_note": "Correct is 4419 but child gave 4429, +10 in tens only. Units 16-7=9 and hundreds/thousands correct, but tens is 10-8=2 instead of 9-8=1. Child borrowed across zeros to units but left lending tens as 10, same pattern as 305-128=187.",
+       "pen_note": "tens 10→9!",
+       "teacher_note": "No working but 4429 is 10 over correct 4419, error only in tens. Consistent with borrowing across double zero to get 16-7=9 but leaving tens as 10 so 10-8=2 instead of 9-8=1, same pattern as 305-128=187 example.",
        "agreement": "2/2"
       },
       "trace": [
@@ -3247,7 +3284,7 @@
       ]
      },
      {
-      "number": "3.",
+      "number": "3",
       "problem_text": "2345 x 17",
       "problem_expr": "2345 * 17",
       "concept_id": "multiplication_multi_digit",
@@ -3255,16 +3292,16 @@
       "expected": "39865",
       "status": "wrong",
       "box_px": [
-       132,
-       984,
-       912,
-       1232
+       130,
+       939,
+       852,
+       1160
       ],
       "answer_px": [
-       363,
-       1151,
-       742,
-       1224
+       328,
+       1150,
+       697,
+       1187
       ],
       "answer_ink_px": [
        373,
@@ -3275,29 +3312,27 @@
       "steps": [],
       "error_step": null,
       "diagnosis": {
-       "child_hint_en": "Great effort — write out 2345 × 7 and 2345 × 10 step by step and check each step again!",
-       "child_hint_hi": "बहुत अच्छा प्रयास — 2345 × 7 और 2345 × 10 को चरण-दर-चरण लिखकर हर चरण फिर से जाँचो!",
-       "child_hint_ta": "நல்ல முயற்சி — 2345 × 7 மற்றும் 2345 × 10 ஐ படிப்படியாக எழுதி ஒவ்வொரு படியையும் மீண்டும் சரிபார்!",
-       "concept_id": "multiplication_tables",
-       "confidence": 0.4,
+       "child_hint_en": "Good effort — can you show each partial product and check it one place at a time to spot the slip?",
+       "child_hint_hi": "अच्छा प्रयास है — क्या आप प्रत्येक आंशिक गुणनफल को दिखाकर एक-एक स्थान जाँचकर गलती खोज सकते हैं?",
+       "child_hint_ta": "நல்ல முயற்சி — ஒவ்வொரு பகுதி பெருக்கலையும் காட்டி ஒவ்வொரு இடமாகச் சரிபார்த்து தவறைக் கண்டுபிடிக்க முடியுமா?",
+       "concept_id": "none",
+       "confidence": 0.6,
        "first_error_step": -1,
        "misconception_id": "unlisted",
-       "pen_note": "show working!",
-       "teacher_note": "No working shown; answer is 10 less in tens place, an isolated slip. Cannot attribute to a catalogue table-fact error without steps; ask for full working.",
-       "agreement": "2/3",
-       "needs_teacher": true
+       "pen_note": "show your steps!",
+       "teacher_note": "No working shown; answer is 10 low. No catalogue misconception can be identified — could be a fact, carry or addition slip. Ask child to show partial products.",
+       "agreement": "2/3"
       },
       "trace": [
        "sympy: 2345 * 17 → 39865",
        "read 1 (full page) '39855': false",
        "read 2 (zoomed) '39855': false → readings agree",
-       "diagnosis: passes disagree (table_fact_neighbour_substituted vs unlisted) → Muse Wonder adjudicates",
-       "adjudication: unlisted (sides with one pass)",
-       "low confidence → flagged for teacher review"
+       "diagnosis: passes disagree (unlisted vs table_fact_neighbour_substituted) → Muse Wonder adjudicates",
+       "adjudication: unlisted (sides with one pass)"
       ]
      },
      {
-      "number": "4.",
+      "number": "4",
       "problem_text": "3847 + 5986",
       "problem_expr": "3847 + 5986",
       "concept_id": "addition_with_carry",
@@ -3306,15 +3341,15 @@
       "status": "correct",
       "box_px": [
        132,
-       1232,
-       906,
-       1544
+       1171,
+       882,
+       1496
       ],
       "answer_px": [
-       366,
-       1431,
-       640,
-       1509
+       345,
+       1453,
+       597,
+       1518
       ],
       "answer_ink_px": [
        373,
@@ -3366,7 +3401,7 @@
       "problem": "3847 + 5986"
      }
     ],
-    "seconds": 6.8
+    "seconds": 8.8
    }
   },
   {
@@ -3387,71 +3422,25 @@
       "expected": "495",
       "status": "correct",
       "box_px": [
-       116,
-       352,
-       740,
-       744
+       110,
+       371,
+       707,
+       859
       ],
       "answer_px": [
-       550,
-       366,
-       661,
-       413
+       540,
+       378,
+       654,
+       429
       ],
       "answer_ink_px": null,
       "steps": [
        {
         "box": [
-         190,
-         260,
-         635,
-         295
-        ],
-        "claim": "7425 / 15 = 495",
-        "text": "15 { 7425 } 495",
-        "check": {
-         "status": "true",
-         "claim": "7425 / 15 = 495",
-         "expected": "495",
-         "detail": ""
-        },
-        "box_px": [
-         210,
-         416,
-         701,
-         472
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         520,
-         290,
-         620,
-         315
-        ],
-        "claim": "495 = 495",
-        "text": "495",
-        "check": {
-         "status": "true",
-         "claim": "495 = 495",
-         "expected": "495",
-         "detail": ""
-        },
-        "box_px": [
-         574,
-         464,
-         684,
-         504
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         195,
-         310,
-         610,
-         340
+         182,
+         332,
+         532,
+         365
         ],
         "claim": "75 - 74 = 0",
         "text": "75 - 74 - 0",
@@ -3462,19 +3451,19 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         496,
-         673,
-         544
+         201,
+         531,
+         587,
+         584
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         335,
-         610,
-         360
+         182,
+         363,
+         532,
+         393
         ],
         "claim": "2 - 0 = 2",
         "text": "2 - 0 - 2",
@@ -3485,19 +3474,19 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         536,
-         673,
-         576
+         201,
+         580,
+         587,
+         628
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         360,
-         640,
-         390
+         182,
+         395,
+         542,
+         425
         ],
         "claim": "15 - 75 = 75",
         "text": "15 - 75 - 75",
@@ -3508,19 +3497,19 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         576,
-         707,
-         624
+         201,
+         632,
+         598,
+         680
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         385,
-         620,
-         415
+         185,
+         426,
+         545,
+         456
         ],
         "claim": "75 - 0 = 0",
         "text": "75 - 0 - 0",
@@ -3531,19 +3520,19 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         616,
-         684,
-         664
+         204,
+         681,
+         602,
+         729
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         410,
-         620,
-         440
+         185,
+         458,
+         545,
+         488
         ],
         "claim": "5 - 45 = 25",
         "text": "5 - 45 - 25",
@@ -3554,19 +3543,19 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         656,
-         684,
-         704
+         204,
+         732,
+         602,
+         780
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         435,
-         620,
-         465
+         190,
+         490,
+         545,
+         520
         ],
         "claim": "30 - 0 = 0",
         "text": "30 - 0 - 0",
@@ -3577,10 +3566,10 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         696,
-         684,
-         744
+         210,
+         784,
+         602,
+         831
         ],
         "ink_px": null
        }
@@ -3591,7 +3580,7 @@
        "sympy: 7425 / 15 → 495",
        "read 1 (full page) '495': true",
        "read 2 (zoomed) '495': true → readings agree",
-       "steps verified: 3/8 true, first false step [2]"
+       "steps verified: 1/6 true, first false step [0]"
       ]
      },
      {
@@ -3603,48 +3592,25 @@
       "expected": "339",
       "status": "correct",
       "box_px": [
-       110,
-       756,
-       751,
-       1043
+       105,
+       863,
+       740,
+       1143
       ],
       "answer_px": [
-       504,
-       773,
-       630,
-       816
+       598,
+       915,
+       740,
+       967
       ],
       "answer_ink_px": null,
       "steps": [
        {
         "box": [
-         185,
-         515,
-         675,
-         550
-        ],
-        "claim": "8136 / 24 = 339",
-        "text": "24 { 8136 } 339",
-        "check": {
-         "status": "true",
-         "claim": "8136 / 24 = 339",
-         "expected": "339",
-         "detail": ""
-        },
-        "box_px": [
-         204,
-         823,
-         745,
-         879
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         190,
-         548,
-         630,
-         575
+         180,
+         608,
+         640,
+         638
         ],
         "claim": "72 - 9 = 93",
         "text": "72 - 9 - 93",
@@ -3655,19 +3621,19 @@
          "detail": ""
         },
         "box_px": [
-         210,
-         876,
-         696,
-         919
+         199,
+         972,
+         707,
+         1020
         ],
         "ink_px": null
        },
        {
         "box": [
-         190,
-         573,
-         630,
-         600
+         180,
+         635,
+         640,
+         665
         ],
         "claim": "81 - 93 = 21",
         "text": "81 - 93 - 21",
@@ -3678,19 +3644,19 @@
          "detail": ""
         },
         "box_px": [
-         210,
-         916,
-         696,
-         959
+         199,
+         1015,
+         707,
+         1063
         ],
         "ink_px": null
        },
        {
         "box": [
-         190,
-         598,
+         180,
+         662,
          640,
-         625
+         692
         ],
         "claim": "3 - 72 = 216",
         "text": "3 - 72 - 216",
@@ -3701,19 +3667,19 @@
          "detail": ""
         },
         "box_px": [
-         210,
-         956,
+         199,
+         1059,
          707,
-         999
+         1107
         ],
         "ink_px": null
        },
        {
         "box": [
-         195,
-         623,
-         630,
-         650
+         180,
+         688,
+         640,
+         715
         ],
         "claim": "5 - 6 = 0",
         "text": "5 - 6 - 0",
@@ -3724,10 +3690,10 @@
          "detail": ""
         },
         "box_px": [
-         215,
-         996,
-         696,
-         1039
+         199,
+         1100,
+         707,
+         1143
         ],
         "ink_px": null
        }
@@ -3737,8 +3703,8 @@
       "trace": [
        "sympy: 8136 / 24 → 339",
        "read 1 (full page) '339': true",
-       "read 2 (zoomed) '339': true → readings agree",
-       "steps verified: 1/5 true, first false step [1]"
+       "read 2 skipped: crop showed '3. 5250 ÷ 25', not this problem",
+       "steps verified: 0/4 true, first false step [0]"
       ]
      },
      {
@@ -3750,71 +3716,25 @@
       "expected": "210",
       "status": "wrong",
       "box_px": [
-       105,
-       1044,
-       729,
-       1298
+       99,
+       1143,
+       684,
+       1367
       ],
       "answer_px": [
-       589,
-       1196,
-       664,
-       1226
+       586,
+       1225,
+       656,
+       1266
       ],
       "answer_ink_px": null,
       "steps": [
        {
         "box": [
-         180,
-         582,
-         605,
-         620
-        ],
-        "claim": "5250 / 25 = 21",
-        "text": "25 { 5250 } 21",
-        "check": {
-         "status": "false",
-         "claim": "5250 / 25 = 21",
-         "expected": "210",
-         "detail": ""
-        },
-        "box_px": [
-         199,
-         931,
-         668,
-         991
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         520,
-         610,
-         555,
-         635
-        ],
-        "claim": "2 = 2",
-        "text": "2",
-        "check": {
-         "status": "true",
-         "claim": "2 = 2",
-         "expected": "2",
-         "detail": ""
-        },
-        "box_px": [
-         574,
-         975,
-         613,
-         1015
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         185,
-         635,
-         620,
-         665
+         178,
+         798,
+         600,
+         828
         ],
         "claim": "50 - 5 = 25",
         "text": "50 - 5 - 25",
@@ -3825,19 +3745,19 @@
          "detail": ""
         },
         "box_px": [
-         204,
-         1015,
-         684,
-         1063
+         197,
+         1276,
+         662,
+         1324
         ],
         "ink_px": null
        },
        {
         "box": [
-         185,
-         660,
-         620,
-         690
+         178,
+         825,
+         600,
+         853
         ],
         "claim": "52 - 25 = 0",
         "text": "52 - 25 - 0",
@@ -3848,19 +3768,19 @@
          "detail": ""
         },
         "box_px": [
-         204,
-         1055,
-         684,
-         1103
+         197,
+         1319,
+         662,
+         1364
         ],
         "ink_px": null
        },
        {
         "box": [
-         185,
-         685,
-         625,
-         715
+         178,
+         850,
+         600,
+         880
         ],
         "claim": "20 - 0 = 21",
         "text": "20 - 0 - 21",
@@ -3871,32 +3791,32 @@
          "detail": ""
         },
         "box_px": [
-         204,
-         1095,
-         690,
-         1143
+         197,
+         1359,
+         662,
+         1407
         ],
         "ink_px": null
        }
       ],
       "error_step": 0,
       "diagnosis": {
-       "child_hint_en": "You did well till the end, now check what should come on top when you bring down the last zero.",
-       "child_hint_hi": "तुमने आखिर तक अच्छा किया, अब देखो आखिरी शून्य उतारने पर ऊपर क्या आना चाहिए।",
-       "child_hint_ta": "கடைசி வரை நன்றாக செய்தாய், கடைசி பூஜ்ஜியத்தை கீழே கொண்டு வரும்போது மேலே என்ன வர வேண்டும் என்று பார்.",
+       "child_hint_en": "Well done to get 21 — now check what goes on top when you bring down the last 0?",
+       "child_hint_hi": "शाबाश, 21 तक पहुँचे — अब आखिरी 0 को नीचे लाकर देखो कि ऊपर क्या लिखना चाहिए?",
+       "child_hint_ta": "சபாஷ், 21 வரை சரியாக வந்தாய் — கடைசி 0-ஐ கீழே கொண்டு வரும்போது மேலே என்ன எழுத வேண்டும் என்று பார்?",
        "concept_id": "long_division",
-       "confidence": 0.92,
+       "confidence": 0.88,
        "first_error_step": 0,
        "misconception_id": "long_division_zero_quotient_digit_omitted",
-       "pen_note": "0 missing in 21!",
-       "teacher_note": "Child found 5250/25=21 instead of 210, omitting the final zero placeholder in the quotient. Classic zero-quotient-digit omitted error in long division.",
+       "pen_note": "missing 0!",
+       "teacher_note": "Quotient 21 vs correct 210 shows omitted trailing zero placeholder. After 525 gives 21, bringing down final 0 requires 0 in quotient. Early claims 50-5=25 and 52-25=0 are also false, showing weak long-division bookkeeping.",
        "agreement": "2/2"
       },
       "trace": [
        "sympy: 5250 / 25 → 210",
        "read 1 (full page) '21': false",
        "read 2 (zoomed) '21': false → readings agree",
-       "steps verified: 1/5 true, first false step [0]",
+       "steps verified: 0/3 true, first false step [0]",
        "diagnosis: 2 independent passes agree on long_division_zero_quotient_digit_omitted"
       ]
      },
@@ -3909,71 +3829,25 @@
       "expected": "401",
       "status": "correct",
       "box_px": [
-       110,
-       1295,
-       718,
-       1543
+       105,
+       1375,
+       729,
+       1575
       ],
       "answer_px": [
-       494,
-       1309,
-       643,
-       1357
+       585,
+       1385,
+       720,
+       1436
       ],
       "answer_ink_px": null,
       "steps": [
        {
         "box": [
-         180,
-         822,
-         635,
-         858
-        ],
-        "claim": "6015 / 15 = 401",
-        "text": "15 { 6015 } 401",
-        "check": {
-         "status": "true",
-         "claim": "6015 / 15 = 401",
-         "expected": "401",
-         "detail": ""
-        },
-        "box_px": [
-         199,
-         1314,
-         701,
-         1372
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         520,
-         852,
-         560,
-         878
-        ],
-        "claim": "0 = 0",
-        "text": "0",
-        "check": {
-         "status": "true",
-         "claim": "0 = 0",
-         "expected": "0",
-         "detail": ""
-        },
-        "box_px": [
-         574,
-         1362,
-         618,
-         1404
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         180,
-         878,
-         610,
-         905
+         178,
+         902,
+         630,
+         932
         ],
         "claim": "60 - 1 = 0",
         "text": "60 - 1 - 0",
@@ -3984,19 +3858,42 @@
          "detail": ""
         },
         "box_px": [
-         199,
-         1404,
-         673,
-         1447
+         197,
+         1442,
+         696,
+         1490
         ],
         "ink_px": null
        },
        {
         "box": [
-         190,
-         903,
-         610,
-         930
+         178,
+         930,
+         630,
+         963
+        ],
+        "claim": "0 - 15 = 0",
+        "text": "0 - 15 - 0",
+        "check": {
+         "status": "false",
+         "claim": "0 - 15 = 0",
+         "expected": "-15",
+         "detail": ""
+        },
+        "box_px": [
+         197,
+         1487,
+         696,
+         1540
+        ],
+        "ink_px": null
+       },
+       {
+        "box": [
+         300,
+         960,
+         630,
+         988
         ],
         "claim": "15 - 5 = 0",
         "text": "15 - 5 - 0",
@@ -4007,33 +3904,10 @@
          "detail": ""
         },
         "box_px": [
-         210,
-         1444,
-         673,
-         1487
-        ],
-        "ink_px": null
-       },
-       {
-        "box": [
-         300,
-         930,
-         560,
-         960
-        ],
-        "claim": "5 - 0 = 0",
-        "text": "5 - 0",
-        "check": {
-         "status": "false",
-         "claim": "5 - 0 = 0",
-         "expected": "5",
-         "detail": ""
-        },
-        "box_px": [
          331,
-         1487,
-         618,
-         1535
+         1535,
+         696,
+         1580
         ],
         "ink_px": null
        }
@@ -4043,8 +3917,8 @@
       "trace": [
        "sympy: 6015 / 15 → 401",
        "read 1 (full page) '401': true",
-       "read 2 (zoomed) '401': true → readings agree",
-       "steps verified: 2/5 true, first false step [2]"
+       "read 2 skipped: crop showed '60 - 15 - 5 0', not this problem",
+       "steps verified: 0/3 true, first false step [0]"
       ]
      }
     ],
@@ -4082,9 +3956,8 @@
       "problem": "6015 ÷ 15"
      }
     ],
-    "seconds": 9.5
+    "seconds": 20.8
    }
   }
- ],
- "cost_note": "from the usage ledger for the run window; per-page figures in this run predate per-task cost scopes and are overcounted"
+ ]
 }

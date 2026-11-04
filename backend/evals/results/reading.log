@@ -1,0 +1,26 @@
+{
+ "English": {
+  "planted_errors_caught": "3/3",
+  "false_alarms_on_clean_reads": "0/81 words",
+  "false_alarms_on_error_reads": 0
+ },
+ "Hindi": {
+  "planted_errors_caught": "3/3",
+  "false_alarms_on_clean_reads": "0/78 words",
+  "false_alarms_on_error_reads": 0
+ },
+ "Tamil": {
+  "planted_errors_caught": "3/3",
+  "false_alarms_on_clean_reads": "0/53 words",
+  "false_alarms_on_error_reads": 0
+ }
+}
+en_paragraph clean caught 0/0 FA: []
+en_story clean caught 0/0 FA: []
+en_paragraph errors caught 3/3 FA: []
+hi_paragraph clean caught 0/0 FA: []
+hi_story clean caught 0/0 FA: []
+hi_paragraph errors caught 3/3 FA: []
+ta_paragraph clean caught 0/0 FA: []
+ta_story clean caught 0/0 FA: []
+ta_paragraph errors caught 3/3 FA: []

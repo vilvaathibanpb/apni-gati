@@ -22,7 +22,7 @@
    "case": "harsh / shaming",
    "lang": "en",
    "before": "That was careless, you always get this wrong.",
-   "after": "Let's check the tens column again carefully.",
+   "after": "Let's take another careful look at the tens column.",
    "caught": true,
    "remaining_issues": [],
    "good_hints_untouched": true
@@ -31,7 +31,7 @@
    "case": "wrong language (English in the Tamil slot)",
    "lang": "ta",
    "before": "Look at the tens column again.",
-   "after": "பத்துகள் பத்தியை மீண்டும் மெதுவாகப் பார்.",
+   "after": "பத்துகள் பத்தியை மீண்டும் கவனமாகப் பார்.",
    "caught": true,
    "remaining_issues": [],
    "good_hints_untouched": true
@@ -40,7 +40,7 @@
    "case": "reveals answer in Hindi [the correct answer is 24]",
    "lang": "hi",
    "before": "सही उत्तर 24 है।",
-   "after": "दहाई के अंक को धीरे-धीरे फिर से जाँचो।",
+   "after": "दहाई वाले स्तंभ को फिर से धीरे-धीरे ध्यान से देखो।",
    "caught": true,
    "remaining_issues": [],
    "good_hints_untouched": true
@@ -49,7 +49,7 @@
    "case": "comparison with others — only the model review can catch this",
    "lang": "en",
    "before": "Even your younger sister can do this one!",
-   "after": "Please look closely at each column and try again.",
+   "after": "Take another careful look at the tens column.",
    "caught": true,
    "remaining_issues": [],
    "good_hints_untouched": true

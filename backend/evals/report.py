@@ -40,12 +40,12 @@ def main() -> None:
             f"| Misconception at right concept/root | {pct(m['misconception_same_concept_or_root'])} | — |",
             "",
             f"Cost ${g['cost_usd_total']:.2f} for all pages; median {g['seconds_per_page_median']} s per page (problems on a page run in parallel).", "",
-            "**Honest reading:** on clean pages Muse Spark alone already judges right/wrong very well (the baseline scored 40/40; the "
-            "pipeline's single miss was sent to teacher review because the zoomed re-read could not confirm the answer, not marked wrong). "
-            "What the pipeline adds is "
-            "that every mark is *proved* by sympy rather than asserted, the first wrong working step is located and circled on the photo, the "
-            "misconception is diagnosed against the NCERT concept graph, unreadable or incomplete problems go to the teacher instead of being "
-            "guessed, and text on the page cannot change a grade.", "",
+            "**Honest reading:** on clean pages Muse Spark alone already judges right/wrong very well; the one-call baseline also scored "
+            "40/40. What the pipeline adds is that every mark is *proved* by sympy rather than asserted, the first wrong working step is "
+            "located and circled on the photo, the misconception is diagnosed against the NCERT concept graph, unreadable or incomplete "
+            "problems go to the teacher instead of being guessed, and text on the page cannot change a grade. Run history: the previous "
+            "run marked one correct answer wrong (a tight zoom crop clipped the 0 off \"60\" and two crops outvoted the full-page read); "
+            "the tie-break read now uses a much wider crop, and this run has no false marks (`results/grading_run4.json` kept for reference).", "",
         ]
         for c in m["ambiguous_cases"]:
             out.append(f"Ambiguous case: `{c['q']}`: {c['note']}. Pipeline: **{c['pipeline']}**, baseline: {c['baseline']}.")
@@ -81,17 +81,16 @@ def main() -> None:
             f"| Knowledge-tracing baseline | {a['baseline_knowledge_tracing']['exact']}/{a['baseline_knowledge_tracing']['n']} | {a['baseline_knowledge_tracing']['within_1_hop']}/{a['baseline_knowledge_tracing']['n']} |",
             "",
             f"Cost ${a['cost_usd']:.2f} total, median {a['median_seconds']} s per child.", "",
-            "The baseline above uses the app's teacher-safe rule (a concept needs at least 2 observations before it is called a gap), so it "
-            "often abstains. With a lenient single-observation rule the baseline scored 6/10 exact and 8/10 within one hop against the "
-            "agent's 5/10 and 7/10 (run log `results/agent_run3.log`).", "",
-            "**Honest reading:** the simulator generates evidence the same way knowledge tracing models it, so statistics alone are a strong "
-            "baseline; the agent is roughly on par on root identification. Its added value is that it always commits to a reasoned "
-            "hypothesis using misconception evidence, explains it to the teacher, names an alternative, and writes sympy-verified probe "
-            "questions to test the hypothesis on the child. "
-            "Version history: v1 (agent fetched everything through ~20 small tool calls, server-side conversation state) failed on 4/10 "
-            "children (expired server state, malformed probe, ran out of turns). v2 puts a compact evidence summary and the knowledge-tracing "
-            "estimate in context, uses one subgraph tool, replays state client-side and forces submission on the last turn: 10/10 complete "
-            "with 6-7 tool calls each.", "",
+            "**Two runs, honestly reported.** The run above uses today's demo data: every simulated child is in Class 5 with about 12 past "
+            "answers spread over ~15 class-level topics, i.e. less than one observation per topic, and the hidden gap often sits below "
+            "anything that was tested. Evidence that thin is hard for any method; the agent still beats the statistical baseline. "
+            "An earlier run on mixed Classes 3-5 (denser evidence per topic) scored agent 4/10 exact and 6/10 within one hop, against "
+            "the baseline's 3/10 and 3/10 (or 6/10 and 8/10 with a lenient single-observation rule) (`results/agent_run4.log`, `agent_run3.log`).", "",
+            "**What this means:** root-causing from a few homework answers is genuinely uncertain, which is why the agent reports a "
+            "confidence, names an alternative hypothesis, and writes sympy-verified probe questions: a two-minute check with the child "
+            "collects exactly the evidence that is missing. The agent's value is that reasoning and the probes, not a guaranteed answer. "
+            "Version history: v1 (about 20 small tool calls, server-side conversation state) failed on 4/10 children; v2 (compact evidence "
+            "in context, one subgraph tool, client-side state, forced submission) completes every run with 6-7 tool calls.", "",
         ]
 
     rd = load("reading.json")

@@ -84,15 +84,15 @@ Backend: Python, FastAPI, SQLite, sympy, OpenCV (`backend/`). Frontend: React, V
 
 | Eval | Result |
 |---|---|
-| Personalised homework: 12 children, 84 questions | 84/84 answers re-verified. **0 identical sheets** (0.3% question overlap). Difficulty and count follow the track. End to end: a solved sheet came back through the child's link and was marked against the answer key, including the planted mistakes and the question left blank |
-| Notebook grading: 12 pages, 40 problems, 16 planted misconceptions | **39/40** right/wrong. **0** correct answers marked wrong, **0** mistakes missed. 1 sent to teacher review. Misconception exact **13/15**. ~$0.11 and ~50 s per page |
-| Model-only baseline (one Muse Spark call) | 40/40 right/wrong, but no proof, no step location, no diagnosis, no review path |
+| Personalised homework: one Class 5, 12 children, 82 questions | 82/82 answers re-verified. **0 identical sheets** (0.7% question overlap). Tracks 6 challenge / 4 on track / 2 needs practice; difficulty and count follow the track. End to end: a solved sheet came back through the child's link and was marked 7/10 against the answer key, with both planted mistakes diagnosed and the blank question recorded as not done |
+| Notebook grading: 12 pages, 40 problems, 16 planted misconceptions | **40/40** right/wrong. **0** correct answers marked wrong, **0** mistakes missed; the one genuinely ambiguous problem went to the teacher. Misconception exact **13/16** (14/16 at the right concept). ~$0.09 per page |
+| Model-only baseline (one Muse Spark call) | Also 40/40 right/wrong, but no proof, no step location, no diagnosis, and it silently skipped the ambiguous problem |
 | Adversarial pages | Prompt injection on the page ignored ✅ · non-maths page flagged ✅ · faces blurred ✅ · child hints safe ✅ |
-| Root-cause agent: 10 simulated children with hidden gaps | Agent 4/10 exact, 6/10 within one hop. Knowledge-tracing baseline 3/10 and 3/10 (strict rule) or 6/10 and 8/10 (lenient). ~$0.07 per child |
-| Reading (synthetic Indian voices) | Planted misreadings caught: EN 3/3, HI 3/3, TA 3/3. False alarms on clean reads: 0/81, 0/78, 2/53 |
+| Root-cause agent: 10 simulated children with hidden gaps | Today's data (one Class 5, under one past answer per topic): agent 2/10 exact vs baseline 0/10. Earlier run with denser evidence: agent 4/10 exact, 6/10 within one hop vs baseline 3/10. Root-causing from sparse homework is genuinely uncertain, so the agent gives a confidence, an alternative and probe questions to check with the child. ~$0.08 per child |
+| Reading (synthetic Indian voices) | Planted misreadings caught: EN 3/3, HI 3/3, TA 3/3. False alarms on clean reads: 0/81, 0/78, 0/53 |
 | Guardrail red-team | 6/6 unsafe child hints repaired (including answers spelled out in words). Budget cap and upload limits hold |
 
-We report where the system does **not** beat the baseline. On clean pages Muse Spark alone already judges right/wrong very well. The value of the pipeline is verifiability, step-level localisation, diagnosis and safe failure.
+We report where the system does **not** beat the baseline. On clean pages Muse Spark alone already judges right/wrong very well (both scored 40/40). The value of the pipeline is verifiability, step-level localisation, diagnosis and safe failure.
 
 ## Guardrails
 

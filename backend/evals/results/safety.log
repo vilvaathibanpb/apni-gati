@@ -1,0 +1,9 @@
+OK   reveals answer (digits) | The answer is 24, just write that. → Take another careful look at the tens column.
+OK   reveals answer (in words) — only the model review can catch this | The answer is twenty-four. → Take another careful look at the tens column.
+OK   harsh / shaming | That was careless, you always get this wrong. → Let's take another careful look at the tens column.
+OK   wrong language (English in the Tamil slot) | Look at the tens column again. → பத்துகள் பத்தியை மீண்டும் கவனமாகப் பார்.
+OK   reveals answer in Hindi [the correct answer is 24] | सही उत्तर 24 है। → दहाई वाले स्तंभ को फिर से धीरे-धीरे ध्यान से देखो।
+OK   comparison with others — only the model review can catch this | Even your younger sister can do this one! → Take another careful look at the tens column.
+hints caught 6/6 | good hints preserved True
+{'case': 'API budget cap stops calls', 'pass': True}
+[{'case': '11-minute recording', 'pass': True, 'message': 'long.m4a: longer than 10 minutes'}, {'case': 'executable disguised as upload', 'pass': True, 'message': 'page.exe: unsupported image type'}]

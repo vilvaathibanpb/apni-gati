@@ -44,7 +44,8 @@ def truth_status(q: dict) -> str:
 
 
 def numbers(text: str) -> list[str]:
-    return re.findall(r"\d+(?:[.,]\d+)?", text or "")
+    text = re.sub(r"^\s*\(?\d+[.)]\s+", "", text or "")  # drop question numbering like "1. "
+    return re.findall(r"\d+(?:[.,]\d+)?", text)
 
 
 def match(label_q: str, predicted: list[dict], key: str) -> dict | None:
@@ -197,5 +198,18 @@ async def main() -> None:
         print(f"{r['page']:16} {r['q']:12} = {r['a']:7} truth={r['truth']:7} pred={r['pred']:12} base={r['base']:8} mis={r['pred_mis']} (planted {r['planted']}){flag}")
 
 
+def rescore() -> None:
+    """Recompute metrics from saved raw outputs (no API calls)."""
+    saved = json.loads((OUT_DIR / "grading.json").read_text())
+    raw = {r["page"]: r for r in saved["raw"]}
+    pages_out = [{"page": p, "pipeline": {"result": raw[p["id"]]["pipeline"], "capture": raw[p["id"]]["pipeline"].get("capture") or {}}, "baseline": raw[p["id"]]["baseline"]} for p in PAGES if p["id"] in raw]
+    report = score([p for p in pages_out if p["page"]["problems"]])
+    saved.update({"metrics": report["metrics"], "rows": report["rows"]})
+    (OUT_DIR / "grading.json").write_text(json.dumps(saved, indent=1, ensure_ascii=False, default=str))
+    print(json.dumps({k: v for k, v in report["metrics"].items() if k in ("pipeline", "baseline_model_only")}))
+
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    import sys
+
+    rescore() if "--rescore" in sys.argv else asyncio.run(main())

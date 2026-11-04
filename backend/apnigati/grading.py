@@ -159,14 +159,14 @@ def _numbers(text: str) -> list[str]:
     return re.findall(r"\d+", text or "")
 
 
-async def reread_problem(page: Image.Image, problem_px: tuple[int, int, int, int], problem_text: str, effort: str = "low") -> dict[str, Any]:
+async def reread_problem(page: Image.Image, problem_px: tuple[int, int, int, int], problem_text: str, effort: str = "low", widen: float = 1.0) -> dict[str, Any]:
     """Read one problem's final answer again from a zoomed crop of just that problem.
 
     Also returns a precise answer box (the small crop gives far better grounding than the full page)
     and what problem the crop shows, so a misplaced crop is detected instead of trusted.
     """
     x1, y1, x2, y2 = problem_px
-    pad_x, pad_y = max(16, (x2 - x1) // 10), max(16, (y2 - y1) // 8)
+    pad_x, pad_y = int(max(16, (x2 - x1) // 10) * widen), int(max(16, (y2 - y1) // 8) * widen)
     left, top = max(0, x1 - pad_x), max(0, y1 - pad_y)
     crop = page.crop((left, top, min(page.width, x2 + pad_x), min(page.height, y2 + pad_y)))
     scale = max(1.0, 900 / max(crop.size))
@@ -214,7 +214,8 @@ async def confirm_answer(problem: dict, page: Image.Image, problem_px: tuple[int
     if _same_answer(problem["answer_text"], second["answer"]) or second_chk.status == first.status:
         trace.append(f"read 2 (zoomed) '{second['answer']}': {second_chk.status} → readings agree")
         return first, box
-    third = await reread_problem(page, problem_px, problem["problem_text"], effort="high")
+    # Tie-break from a much wider crop: an independent view, in case the tight crop clipped a digit.
+    third = await reread_problem(page, problem_px, problem["problem_text"], effort="high", widen=4.0)
     third_chk = verifier.check_claim(final_claim(problem["problem_expr"], third["answer"]))
     votes = [first.status, second_chk.status, third_chk.status]
     trace.append(f"readings disagree: '{problem['answer_text']}' vs '{second['answer']}' → read 3 '{third['answer']}': {third_chk.status}")

@@ -1,0 +1,25 @@
+{"student": "st_sim3_15", "hidden_gap": "addition_no_carry", "agent_root": "multiplication_multi_digit", "agent_confidence": 0.72, "agent_chain": ["multiplication_multi_digit"], "agent_hops": 2, "gap_in_agent_chain": false, "baseline_frontier": "multiplication_multi_digit", "baseline_hops": 2, "tool_calls": 6, "seconds": 17, "cost": 0.07}
+{"student": "st_sim1_8", "hidden_gap": "decimal_comparison", "agent_root": "division_facts_inverse", "agent_confidence": 0.55, "agent_chain": ["division_with_remainder", "division_facts_inverse"], "agent_hops": 5, "gap_in_agent_chain": false, "baseline_frontier": "division_facts_inverse", "baseline_hops": 5, "tool_calls": 7, "seconds": 22, "cost": 0.0845}
+{"student": "st_sim2_14", "hidden_gap": "decimal_fraction_conversion", "agent_root": "multiplication_equal_groups", "agent_confidence": 0.4, "agent_chain": ["multiplication_tables", "multiplication_equal_groups"], "agent_hops": 3, "gap_in_agent_chain": false, "baseline_frontier": null, "baseline_hops": null, "tool_calls": 7, "seconds": 23, "cost": 0.0803}
+{"student": "st_sim3_14", "hidden_gap": "fractions_of_collections", "agent_root": "multiplication_tables", "agent_confidence": 0.6, "agent_chain": ["division_facts_inverse", "multiplication_tables"], "agent_hops": 3, "gap_in_agent_chain": false, "baseline_frontier": "multiplication_tables", "baseline_hops": 3, "tool_calls": 6, "seconds": 26, "cost": 0.0811}
+{"student": "st_sim3_1", "hidden_gap": "place_value_thousands", "agent_root": "place_value_thousands", "agent_confidence": 0.4, "agent_chain": ["place_value_thousands"], "agent_hops": 0, "gap_in_agent_chain": true, "baseline_frontier": null, "baseline_hops": null, "tool_calls": 6, "seconds": 12, "cost": 0.0557}
+{"student": "st_sim2_0", "hidden_gap": "multiplication_multi_digit", "agent_root": "grouping_in_tens", "agent_confidence": 0.55, "agent_chain": ["multiplication_by_tens_hundreds", "place_value_2_digit", "grouping_in_tens"], "agent_hops": 3, "gap_in_agent_chain": false, "baseline_frontier": null, "baseline_hops": null, "tool_calls": 6, "seconds": 15, "cost": 0.0635}
+{"student": "st_sim3_9", "hidden_gap": "division_facts_inverse", "agent_root": "division_facts_inverse", "agent_confidence": 0.55, "agent_chain": ["long_division", "division_with_remainder", "division_facts_inverse"], "agent_hops": 0, "gap_in_agent_chain": true, "baseline_frontier": "division_with_remainder", "baseline_hops": 1, "tool_calls": 7, "seconds": 23, "cost": 0.1019}
+{"student": "st_sim3_2", "hidden_gap": "division_facts_inverse", "agent_root": "grouping_in_tens", "agent_confidence": 0.6, "agent_chain": ["subtraction_with_borrow", "subtraction_no_borrow", "place_value_2_digit", "grouping_in_tens"], "agent_hops": 4, "gap_in_agent_chain": false, "baseline_frontier": "subtraction_with_borrow", "baseline_hops": 3, "tool_calls": 6, "seconds": 19, "cost": 0.0706}
+{"student": "st_sim2_11", "hidden_gap": "comparing_ordering_numbers", "agent_root": "division_facts_inverse", "agent_confidence": 0.55, "agent_chain": ["division_facts_inverse"], "agent_hops": 4, "gap_in_agent_chain": false, "baseline_frontier": "division_facts_inverse", "baseline_hops": 4, "tool_calls": 6, "seconds": 24, "cost": 0.0885}
+{"student": "st_sim2_16", "hidden_gap": "place_value_thousands", "agent_root": "unit_fractions_parts_of_whole", "agent_confidence": 0.55, "agent_chain": ["fractions_of_collections", "unit_fractions_parts_of_whole"], "agent_hops": 4, "gap_in_agent_chain": false, "baseline_frontier": "unit_fractions_parts_of_whole", "baseline_hops": 4, "tool_calls": 6, "seconds": 14, "cost": 0.0584}
+{
+ "agent": {
+  "exact": 2,
+  "within_1_hop": 2,
+  "n": 10,
+  "gap_in_chain": 2
+ },
+ "baseline_knowledge_tracing": {
+  "exact": 0,
+  "within_1_hop": 1,
+  "n": 10
+ },
+ "cost_usd": 0.755,
+ "median_seconds": 22
+}

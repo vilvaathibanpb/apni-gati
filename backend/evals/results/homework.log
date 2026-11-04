@@ -1,0 +1,91 @@
+{
+ "children": 12,
+ "items": 82,
+ "items_reverified": "82/82",
+ "rejected_at_generation": 2,
+ "track_mix": {
+  "practice": 2,
+  "on_track": 4,
+  "challenge": 6
+ },
+ "identical_sheets": 0,
+ "mean_question_overlap_between_children": 0.007,
+ "by_track": {
+  "practice": {
+   "children": 2,
+   "mean_items": 8,
+   "mean_level": 1
+  },
+  "on_track": {
+   "children": 4,
+   "mean_items": 7.5,
+   "mean_level": 2
+  },
+  "challenge": {
+   "children": 6,
+   "mean_items": 6,
+   "mean_level": 3
+  }
+ },
+ "end_to_end": {
+  "student": "Anitha",
+  "track": "practice",
+  "score": {
+   "correct": 7,
+   "attempted": 9,
+   "total": 10
+  },
+  "items": [
+   {
+    "n": 1,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 2,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 3,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 4,
+    "status": "wrong",
+    "misconception": "expanded_form_parts_concatenated_2_digit"
+   },
+   {
+    "n": 5,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 6,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 7,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 8,
+    "status": "wrong",
+    "misconception": "expanded_form_parts_concatenated_2_digit"
+   },
+   {
+    "n": 9,
+    "status": "correct",
+    "misconception": null
+   },
+   {
+    "n": 10,
+    "status": "not_attempted",
+    "misconception": null
+   }
+  ]
+ }
+}
