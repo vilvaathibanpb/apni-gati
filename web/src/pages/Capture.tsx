@@ -29,7 +29,9 @@ export default function Capture() {
 
   const addFiles = (list: FileList | null) => {
     if (!list) return
-    setFiles((prev) => [...prev, ...Array.from(list)])
+    // Copy now: the input is reset right after this call, which empties the live FileList.
+    const picked = Array.from(list)
+    setFiles((prev) => [...prev, ...picked])
   }
 
   const send = async () => {

@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
+<style>
+  .part { position: absolute; inset: 0; }
+  .p1 { animation: fadeUp .6s ease forwards, out .5s ease forwards; animation-delay: 0s, 9.2s; }
+  .p2 { opacity: 0; animation: fadeUp .7s ease forwards; animation-delay: 9.6s; }
+  @keyframes out { to { opacity: 0; transform: translateY(-24px); } }
+  h1 { position: absolute; left: 150px; top: 95px; font-size: 64px; font-weight: 800; }
+  .sub { position: absolute; left: 150px; top: 180px; font-size: 30px; color: var(--ink2); }
+  .stats { position: absolute; left: 150px; right: 150px; top: 270px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+  .stat { padding: 34px 30px; }
+  .stat .big { font-size: 84px; font-weight: 800; color: var(--ink); line-height: 1; }
+  .stat .big small { font-size: 44px; color: var(--ink3); font-weight: 700; }
+  .stat .lbl { font-size: 26px; color: var(--ink2); margin-top: 16px; line-height: 1.35; }
+  .stat.red .big { color: var(--pen); }
+  .stat.green .big { color: var(--leaf); }
+  .guards { position: absolute; left: 150px; right: 150px; top: 640px; display: flex; flex-wrap: wrap; gap: 18px; }
+  .guard { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 999px; background: var(--leafsoft); color: var(--leaf); font-size: 28px; font-weight: 600; }
+  .guard::before { content: "✓"; font-weight: 800; }
+  .foot { position: absolute; left: 150px; right: 150px; bottom: 70px; font-size: 22px; color: var(--ink3); }
+  .models { position: absolute; left: 150px; right: 150px; top: 270px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px; }
+  .model { padding: 30px 26px; }
+  .model .chip { font-size: 22px; padding: 8px 16px; }
+  .model ul { margin-top: 22px; list-style: none; font-size: 24px; color: var(--ink2); line-height: 1.4; }
+  .model li { margin-bottom: 12px; padding-left: 22px; position: relative; }
+  .model li::before { content: "–"; color: var(--pen); position: absolute; left: 0; }
+</style></head>
+<body class="ruled">
+  <div class="part p1">
+    <h1>Can you trust the red pen?</h1>
+    <div class="sub">We tested it before the demo. Full results are in the repo.</div>
+    <div class="stats">
+      <div class="stat card fade-up" data-at="0.4"><div class="big"><span data-count="39" data-at="0.6">0</span><small>/40</small></div><div class="lbl">problems marked right, across 12 notebook pages and 16 planted mistakes</div></div>
+      <div class="stat card red fade-up" data-at="0.8"><div class="big"><span data-count="0" data-from="22" data-at="1.0">0</span></div><div class="lbl">correct answers ever marked wrong. Unsure ones go to the teacher.</div></div>
+      <div class="stat card green fade-up" data-at="1.2"><div class="big"><span data-count="84" data-at="1.4">0</span><small>/84</small></div><div class="lbl">homework answers verified with real maths. 0 identical sheets.</div></div>
+      <div class="stat card fade-up" data-at="1.6"><div class="big"><span data-count="9" data-at="1.8">0</span><small>/9</small></div><div class="lbl">misread words caught in Tamil, Hindi and English reading tests</div></div>
+    </div>
+    <div class="guards">
+      <div class="guard pop" data-at="3.0">Text written on a page can't change a grade</div>
+      <div class="guard pop" data-at="3.5">Faces blurred before storage</div>
+      <div class="guard pop" data-at="4.0">Hints never give away the answer (6/6 red-team cases)</div>
+      <div class="guard pop" data-at="4.5">The teacher has the final word</div>
+      <div class="guard pop" data-at="5.0">Children's data never used for training</div>
+    </div>
+    <div class="foot fade" data-at="5.5">Test pages were generated for evaluation; labels checked by hand. A plain one-call model also judged right/wrong well. Apni Gati adds proof, the step that went wrong, the reason, and safe failure.</div>
+  </div>
+  <div class="part p2">
+    <h1>Built on Meta's models</h1>
+    <div class="sub">Every part of the loop uses the Meta Model API.</div>
+    <div class="models">
+      <div class="model card fade-up" data-at="9.9"><span class="chip meta">Muse Spark</span><ul><li>Reads children's handwriting</li><li>Writes each child's homework in their language</li><li>Diagnoses the misconception</li></ul></div>
+      <div class="model card fade-up" data-at="10.2"><span class="chip meta">Muse Wonder</span><ul><li>Built the NCERT concept graph with web search</li><li>Maps the teacher's syllabus</li><li>Root-cause agent and lesson plans</li></ul></div>
+      <div class="model card fade-up" data-at="10.5"><span class="chip meta">SAM 3.1</span><ul><li>Finds and straightens pages</li><li>Tracks pages in a flip-through video</li><li>Exact ink for red marks; blurs faces</li></ul></div>
+      <div class="model card fade-up" data-at="10.8"><span class="chip meta">Voice Transcribe</span><ul><li>Children reading aloud in Tamil, Hindi, English</li><li>Children explaining their working</li></ul></div>
+      <div class="model card fade-up" data-at="11.1"><span class="chip meta">Muse Image</span><ul><li>Illustrated, printable worksheets</li><li>Read back and verified before printing</li></ul></div>
+    </div>
+  </div>
+</body></html>

@@ -83,7 +83,9 @@ function Todo({ d, onSent }: { d: ChildHomework; onSent: () => void }) {
   const add = (list: FileList | null) => {
     if (!list) return
     setErr(undefined)
-    setFiles((prev) => [...prev, ...Array.from(list).filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|heic|webp)$/i.test(f.name))].slice(0, 4))
+    // Copy now: the input is reset right after this call, which empties the live FileList.
+    const picked = Array.from(list).filter((f) => f.type.startsWith('image/') || /\.(jpe?g|png|heic|webp)$/i.test(f.name))
+    setFiles((prev) => [...prev, ...picked].slice(0, 4))
   }
   const send = async () => {
     if (!files.length) return

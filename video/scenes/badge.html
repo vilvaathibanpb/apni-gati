@@ -1,0 +1,11 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style> html, body { background: transparent; }
+  .b { position: absolute; left: 1360px; top: 92px; padding: 12px 22px; border-radius: 999px; background: rgba(29,43,83,.92); color: white; font-size: 24px; font-weight: 600;
+    display: inline-flex; gap: 10px; align-items: center; box-shadow: 0 10px 24px -12px rgba(0,0,0,.5); }
+  .l { position: absolute; left: 150px; bottom: 60px; padding: 10px 20px; border-radius: 12px; background: var(--ambersoft); color: var(--amber); font-size: 24px; font-weight: 600; }
+</style></head><body>
+<div id="x"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById('x').innerHTML = (q.get('fast') ? `<div class="b">⏩ ${q.get('fast')}</div>` : '') + (q.get('label') ? `<div class="l">${q.get('label')}</div>` : '');
+</script></body></html>

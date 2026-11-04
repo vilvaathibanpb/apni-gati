@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
+<style>
+  .text { position: absolute; left: 150px; top: 0; bottom: 0; width: 1020px; display: flex; flex-direction: column; justify-content: center; }
+  .step { font-size: 26px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--pen); }
+  h1 { font-size: 74px; font-weight: 800; line-height: 1.05; margin-top: 18px; letter-spacing: -.01em; }
+  .body { font-size: 34px; line-height: 1.45; color: var(--ink2); margin-top: 28px; max-width: 960px; }
+  .chips { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+  .chip.plain { background: var(--leafsoft); color: var(--leaf); }
+  .aside { margin-top: 38px; width: 980px; padding: 14px; }
+  .aside img { width: 100%; display: block; border-radius: 16px; }
+  .aside .cap { font-size: 22px; color: var(--ink3); margin: 10px 6px 2px; }
+  .slot { position: absolute; left: 1310px; top: 72px; width: 432px; height: 936px; background: #e9e4d7; }
+  .bezel { position: absolute; left: 1296px; top: 58px; width: 460px; height: 964px; border: 14px solid #1d2b53; border-radius: 64px;
+    box-shadow: 0 40px 80px -40px rgba(29,43,83,.6); }
+</style></head>
+<body class="ruled">
+  <div class="text" id="text"></div>
+  <div class="slot"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  const t = document.getElementById('text');
+  const chips = (q.get('chips') || '').split(',').filter(Boolean).map((c) => {
+    const plain = c.startsWith('~'); return `<span class="chip ${plain ? 'plain' : 'meta'}">${plain ? c.slice(1) : c}</span>`; }).join('');
+  t.innerHTML = `
+    <div class="step fade-up" data-at="0.05">${q.get('step') || ''}</div>
+    <h1 class="fade-up" data-at="0.15">${q.get('title') || ''}</h1>
+    ${q.get('body') ? `<div class="body fade-up" data-at="0.3">${q.get('body')}</div>` : ''}
+    ${chips ? `<div class="chips fade-up" data-at="0.45">${chips}</div>` : ''}
+    ${q.get('aside') ? `<div class="aside card fade-up" data-at="0.6"><img src="${q.get('aside')}"><div class="cap">${q.get('asidecap') || ''}</div></div>` : ''}`;
+  if (q.get('bezel')) { document.body.className = ''; document.body.style.background = 'transparent'; document.documentElement.style.background = 'transparent'; t.remove(); document.querySelector('.slot').remove();
+    const b = document.createElement('div'); b.className = 'bezel'; document.body.appendChild(b); }
+</script>
+</body></html>

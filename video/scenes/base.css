@@ -1,0 +1,26 @@
+@import url("../../web/node_modules/@fontsource/inter/400.css"); @import url("../../web/node_modules/@fontsource/inter/500.css"); @import url("../../web/node_modules/@fontsource/inter/600.css"); @import url("../../web/node_modules/@fontsource/inter/700.css");
+@import url("../../web/node_modules/@fontsource/inter/800.css");
+@import url("../../web/node_modules/@fontsource/caveat/500.css"); @import url("../../web/node_modules/@fontsource/caveat/700.css");
+@import url("../../web/node_modules/@fontsource/noto-sans-tamil/400.css"); @import url("../../web/node_modules/@fontsource/noto-sans-tamil/600.css");
+@import url("../../web/node_modules/@fontsource/noto-sans-devanagari/400.css"); @import url("../../web/node_modules/@fontsource/noto-sans-devanagari/600.css");
+:root { --paper:#fbf8f1; --paper2:#f4efe3; --card:#fffdf8; --line:#e6dfcf; --rule:#d9e4f2; --ink:#1d2b53; --ink2:#46557d; --ink3:#8089a3;
+  --pen:#d2161f; --pensoft:#fbe6e5; --amber:#c77700; --ambersoft:#fdf1dc; --leaf:#2f7d4f; --leafsoft:#e3f2e8; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); color: var(--ink);
+  font-family: "Inter", "Noto Sans Tamil", "Noto Sans Devanagari", sans-serif; -webkit-font-smoothing: antialiased; }
+.hand { font-family: "Caveat", cursive; }
+.ruled { background-image: linear-gradient(to right, transparent 139px, rgba(210,22,31,.16) 139px, rgba(210,22,31,.16) 141px, transparent 141px),
+  repeating-linear-gradient(to bottom, transparent 0, transparent 59px, var(--rule) 59px, var(--rule) 60px); }
+.card { background: var(--card); border: 2px solid var(--line); border-radius: 28px; box-shadow: 0 2px 0 rgba(29,43,83,.04), 0 24px 48px -28px rgba(29,43,83,.35); }
+.chip { display:inline-flex; align-items:center; gap:12px; padding: 10px 22px; border-radius: 999px; font-weight: 600; font-size: 26px; }
+.meta { background: var(--ink); color: white; }
+.meta::before { content:""; width:12px; height:12px; border-radius:50%; background:#7aa2ff; }
+/* entrance helpers; every animation is driven by seek(t) */
+.fade-up { opacity:0; animation: fadeUp .7s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes fadeUp { from { opacity:0; transform: translateY(28px);} to { opacity:1; transform:none; } }
+.pop { opacity:0; animation: pop .55s cubic-bezier(.2,1.4,.4,1) forwards; }
+@keyframes pop { from { opacity:0; transform: scale(.6);} to { opacity:1; transform:none; } }
+.fade { opacity:0; animation: fade .6s ease forwards; }
+@keyframes fade { from { opacity:0 } to { opacity:1 } }
+.draw { stroke-dasharray: var(--len, 1000); stroke-dashoffset: var(--len, 1000); animation: draw 1s ease-out forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }

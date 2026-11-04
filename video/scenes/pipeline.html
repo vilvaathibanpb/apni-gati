@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
+<style>
+  h1 { position: absolute; left: 150px; top: 100px; font-size: 64px; font-weight: 800; }
+  h1 span { color: var(--pen); }
+  .sub { position: absolute; left: 150px; top: 190px; font-size: 32px; color: var(--ink2); }
+  .row { position: absolute; left: 150px; right: 150px; top: 300px; display: flex; gap: 36px; }
+  .col { flex: 1; padding: 30px 28px 34px; }
+  .col .chip { font-size: 22px; padding: 8px 18px; }
+  .col .t { font-size: 34px; font-weight: 700; margin: 22px 0 12px; line-height: 1.15; }
+  .col .s { font-size: 24px; color: var(--ink2); line-height: 1.4; }
+  .demo { margin-top: 26px; height: 170px; border-radius: 18px; background: var(--paper2); border: 2px dashed var(--line); display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 600; position: relative; overflow: hidden; }
+  .photo { width: 100%; height: 100%; object-fit: cover; object-position: 0 46%; }
+  .scan { position: absolute; left: 0; right: 0; height: 6px; background: rgba(210,22,31,.6); top: 0; animation: scan 1.2s ease-in-out forwards; }
+  @keyframes scan { from { top: 0 } to { top: 100% } }
+  .mono { font-family: ui-monospace, Menlo, monospace; font-size: 30px; }
+  .bad { color: var(--pen); }
+  .good { color: var(--leaf); }
+  .why { font-family: "Caveat"; font-size: 44px; color: var(--pen); }
+</style></head>
+<body class="ruled">
+  <h1 class="fade-up" data-at="0.1">How a page is checked: <span>the model reads, maths decides</span></h1>
+  <div class="sub fade-up" data-at="0.4">Nothing is marked wrong on an AI's opinion.</div>
+  <div class="row">
+    <div class="col card fade-up" data-at="0.6">
+      <span class="chip meta">SAM 3.1</span>
+      <div class="t">Finds the page</div><div class="s">Straightens it, blurs any faces, finds the exact ink of every digit.</div>
+      <div class="demo"><img class="photo" src="../assets/anitha_notebook.jpg"><div class="scan" data-at="1.0"></div></div>
+    </div>
+    <div class="col card fade-up" data-at="1.4">
+      <span class="chip meta">Muse Spark</span>
+      <div class="t">Reads the handwriting</div><div class="s">Every problem, answer and working line, exactly as written. Zoomed re-read before any cross.</div>
+      <div class="demo mono"><span class="fade" data-at="2.0">100 + 40 + 2 = 100402</span></div>
+    </div>
+    <div class="col card fade-up" data-at="2.4">
+      <span class="chip" style="background:var(--leafsoft);color:var(--leaf)">sympy</span>
+      <div class="t">Checks the maths</div><div class="s">Real arithmetic, every answer and step. Unsure? It goes to the teacher.</div>
+      <div class="demo mono"><span class="fade" data-at="3.0">100+40+2 = <b class="good">142</b> <b class="bad pop" data-at="3.4">≠ 100402</b></span></div>
+    </div>
+    <div class="col card fade-up" data-at="3.4" style="border-color: rgba(210,22,31,.45)">
+      <span class="chip meta">Muse Spark ×2 · Wonder</span>
+      <div class="t">Red pen + why</div><div class="s">Two independent diagnoses; Muse Wonder breaks ties. A hint, never the answer.</div>
+      <div class="demo"><span class="why fade" data-at="4.0">"add, don't join!"</span></div>
+    </div>
+  </div>
+</body></html>

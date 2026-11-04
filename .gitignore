@@ -6,3 +6,6 @@ node_modules/
 dist/
 data/raw/
 data/runtime/
+video/out/
+video/frames/
+video/.venv/

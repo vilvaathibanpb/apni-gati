@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
+<style>
+  .logo { position: absolute; left: 0; right: 0; top: 120px; text-align: center; }
+  .logo .name { font-family: "Caveat"; font-weight: 700; font-size: 170px; line-height: 1; }
+  .logo .name .a { color: var(--pen); } .logo .name .b { color: var(--ink); }
+  .logo svg { width: 120px; height: 120px; vertical-align: -18px; margin-right: 18px; }
+  .tag { font-size: 40px; color: var(--ink2); margin-top: 18px; }
+  .tag b { font-family: "Noto Sans Devanagari"; font-weight: 600; color: var(--ink); }
+  .row { position: absolute; left: 110px; right: 110px; top: 560px; display: flex; align-items: stretch; justify-content: space-between; }
+  .step { width: 250px; padding: 30px 24px; text-align: center; }
+  .step .n { width: 54px; height: 54px; margin: 0 auto 16px; border-radius: 50%; background: var(--pensoft); color: var(--pen); font-weight: 800; font-size: 28px; display: flex; align-items: center; justify-content: center; }
+  .step .t { font-size: 29px; font-weight: 700; line-height: 1.2; }
+  .step .s { font-size: 22px; color: var(--ink2); margin-top: 10px; line-height: 1.35; }
+  .arrow { align-self: center; width: 46px; }
+  .loopback { position: absolute; left: 0; top: 0; }
+  .once { position: absolute; left: 110px; top: 905px; font-family: "Caveat"; font-size: 46px; color: var(--ink2); }
+  .daily { position: absolute; left: 520px; right: 110px; top: 905px; text-align: center; font-family: "Caveat"; font-size: 46px; color: var(--pen); }
+</style></head>
+<body class="ruled">
+  <div class="logo">
+    <div class="name fade-up" data-at="0.2">
+      <svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="10" fill="white" stroke="#e6dfcf"/>
+        <path class="draw" style="--len:40; animation-delay:.6s" d="M9 21 l7 8 L31 11" fill="none" stroke="#d2161f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="a">Apni</span> <span class="b">Gati</span>
+    </div>
+    <div class="tag fade-up" data-at="1.0"><b>अपनी गति</b> · your own pace</div>
+  </div>
+  <div class="row">
+    <div class="step card fade-up" data-at="2.4"><div class="n">1</div><div class="t">Teach once</div><div class="s">Children + syllabus, entered one time</div></div>
+    <svg class="arrow fade" data-at="2.9" viewBox="0 0 46 24"><path d="M2 12h38m-10-9 10 9-10 9" fill="none" stroke="#8089a3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="step card fade-up" data-at="3.1"><div class="n">2</div><div class="t">Each child's knowledge graph</div><div class="s">What they know, where the gaps are</div></div>
+    <svg class="arrow fade" data-at="3.6" viewBox="0 0 46 24"><path d="M2 12h38m-10-9 10 9-10 9" fill="none" stroke="#8089a3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="step card fade-up" data-at="3.8"><div class="n">3</div><div class="t">Their own homework</div><div class="s">Harder, or gentler and more, in their language</div></div>
+    <svg class="arrow fade" data-at="4.3" viewBox="0 0 46 24"><path d="M2 12h38m-10-9 10 9-10 9" fill="none" stroke="#8089a3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="step card fade-up" data-at="4.5"><div class="n">4</div><div class="t">Photo from home</div><div class="s">Done in the notebook, sent from the family phone</div></div>
+    <svg class="arrow fade" data-at="5.0" viewBox="0 0 46 24"><path d="M2 12h38m-10-9 10 9-10 9" fill="none" stroke="#8089a3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="step card fade-up" data-at="5.2" style="border-color: rgba(210,22,31,.45)"><div class="n" style="background:var(--pen);color:white">5</div><div class="t">Red pen + why</div><div class="s">Checked, explained, progress updated</div></div>
+  </div>
+  <svg class="loopback" width="1920" height="1080" viewBox="0 0 1920 1080">
+    <path class="draw" style="--len:1500; animation-delay:5.9s; animation-duration:1.4s" d="M1690 862 C 1690 930, 1600 950, 1450 950 L 640 950 C 520 950, 500 930, 500 862"
+      fill="none" stroke="#d2161f" stroke-width="4" stroke-dasharray="1500" stroke-linecap="round"/>
+    <path class="fade" data-at="7.2" d="M486 876 L500 856 L514 876" fill="none" stroke="#d2161f" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="once fade" data-at="2.6">once</div>
+  <div class="daily fade" data-at="7.0">every evening, the next sheet adapts</div>
+</body></html>
