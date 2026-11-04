@@ -1,0 +1,14 @@
+{
+  "_note": "Original passages written for Apni Gati, modelled on the ASER reading-tool levels (letters, words, Std 1 paragraph, Std 2 story). Free to reuse.",
+  "passages": [
+    {"id": "hi_words", "language": "Hindi", "level": "words", "text": "घर नल बस कमल आम पेड़ किताब दूध फल सड़क"},
+    {"id": "hi_paragraph", "language": "Hindi", "level": "paragraph", "text": "मेरा नाम राजू है। मेरे घर में एक गाय है। गाय का रंग सफ़ेद है। वह हरी घास खाती है।"},
+    {"id": "hi_story", "language": "Hindi", "level": "story", "text": "सीमा के गाँव में एक बड़ा पेड़ था। गर्मी के दिनों में सब बच्चे पेड़ के नीचे खेलते थे। एक दिन तेज़ आँधी आई। पेड़ की एक डाल टूट गई। बच्चे बहुत उदास हो गए। सीमा ने कहा, चलो हम नया पेड़ लगाते हैं। सबने मिलकर एक छोटा पौधा लगाया। अब सब बच्चे रोज़ उसे पानी देते हैं।"},
+    {"id": "ta_words", "language": "Tamil", "level": "words", "text": "பால் மரம் வீடு பூ கண் மழை பசு நாய் கல் படம்"},
+    {"id": "ta_paragraph", "language": "Tamil", "level": "paragraph", "text": "என் பெயர் கவின். என் வீட்டில் ஒரு பூனை உள்ளது. அது பால் குடிக்கும். அது என்னுடன் விளையாடும்."},
+    {"id": "ta_story", "language": "Tamil", "level": "story", "text": "மீனா தினமும் பள்ளிக்கு நடந்து செல்வாள். வழியில் ஒரு சிறிய குளம் இருக்கிறது. ஒரு நாள் குளத்தில் ஒரு வாத்துக் குஞ்சு தனியாக இருந்தது. அது அம்மாவைத் தேடி அழுதது. மீனா அதைப் பார்த்து நின்றாள். சிறிது நேரத்தில் அம்மா வாத்து வந்தது. குஞ்சு மகிழ்ச்சியுடன் அம்மாவிடம் ஓடியது. மீனா சிரித்துக்கொண்டே பள்ளிக்குச் சென்றாள்."},
+    {"id": "en_words", "language": "English", "level": "words", "text": "cat sun book tree milk ball rain fish door bag"},
+    {"id": "en_paragraph", "language": "English", "level": "paragraph", "text": "My name is Ravi. I have a red ball. I play with my friend. We play in the park."},
+    {"id": "en_story", "language": "English", "level": "story", "text": "Asha lives near a big river. Every morning she goes to the river with her grandfather. He catches fish in a small boat. One day the boat had a hole. Water came inside and Asha was scared. Grandfather smiled and closed the hole with mud and grass. They came back home safely. That night Asha told her friends about the brave boat."}
+  ]
+}

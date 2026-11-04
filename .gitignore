@@ -1,0 +1,8 @@
+.env
+*.env
+.venv/
+__pycache__/
+node_modules/
+dist/
+data/raw/
+data/runtime/

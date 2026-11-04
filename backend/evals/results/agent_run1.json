@@ -1,0 +1,181 @@
+{
+ "agent": {
+  "exact": 3,
+  "within_1_hop": 4,
+  "n": 10,
+  "gap_in_chain": 5
+ },
+ "baseline_knowledge_tracing": {
+  "exact": 6,
+  "within_1_hop": 8,
+  "n": 10
+ },
+ "cost_usd": 7.435,
+ "median_seconds": 107,
+ "rows": [
+  {
+   "student": "st_sim2_11",
+   "hidden_gap": "place_value_3_digit",
+   "agent_root": null,
+   "agent_confidence": null,
+   "agent_chain": [],
+   "agent_hops": null,
+   "gap_in_agent_chain": false,
+   "baseline_frontier": "place_value_3_digit",
+   "baseline_hops": 0,
+   "tool_calls": "error: Root-cause agent did not submit a diagnosis",
+   "seconds": 147,
+   "cost": 1.2312
+  },
+  {
+   "student": "st_sim3_5",
+   "hidden_gap": "division_grouping",
+   "agent_root": null,
+   "agent_confidence": null,
+   "agent_chain": [],
+   "agent_hops": null,
+   "gap_in_agent_chain": false,
+   "baseline_frontier": "division_grouping",
+   "baseline_hops": 0,
+   "tool_calls": "error: 'question'",
+   "seconds": 116,
+   "cost": 1.0019
+  },
+  {
+   "student": "st_sim2_19",
+   "hidden_gap": "subtraction_no_borrow",
+   "agent_root": null,
+   "agent_confidence": null,
+   "agent_chain": [],
+   "agent_hops": null,
+   "gap_in_agent_chain": false,
+   "baseline_frontier": "subtraction_with_borrow",
+   "baseline_hops": 1,
+   "tool_calls": "error: Error code: 400 - referenced response not found or expired",
+   "seconds": 44,
+   "cost": 0.2874
+  },
+  {
+   "student": "st_sim3_4",
+   "hidden_gap": "multiplication_equal_groups",
+   "agent_root": "multiplication_equal_groups",
+   "agent_confidence": 0.75,
+   "agent_chain": [
+    "long_division",
+    "division_with_remainder",
+    "division_facts_inverse",
+    "multiplication_tables",
+    "multiplication_equal_groups"
+   ],
+   "agent_hops": 0,
+   "gap_in_agent_chain": true,
+   "baseline_frontier": "multiplication_equal_groups",
+   "baseline_hops": 0,
+   "tool_calls": 26,
+   "seconds": 87,
+   "cost": 0.7358
+  },
+  {
+   "student": "st_sim3_15",
+   "hidden_gap": "division_grouping",
+   "agent_root": "division_sharing",
+   "agent_confidence": 0.72,
+   "agent_chain": [
+    "division_grouping",
+    "division_sharing"
+   ],
+   "agent_hops": 1,
+   "gap_in_agent_chain": true,
+   "baseline_frontier": "division_sharing",
+   "baseline_hops": 1,
+   "tool_calls": 17,
+   "seconds": 110,
+   "cost": 1.0492
+  },
+  {
+   "student": "st_sim2_12",
+   "hidden_gap": "addition_no_carry",
+   "agent_root": "grouping_in_tens",
+   "agent_confidence": 0.68,
+   "agent_chain": [
+    "addition_with_carry",
+    "addition_no_carry",
+    "place_value_2_digit",
+    "grouping_in_tens"
+   ],
+   "agent_hops": 2,
+   "gap_in_agent_chain": true,
+   "baseline_frontier": "grouping_in_tens",
+   "baseline_hops": 2,
+   "tool_calls": 20,
+   "seconds": 111,
+   "cost": 0.9702
+  },
+  {
+   "student": "st_sim3_8",
+   "hidden_gap": "comparing_ordering_numbers",
+   "agent_root": "grouping_in_tens",
+   "agent_confidence": 0.75,
+   "agent_chain": [
+    "multiplication_by_tens_hundreds",
+    "place_value_2_digit",
+    "grouping_in_tens"
+   ],
+   "agent_hops": 3,
+   "gap_in_agent_chain": false,
+   "baseline_frontier": "grouping_in_tens",
+   "baseline_hops": 3,
+   "tool_calls": 16,
+   "seconds": 91,
+   "cost": 0.7325
+  },
+  {
+   "student": "st_sim2_15",
+   "hidden_gap": "place_value_3_digit",
+   "agent_root": null,
+   "agent_confidence": null,
+   "agent_chain": [],
+   "agent_hops": null,
+   "gap_in_agent_chain": false,
+   "baseline_frontier": "place_value_3_digit",
+   "baseline_hops": 0,
+   "tool_calls": "error: Error code: 400 - referenced response not found or expired",
+   "seconds": 21,
+   "cost": 0.2059
+  },
+  {
+   "student": "st_sim2_4",
+   "hidden_gap": "subtraction_no_borrow",
+   "agent_root": "subtraction_no_borrow",
+   "agent_confidence": 0.68,
+   "agent_chain": [
+    "subtraction_borrow_across_zero",
+    "subtraction_with_borrow",
+    "subtraction_no_borrow"
+   ],
+   "agent_hops": 0,
+   "gap_in_agent_chain": true,
+   "baseline_frontier": "subtraction_no_borrow",
+   "baseline_hops": 0,
+   "tool_calls": 24,
+   "seconds": 107,
+   "cost": 0.6889
+  },
+  {
+   "student": "st_sim0_9",
+   "hidden_gap": "subtraction_with_borrow",
+   "agent_root": "subtraction_with_borrow",
+   "agent_confidence": 0.72,
+   "agent_chain": [
+    "subtraction_with_borrow"
+   ],
+   "agent_hops": 0,
+   "gap_in_agent_chain": true,
+   "baseline_frontier": "subtraction_with_borrow",
+   "baseline_hops": 0,
+   "tool_calls": 18,
+   "seconds": 75,
+   "cost": 0.5316
+  }
+ ]
+}

@@ -1,0 +1,148 @@
+{
+ "by_language": {
+  "English": {
+   "planted_errors_caught": "3/3",
+   "false_alarms_on_clean_reads": "0/81 words",
+   "false_alarms_on_error_reads": 0
+  },
+  "Hindi": {
+   "planted_errors_caught": "3/3",
+   "false_alarms_on_clean_reads": "0/78 words",
+   "false_alarms_on_error_reads": 0
+  },
+  "Tamil": {
+   "planted_errors_caught": "3/3",
+   "false_alarms_on_clean_reads": "2/53 words",
+   "false_alarms_on_error_reads": 0
+  }
+ },
+ "rows": [
+  {
+   "passage": "en_paragraph",
+   "language": "English",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 19,
+   "accuracy": 1.0,
+   "level": "paragraph",
+   "transcript": "my name is Ravi. I have a red ball. I play with my friend. We play in the park..."
+  },
+  {
+   "passage": "en_story",
+   "language": "English",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 62,
+   "accuracy": 1.0,
+   "level": "story",
+   "transcript": "Asha lives near a big river. Every morning she she goes to the river with her grandfather. He catches fish in a small boat. One day the boat had a had a hole. Water came inside and Asha was scared. Grandfather smiled and closed the hole with mud and grass. They came back home safely. That That night Asha told her friends about the brave boat."
+  },
+  {
+   "passage": "en_paragraph",
+   "language": "English",
+   "clean": false,
+   "planted": 3,
+   "caught": 3,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 19,
+   "accuracy": 0.842,
+   "level": "paragraph",
+   "transcript": "my name is Ravi. I have a bell. I play with my friend. We play on the park.."
+  },
+  {
+   "passage": "hi_paragraph",
+   "language": "Hindi",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 20,
+   "accuracy": 1.0,
+   "level": "paragraph",
+   "transcript": "मेरा नाम राजू है। मेरे घर में एक गाय है। गाय का रंग सफेद है। वह हरी घास खाती है।।"
+  },
+  {
+   "passage": "hi_story",
+   "language": "Hindi",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 58,
+   "accuracy": 1.0,
+   "level": "story",
+   "transcript": "सीमा के गाँव में एक बड़ा पेड़ था, गर्मी के दिनों में सब बच्चे पेड़ के नीचे खेलते थे। एक दिन तेज आंधी आई, पेड़ की एक की एक डाल टूट गई, बच्चे बहुत उदास हो गए, सीमा ने कहा, चलो हम नया पेड़ पेड़ लगाते हैं, सबने मिलकर एक छोटा पौधा लगाया, अब सब बच्चे रोज उसे पानी पानी देते हैं।"
+  },
+  {
+   "passage": "hi_paragraph",
+   "language": "Hindi",
+   "clean": false,
+   "planted": 3,
+   "caught": 3,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 20,
+   "accuracy": 0.85,
+   "level": "paragraph",
+   "transcript": "मेरा नाम राजा है। मेरे घर में गाय है। है, गाय का रंग सफेद है, वह हरी घास खाता है।"
+  },
+  {
+   "passage": "ta_paragraph",
+   "language": "Tamil",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 1,
+   "false_alarm_words": [
+    [
+     "பால்",
+     "போல்"
+    ]
+   ],
+   "words": 14,
+   "accuracy": 0.929,
+   "level": "paragraph",
+   "transcript": "என் பெயர் கவின் என் வீட்டில் ஒரு பூனை உள்ளது அது போல் குடிக்கும் அது என்னுடன் விளையாடும்.."
+  },
+  {
+   "passage": "ta_story",
+   "language": "Tamil",
+   "clean": true,
+   "planted": 0,
+   "caught": 0,
+   "false_alarms": 1,
+   "false_alarm_words": [
+    [
+     "தினமும்",
+     "தினன்"
+    ]
+   ],
+   "words": 39,
+   "accuracy": 0.974,
+   "level": "story",
+   "transcript": " மீனா தினன் மும் பள்ளிக்கு நடந்து செல்வாள் வழியில் ஒரு ஒரு சிறிய குளம் இருக்கிறது ஒரு நாள் குளத்தில் ஒரு வாத்து குஞ்சு தனியாக இருந்தது அது அம்மாவைத் தேடி அழுதது மீனா அதைப் பார்த்து நின்றாள் சிறிது நேரத்தில் அம்மா வாத்து வந்தது குஞ்சு மகிழ்ச்சியுடன் அம்மாவிடம் ஓடியது மீனா சிரித்துக்கொண்டே பள்ளிக்குச் சென்றாள்.."
+  },
+  {
+   "passage": "ta_paragraph",
+   "language": "Tamil",
+   "clean": false,
+   "planted": 3,
+   "caught": 3,
+   "false_alarms": 0,
+   "false_alarm_words": [],
+   "words": 14,
+   "accuracy": 0.786,
+   "level": "paragraph",
+   "transcript": "என் பெயர் கவின், என் வீட்டில் பூனை உள்ளது, அது பழம் குடிக்கும், அது என்னுடன் ஓடும்.."
+  }
+ ]
+}

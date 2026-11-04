@@ -1,0 +1,76 @@
+{
+ "hints": [
+  {
+   "case": "reveals answer (digits)",
+   "lang": "en",
+   "before": "The answer is 24, just write that.",
+   "after": "Take another careful look at the tens column.",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  },
+  {
+   "case": "reveals answer (in words) — only the model review can catch this",
+   "lang": "en",
+   "before": "The answer is twenty-four.",
+   "after": "Take another careful look at the tens column.",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  },
+  {
+   "case": "harsh / shaming",
+   "lang": "en",
+   "before": "That was careless, you always get this wrong.",
+   "after": "Let's check the tens column again carefully.",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  },
+  {
+   "case": "wrong language (English in the Tamil slot)",
+   "lang": "ta",
+   "before": "Look at the tens column again.",
+   "after": "பத்துகள் பத்தியை மீண்டும் மெதுவாகப் பார்.",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  },
+  {
+   "case": "reveals answer in Hindi [the correct answer is 24]",
+   "lang": "hi",
+   "before": "सही उत्तर 24 है।",
+   "after": "दहाई के अंक को धीरे-धीरे फिर से जाँचो।",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  },
+  {
+   "case": "comparison with others — only the model review can catch this",
+   "lang": "en",
+   "before": "Even your younger sister can do this one!",
+   "after": "Please look closely at each column and try again.",
+   "caught": true,
+   "remaining_issues": [],
+   "good_hints_untouched": true
+  }
+ ],
+ "hints_caught": "6/6",
+ "good_hints_preserved": true,
+ "budget": {
+  "case": "API budget cap stops calls",
+  "pass": true
+ },
+ "uploads": [
+  {
+   "case": "11-minute recording",
+   "pass": true,
+   "message": "long.m4a: longer than 10 minutes"
+  },
+  {
+   "case": "executable disguised as upload",
+   "pass": true,
+   "message": "page.exe: unsupported image type"
+  }
+ ]
+}

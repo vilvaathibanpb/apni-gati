@@ -1,0 +1,1117 @@
+{
+  "nodes": [
+    {
+      "description": "Count in sequence, read and write number names and numerals to 100, and continue a count from any starting number.",
+      "grade": 1,
+      "id": "counting_number_names",
+      "misconceptions": [
+        {
+          "description": "Skips a number while reciting the sequence.",
+          "example_right": "Count on: 47, 48, 49, 50, 51",
+          "example_wrong": "Count on: 47, 48, 50, 51",
+          "id": "skips_number_in_counting_sequence",
+          "name": "Skips a number in the sequence",
+          "root_concept_id": "counting_number_names"
+        },
+        {
+          "description": "Reverses the digits when writing a two-digit number name.",
+          "example_right": "forty-two = 42",
+          "example_wrong": "forty-two = 24",
+          "id": "number_name_digits_reversed",
+          "name": "Digits reversed in number names",
+          "root_concept_id": "counting_number_names"
+        }
+      ],
+      "name": "Counting and number names to 100",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 8 Fun with Numbers; Class 2, Ch. 3 Fun with Numbers",
+      "prereqs": [],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Bundle ten ones as one ten, exchange between tens and ones, and describe a number as tens plus ones.",
+      "grade": 1,
+      "id": "grouping_in_tens",
+      "misconceptions": [
+        {
+          "description": "Thinks one ten contains a number of ones other than ten.",
+          "example_right": "1 ten = 10 ones",
+          "example_wrong": "1 ten = 20 ones",
+          "id": "ten_made_of_wrong_number_of_ones",
+          "name": "One ten is not ten ones",
+          "root_concept_id": "grouping_in_tens"
+        },
+        {
+          "description": "Swaps the numbers of tens and ones in a two-digit number.",
+          "example_right": "34 = 3 tens and 4 ones",
+          "example_wrong": "34 = 4 tens and 3 ones",
+          "id": "tens_and_ones_swapped_when_grouping",
+          "name": "Tens and ones swapped",
+          "root_concept_id": "grouping_in_tens"
+        }
+      ],
+      "name": "Grouping in tens and ones",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 8 Fun with Numbers; Class 2, Ch. 3 Fun with Numbers",
+      "prereqs": [
+        "counting_number_names"
+      ],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Distinguish face value from place value in a two-digit number and write it in expanded form.",
+      "grade": 1,
+      "id": "place_value_2_digit",
+      "misconceptions": [
+        {
+          "description": "Treats a digit as worth only its face value regardless of position.",
+          "example_right": "In 42, the 4 is worth 40; 42 = 40 + 2",
+          "example_wrong": "In 42, the 4 is worth 4; 42 = 4 + 2",
+          "id": "digit_treated_as_face_value_2_digit",
+          "name": "Digit equals face value",
+          "root_concept_id": "grouping_in_tens"
+        },
+        {
+          "description": "Joins the parts of an expanded form instead of adding them.",
+          "example_right": "40 + 2 = 42",
+          "example_wrong": "40 + 2 = 402",
+          "id": "expanded_form_parts_concatenated_2_digit",
+          "name": "Expanded form concatenated",
+          "root_concept_id": "grouping_in_tens"
+        }
+      ],
+      "name": "Place value in two-digit numbers",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 8 Fun with Numbers (21-99); Class 2, Ch. 3 Fun with Numbers",
+      "prereqs": [
+        "grouping_in_tens"
+      ],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Read, write and expand three-digit numbers, including zero as a placeholder in the tens or units place.",
+      "grade": 3,
+      "id": "place_value_3_digit",
+      "misconceptions": [
+        {
+          "description": "Inserts an extra zero instead of using zero as a single placeholder.",
+          "example_right": "three hundred five = 305",
+          "example_wrong": "three hundred five = 3005",
+          "id": "zero_placeholder_written_as_extra_digits",
+          "name": "Zero placeholder ignored",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Gives the hundreds digit only its face value in expanded form.",
+          "example_right": "342 = 300 + 40 + 2",
+          "example_wrong": "342 = 3 + 40 + 2 = 45",
+          "id": "hundreds_digit_treated_as_face_value",
+          "name": "Hundreds digit equals face value",
+          "root_concept_id": "place_value_3_digit"
+        }
+      ],
+      "name": "Place value in three-digit numbers",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 3 Double Century and Ch. 6/9 House of Hundreds I-II",
+      "prereqs": [
+        "place_value_2_digit"
+      ],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Read, write, expand and group numbers into thousands using Indian-system commas.",
+      "grade": 4,
+      "id": "place_value_thousands",
+      "misconceptions": [
+        {
+          "description": "Uses international three-digit comma grouping throughout instead of the Indian 3-2-2 pattern.",
+          "example_right": "123456 in Indian grouping = 1,23,456",
+          "example_wrong": "123456 in Indian grouping = 123,456",
+          "id": "indian_comma_grouping_not_used",
+          "name": "Wrong comma grouping",
+          "root_concept_id": "place_value_thousands"
+        },
+        {
+          "description": "Concatenates place-value parts of a large number instead of adding them.",
+          "example_right": "4000 + 300 + 5 = 4305",
+          "example_wrong": "4000 + 300 + 5 = 40003005",
+          "id": "expanded_form_parts_concatenated_large",
+          "name": "Large expanded form concatenated",
+          "root_concept_id": "place_value_3_digit"
+        }
+      ],
+      "name": "Thousands and Indian number grouping",
+      "ncert_ref": "Maths Mela (Class 4), Ch. 4 Thousands Around Us; revisited in Ganita Prakash (Class 6), Ch. 3 Number Play",
+      "prereqs": [
+        "place_value_3_digit"
+      ],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Compare and order whole numbers by the highest place value first, then the next place.",
+      "grade": 3,
+      "id": "comparing_ordering_numbers",
+      "misconceptions": [
+        {
+          "description": "Compares the units digits before comparing tens or hundreds.",
+          "example_right": "68 < 71 because 6 tens < 7 tens",
+          "example_wrong": "68 > 71 because 8 > 1",
+          "id": "compares_units_before_higher_place",
+          "name": "Compares units first",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Writes a descending sequence when ascending order is requested.",
+          "example_right": "Ascending: 39, 45, 52",
+          "example_wrong": "Ascending: 52, 45, 39",
+          "id": "ascending_descending_order_confused",
+          "name": "Ascending and descending confused",
+          "root_concept_id": "comparing_ordering_numbers"
+        }
+      ],
+      "name": "Comparing and ordering whole numbers",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 3 Double Century",
+      "prereqs": [
+        "place_value_3_digit"
+      ],
+      "sources": [],
+      "strand": "place_value"
+    },
+    {
+      "description": "Understand addition as joining and counting on from the larger number instead of recounting both sets from one.",
+      "grade": 1,
+      "id": "addition_count_on",
+      "misconceptions": [
+        {
+          "description": "Includes the starting number as the first step when counting on.",
+          "example_right": "8 + 3 = 11 (count 9, 10, 11)",
+          "example_wrong": "8 + 3 = 10 (count 8, 9, 10)",
+          "id": "count_on_includes_starting_number",
+          "name": "Counts the starting number",
+          "root_concept_id": "counting_number_names"
+        },
+        {
+          "description": "Counts on too few steps and stops early.",
+          "example_right": "28 + 5 = 33 (29, 30, 31, 32, 33)",
+          "example_wrong": "28 + 5 = 32 (29, 30, 31, 32)",
+          "id": "count_on_stops_one_step_early",
+          "name": "Stops counting on early",
+          "root_concept_id": "addition_count_on"
+        }
+      ],
+      "name": "Addition as counting on",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 5 How Many? and Ch. 6 Vegetable Farm",
+      "prereqs": [
+        "counting_number_names"
+      ],
+      "sources": [],
+      "strand": "addition"
+    },
+    {
+      "description": "Recall complements and number bonds to 10 and 20 and use them for quick mental addition and subtraction.",
+      "grade": 1,
+      "id": "number_bonds_to_20",
+      "misconceptions": [
+        {
+          "description": "Gives a pair that does not make ten as a bond to ten.",
+          "example_right": "7 + 3 = 10, so 7 + 4 = 11",
+          "example_wrong": "7 + 4 = 10",
+          "id": "bond_to_ten_pair_wrong",
+          "name": "Wrong bond to ten",
+          "root_concept_id": "number_bonds_to_20"
+        },
+        {
+          "description": "Repeats one addend as the missing complement.",
+          "example_right": "10 - 6 = 4",
+          "example_wrong": "10 - 6 = 6",
+          "id": "complement_to_ten_repeats_number",
+          "name": "Complement repeats the number",
+          "root_concept_id": "number_bonds_to_20"
+        }
+      ],
+      "name": "Number bonds to 10 and 20",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 5 How Many? and Ch. 6 Vegetable Farm (addition/subtraction to 20)",
+      "prereqs": [
+        "addition_count_on"
+      ],
+      "sources": [],
+      "strand": "addition"
+    },
+    {
+      "description": "Add two-digit numbers in columns without regrouping, keeping units under units and tens under tens.",
+      "grade": 2,
+      "id": "addition_no_carry",
+      "misconceptions": [
+        {
+          "description": "Adds a one-digit number to the tens digit instead of the units digit.",
+          "example_right": "34 + 5 = 39",
+          "example_wrong": "34 + 5 = 84",
+          "id": "addition_aligned_to_tens_digit",
+          "name": "Misaligned addition",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Adds every digit as if all were units and writes a single total.",
+          "example_right": "23 + 14 = 37",
+          "example_wrong": "23 + 14 = 10 (2 + 3 + 1 + 4)",
+          "id": "addition_adds_all_digits_as_units",
+          "name": "Adds all digits together",
+          "root_concept_id": "place_value_2_digit"
+        }
+      ],
+      "name": "Addition without carry",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 6 Decoration for Festival (addition to 100)",
+      "prereqs": [
+        "place_value_2_digit",
+        "number_bonds_to_20"
+      ],
+      "sources": [],
+      "strand": "addition"
+    },
+    {
+      "description": "Add two- and three-digit numbers with regrouping, carrying ten units as one ten (and ten tens as one hundred).",
+      "grade": 2,
+      "id": "addition_with_carry",
+      "misconceptions": [
+        {
+          "description": "Writes the units result but never carries the ten.",
+          "example_right": "47 + 38 = 85",
+          "example_wrong": "47 + 38 = 75",
+          "id": "addition_carry_dropped",
+          "name": "Carry dropped",
+          "root_concept_id": "addition_with_carry"
+        },
+        {
+          "description": "Writes the carried ten as an extra digit in the answer.",
+          "example_right": "47 + 38 = 85",
+          "example_wrong": "47 + 38 = 715",
+          "id": "addition_carry_written_as_answer_digit",
+          "name": "Carry written as a digit",
+          "root_concept_id": "grouping_in_tens"
+        }
+      ],
+      "name": "Addition with carry",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 6 Decoration for Festival; extended in Maths Mela (Class 3), Ch. 12 Give and Take",
+      "prereqs": [
+        "addition_no_carry"
+      ],
+      "sources": [],
+      "strand": "addition"
+    },
+    {
+      "description": "Understand subtraction as taking away and as difference, and count back accurately from the starting number.",
+      "grade": 1,
+      "id": "subtraction_count_back",
+      "misconceptions": [
+        {
+          "description": "Includes the starting number as the first step when counting back.",
+          "example_right": "12 - 3 = 9 (count back 11, 10, 9)",
+          "example_wrong": "12 - 3 = 10 (count back 12, 11, 10)",
+          "id": "count_back_includes_starting_number",
+          "name": "Counts the starting number when counting back",
+          "root_concept_id": "counting_number_names"
+        },
+        {
+          "description": "Adds the two numbers when a take-away subtraction is required.",
+          "example_right": "9 - 4 = 5",
+          "example_wrong": "9 - 4 = 13",
+          "id": "subtraction_worked_as_addition",
+          "name": "Subtracts by adding",
+          "root_concept_id": "subtraction_count_back"
+        }
+      ],
+      "name": "Subtraction as take-away and counting back",
+      "ncert_ref": "Joyful Mathematics (Class 1), Ch. 5 How Many? and Ch. 6 Vegetable Farm",
+      "prereqs": [
+        "counting_number_names"
+      ],
+      "sources": [],
+      "strand": "subtraction"
+    },
+    {
+      "description": "Subtract two-digit numbers in columns without borrowing, keeping place values aligned.",
+      "grade": 2,
+      "id": "subtraction_no_borrow",
+      "misconceptions": [
+        {
+          "description": "Subtracts a one-digit number from the tens digit instead of the units digit.",
+          "example_right": "56 - 4 = 52",
+          "example_wrong": "56 - 4 = 16",
+          "id": "subtraction_aligned_to_tens_digit",
+          "name": "Misaligned subtraction",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Subtracts the units but adds the tens in a column subtraction.",
+          "example_right": "38 - 12 = 26",
+          "example_wrong": "38 - 12 = 46 (8 - 2 = 6, 3 + 1 = 4)",
+          "id": "subtraction_adds_tens_column",
+          "name": "Adds the tens column",
+          "root_concept_id": "subtraction_no_borrow"
+        }
+      ],
+      "name": "Subtraction without borrow",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 6 Decoration for Festival",
+      "prereqs": [
+        "subtraction_count_back",
+        "place_value_2_digit"
+      ],
+      "sources": [],
+      "strand": "subtraction"
+    },
+    {
+      "description": "Subtract with one regrouping: exchange one ten for ten units and reduce the tens digit by one.",
+      "grade": 3,
+      "id": "subtraction_with_borrow",
+      "misconceptions": [
+        {
+          "description": "Subtracts the smaller digit from the larger in each column regardless of position.",
+          "example_right": "52 - 28 = 24",
+          "example_wrong": "52 - 28 = 36 (8 - 2 in units)",
+          "id": "smaller_from_larger_in_each_column",
+          "name": "Smaller-from-larger in each column",
+          "root_concept_id": "subtraction_with_borrow"
+        },
+        {
+          "description": "Borrows ten units but forgets to reduce the tens digit.",
+          "example_right": "52 - 28 = 24 (12 - 8 = 4, 4 - 2 = 2)",
+          "example_wrong": "52 - 28 = 34 (12 - 8 = 4, 5 - 2 = 3)",
+          "id": "borrows_without_decrementing_tens",
+          "name": "Borrows but does not decrement",
+          "root_concept_id": "grouping_in_tens"
+        }
+      ],
+      "name": "Subtraction with borrow",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 12 Give and Take",
+      "prereqs": [
+        "subtraction_no_borrow"
+      ],
+      "sources": [],
+      "strand": "subtraction"
+    },
+    {
+      "description": "Subtract across a zero by regrouping from the next non-zero place (hundreds to tens to units).",
+      "grade": 3,
+      "id": "subtraction_borrow_across_zero",
+      "misconceptions": [
+        {
+          "description": "Treats 0 minus a digit as that digit minus zero.",
+          "example_right": "50 - 23 = 27",
+          "example_wrong": "50 - 23 = 33 (0 - 3 treated as 3 - 0)",
+          "id": "zero_minus_digit_flipped",
+          "name": "Zero column flipped",
+          "root_concept_id": "subtraction_with_borrow"
+        },
+        {
+          "description": "Borrows across zero into the units but does not reduce the hundreds value correctly.",
+          "example_right": "305 - 128 = 177",
+          "example_wrong": "305 - 128 = 187",
+          "id": "borrow_across_zero_hundreds_not_reduced",
+          "name": "Hundreds not reduced after borrowing across zero",
+          "root_concept_id": "place_value_3_digit"
+        }
+      ],
+      "name": "Subtraction borrowing across zero",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 12 Give and Take",
+      "prereqs": [
+        "subtraction_with_borrow",
+        "place_value_3_digit"
+      ],
+      "sources": [],
+      "strand": "subtraction"
+    },
+    {
+      "description": "Represent multiplication as equal groups and as repeated addition of the same number.",
+      "grade": 2,
+      "id": "multiplication_equal_groups",
+      "misconceptions": [
+        {
+          "description": "Adds the two factors instead of making equal groups.",
+          "example_right": "4 x 3 = 12 (3 + 3 + 3 + 3)",
+          "example_wrong": "4 x 3 = 7",
+          "id": "multiplication_worked_as_addition_of_factors",
+          "name": "Multiplication as adding the factors",
+          "root_concept_id": "multiplication_equal_groups"
+        },
+        {
+          "description": "Uses multiplication for groups that are not equal.",
+          "example_right": "Groups of 4, 5, 6: total = 4 + 5 + 6 = 15",
+          "example_wrong": "Groups of 4, 5, 6: total = 3 x 6 = 18",
+          "id": "unequal_groups_treated_as_multiplication",
+          "name": "Unequal groups multiplied",
+          "root_concept_id": "multiplication_equal_groups"
+        }
+      ],
+      "name": "Multiplication as equal groups and repeated addition",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 8 Grouping and Sharing; Maths Mela (Class 3), Ch. 7 Raksha Bandhan",
+      "prereqs": [
+        "addition_count_on"
+      ],
+      "sources": [],
+      "strand": "multiplication"
+    },
+    {
+      "description": "Recall multiplication tables and derive a fact by repeated addition or from a neighbouring fact.",
+      "grade": 3,
+      "id": "multiplication_tables",
+      "misconceptions": [
+        {
+          "description": "Gives a neighbouring table fact instead of the exact fact.",
+          "example_right": "7 x 8 = 56",
+          "example_wrong": "7 x 8 = 54",
+          "id": "table_fact_neighbour_substituted",
+          "name": "Neighbouring table fact",
+          "root_concept_id": "multiplication_tables"
+        },
+        {
+          "description": "Adds the repeated number too few times when building a table fact.",
+          "example_right": "6 x 4 = 24 (4 + 4 + 4 + 4 + 4 + 4)",
+          "example_wrong": "6 x 4 = 20 (4 added five times)",
+          "id": "repeated_addition_one_group_missing",
+          "name": "One group missing in repeated addition",
+          "root_concept_id": "multiplication_equal_groups"
+        }
+      ],
+      "name": "Multiplication tables and facts",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 7 Raksha Bandhan",
+      "prereqs": [
+        "multiplication_equal_groups"
+      ],
+      "sources": [],
+      "strand": "multiplication"
+    },
+    {
+      "description": "Multiply by 10 and 100 by shifting place value, and multiply a multiple of ten by a one-digit number.",
+      "grade": 3,
+      "id": "multiplication_by_tens_hundreds",
+      "misconceptions": [
+        {
+          "description": "Adds extra zeros beyond the place-value shift for x10.",
+          "example_right": "34 x 10 = 340",
+          "example_wrong": "34 x 10 = 3400",
+          "id": "multiply_by_ten_adds_two_zeros",
+          "name": "Wrong number of zeros for x10",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Multiplies the tens as if they were units and loses the ten.",
+          "example_right": "30 x 4 = 120",
+          "example_wrong": "30 x 4 = 12",
+          "id": "multiplies_tens_as_units",
+          "name": "Tens multiplied as units",
+          "root_concept_id": "grouping_in_tens"
+        }
+      ],
+      "name": "Multiplying by 10, 100 and multiples of ten",
+      "ncert_ref": "Maths Mela (Class 3), Ch. 7 Raksha Bandhan; Maths Mela (Class 4), Ch. 9 Equal Groups",
+      "prereqs": [
+        "multiplication_tables",
+        "place_value_2_digit"
+      ],
+      "sources": [],
+      "strand": "multiplication"
+    },
+    {
+      "description": "Multiply multi-digit numbers using partial products, e.g. 23 x 4 and two-digit by two-digit multiplication.",
+      "grade": 4,
+      "id": "multiplication_multi_digit",
+      "misconceptions": [
+        {
+          "description": "Writes partial products side by side instead of adding their place-value values.",
+          "example_right": "23 x 4 = 80 + 12 = 92",
+          "example_wrong": "23 x 4 = 812 (2 x 4 = 8, 3 x 4 = 12)",
+          "id": "partial_products_concatenated",
+          "name": "Partial products concatenated",
+          "root_concept_id": "place_value_2_digit"
+        },
+        {
+          "description": "Misses one partial product in a two-digit by two-digit multiplication.",
+          "example_right": "34 x 12 = 340 + 68 = 408",
+          "example_wrong": "34 x 12 = 68 (only 34 x 2)",
+          "id": "partial_product_omitted_multi_digit",
+          "name": "Partial product omitted",
+          "root_concept_id": "multiplication_multi_digit"
+        }
+      ],
+      "name": "Multi-digit multiplication",
+      "ncert_ref": "Maths Mela (Class 4), Ch. 9 Equal Groups and Ch. 13 The Transport Museum",
+      "prereqs": [
+        "multiplication_tables",
+        "multiplication_by_tens_hundreds",
+        "addition_with_carry"
+      ],
+      "sources": [],
+      "strand": "multiplication"
+    },
+    {
+      "description": "Share a quantity equally between a given number of people or groups (partitive division) and state how many each gets.",
+      "grade": 2,
+      "id": "division_sharing",
+      "misconceptions": [
+        {
+          "description": "Calls shares fair even when the shares are unequal.",
+          "example_right": "12 / 3 = 4 each (shares 4, 4, 4)",
+          "example_wrong": "12 / 3 shared fairly as 5, 4, 3",
+          "id": "unequal_shares_called_fair_division",
+          "name": "Unequal shares called fair",
+          "root_concept_id": "division_sharing"
+        },
+        {
+          "description": "Stops dealing out before all objects are shared and reports the incomplete share.",
+          "example_right": "12 / 3 = 4 each, none left",
+          "example_wrong": "12 / 3 = 3 each, 3 left over",
+          "id": "sharing_stops_before_all_shared",
+          "name": "Sharing stopped early",
+          "root_concept_id": "counting_number_names"
+        }
+      ],
+      "name": "Division as fair sharing",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 8 Grouping and Sharing; Maths Mela (Class 4), Ch. 5 Sharing and Measuring",
+      "prereqs": [
+        "counting_number_names"
+      ],
+      "sources": [],
+      "strand": "division"
+    },
+    {
+      "description": "Find how many groups of a given size can be made from a quantity (measurement/grouping division), including by repeated subtraction.",
+      "grade": 2,
+      "id": "division_grouping",
+      "misconceptions": [
+        {
+          "description": "Confuses the number of groups with the size of each group.",
+          "example_right": "12 / 3 = 4 groups of 3",
+          "example_wrong": "12 / 3 = 3 groups of 12",
+          "id": "group_number_and_group_size_confused",
+          "name": "Group number and size confused",
+          "root_concept_id": "division_sharing"
+        },
+        {
+          "description": "Stops repeated subtraction while a full group can still be removed.",
+          "example_right": "20 / 5 = 4 (subtract 5 four times)",
+          "example_wrong": "20 / 5 = 3 (subtract 5 three times, 5 left)",
+          "id": "repeated_subtraction_stops_early_division",
+          "name": "Repeated subtraction stopped early",
+          "root_concept_id": "subtraction_count_back"
+        }
+      ],
+      "name": "Division as grouping",
+      "ncert_ref": "Joyful Mathematics (Class 2), Ch. 8 Grouping and Sharing",
+      "prereqs": [
+        "division_sharing"
+      ],
+      "sources": [],
+      "strand": "division"
+    },
+    {
+      "description": "Use the inverse relationship with multiplication to recall and check division facts.",
+      "grade": 4,
+      "id": "division_facts_inverse",
+      "misconceptions": [
+        {
+          "description": "Answers a division fact with the corresponding multiplication product.",
+          "example_right": "18 / 3 = 6 because 3 x 6 = 18",
+          "example_wrong": "18 / 3 = 54 (3 x 18)",
+          "id": "division_fact_answered_with_product",
+          "name": "Division answered with the product",
+          "root_concept_id": "multiplication_tables"
+        },
+        {
+          "description": "Adds dividend and divisor instead of using an inverse multiplication fact.",
+          "example_right": "24 / 6 = 4 because 6 x 4 = 24",
+          "example_wrong": "24 / 6 = 30 (24 + 6)",
+          "id": "division_fact_worked_as_addition",
+          "name": "Division fact added",
+          "root_concept_id": "division_facts_inverse"
+        }
+      ],
+      "name": "Division facts as inverse of multiplication",
+      "ncert_ref": "Maths Mela (Class 4), Ch. 9 Equal Groups and Ch. 5 Sharing and Measuring",
+      "prereqs": [
+        "multiplication_tables",
+        "division_grouping"
+      ],
+      "sources": [],
+      "strand": "division"
+    },
+    {
+      "description": "Divide with a remainder smaller than the divisor and interpret the remainder in context.",
+      "grade": 4,
+      "id": "division_with_remainder",
+      "misconceptions": [
+        {
+          "description": "Ignores what is left over and reports only the whole-number quotient.",
+          "example_right": "17 / 5 = 3 remainder 2",
+          "example_wrong": "17 / 5 = 3 (remainder ignored)",
+          "id": "remainder_dropped_in_division",
+          "name": "Remainder dropped",
+          "root_concept_id": "division_with_remainder"
+        },
+        {
+          "description": "Rounds the quotient up without a context that requires another full group.",
+          "example_right": "17 / 5 = 3 remainder 2",
+          "example_wrong": "17 / 5 = 4 (rounded up, no remainder)",
+          "id": "quotient_rounded_up_remainder_hidden",
+          "name": "Rounded up instead of remainder",
+          "root_concept_id": "division_facts_inverse"
+        },
+        {
+          "description": "Leaves a remainder that is as large as or larger than the divisor.",
+          "example_right": "23 / 5 = 4 remainder 3",
+          "example_wrong": "23 / 5 = 3 remainder 8",
+          "id": "remainder_larger_than_divisor",
+          "name": "Remainder larger than divisor",
+          "root_concept_id": "multiplication_tables"
+        }
+      ],
+      "name": "Division with remainders",
+      "ncert_ref": "Maths Mela (Class 4), Ch. 5 Sharing and Measuring; applied in Maths Mela (Class 5), Ch. 9 Coconut Farm",
+      "prereqs": [
+        "division_facts_inverse",
+        "subtraction_count_back"
+      ],
+      "sources": [],
+      "strand": "division"
+    },
+    {
+      "description": "Use written long division place by place, recording quotient digits (including zero), subtracting and bringing down.",
+      "grade": 5,
+      "id": "long_division",
+      "misconceptions": [
+        {
+          "description": "Omits a zero quotient digit needed as a placeholder.",
+          "example_right": "816 / 4 = 204",
+          "example_wrong": "816 / 4 = 24",
+          "id": "long_division_zero_quotient_digit_omitted",
+          "name": "Zero in quotient omitted",
+          "root_concept_id": "place_value_3_digit"
+        },
+        {
+          "description": "Stops after the first quotient digit and does not bring down the next digit.",
+          "example_right": "96 / 3 = 32",
+          "example_wrong": "96 / 3 = 3 (stops after the tens)",
+          "id": "long_division_stops_after_first_digit",
+          "name": "Long division stopped early",
+          "root_concept_id": "division_with_remainder"
+        }
+      ],
+      "name": "Long division",
+      "ncert_ref": "Maths Mela (Class 5), Ch. 9 Coconut Farm (division in context)",
+      "prereqs": [
+        "division_with_remainder",
+        "multiplication_multi_digit",
+        "subtraction_with_borrow"
+      ],
+      "sources": [],
+      "strand": "division"
+    },
+    {
+      "description": "Identify factors and multiples of a number and use divisibility to support division and fraction work.",
+      "grade": 6,
+      "id": "factors_multiples",
+      "misconceptions": [
+        {
+          "description": "Lists multiples when factors are requested (and vice versa).",
+          "example_right": "Factors of 12: 1, 2, 3, 4, 6, 12",
+          "example_wrong": "Factors of 12: 12, 24, 36",
+          "id": "factors_and_multiples_swapped",
+          "name": "Factors and multiples swapped",
+          "root_concept_id": "division_facts_inverse"
+        },
+        {
+          "description": "Breaks the skip-counting pattern when listing multiples.",
+          "example_right": "Multiples of 6: 6, 12, 18, 24, 30",
+          "example_wrong": "Multiples of 6: 6, 12, 18, 25, 30",
+          "id": "multiples_sequence_pattern_broken",
+          "name": "Multiples sequence broken",
+          "root_concept_id": "multiplication_tables"
+        }
+      ],
+      "name": "Factors and multiples",
+      "ncert_ref": "Ganita Prakash (Class 6), Ch. 5 Prime Time",
+      "prereqs": [
+        "multiplication_tables",
+        "division_facts_inverse"
+      ],
+      "sources": [],
+      "strand": "multiplication"
+    },
+    {
+      "description": "Recognise a fraction only when a whole is split into equal parts, and name one or more of those parts.",
+      "grade": 4,
+      "id": "fraction_equal_parts",
+      "misconceptions": [
+        {
+          "description": "Names a fraction from pieces that are not equal in size.",
+          "example_right": "1 of 3 equal pieces shaded = 1/3 of the whole",
+          "example_wrong": "1 of 3 unequal pieces shaded = 1/3 of the whole",
+          "id": "unequal_parts_counted_as_fraction",
+          "name": "Unequal parts counted as a fraction",
+          "root_concept_id": "division_sharing"
+        },
+        {
+          "description": "Shades one piece regardless of how many equal pieces the whole is split into.",
+          "example_right": "To show 1/4, shade 1 of 4 equal pieces",
+          "example_wrong": "To show 1/4, shade 1 of 5 equal pieces",
+          "id": "fraction_shaded_without_matching_equal_parts",
+          "name": "Shaded part does not match the whole split",
+          "root_concept_id": "fraction_equal_parts"
+        }
+      ],
+      "name": "Fractions as equal parts of a whole",
+      "ncert_ref": "Maths Mela (Class 4), Ch. 5 Sharing and Measuring",
+      "prereqs": [
+        "division_sharing"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Use unit fractions and the numerator/denominator: denominator = number of equal parts, numerator = parts taken.",
+      "grade": 5,
+      "id": "unit_fractions_parts_of_whole",
+      "misconceptions": [
+        {
+          "description": "Swaps the roles of numerator and denominator.",
+          "example_right": "3/4 = 3 parts taken out of 4 equal parts",
+          "example_wrong": "3/4 = 4 parts taken out of 3 equal parts",
+          "id": "numerator_denominator_roles_swapped",
+          "name": "Numerator and denominator swapped",
+          "root_concept_id": "fraction_equal_parts"
+        },
+        {
+          "description": "Thinks a unit fraction with a larger denominator is larger because the number is bigger.",
+          "example_right": "1/3 < 1/2 (thirds are smaller pieces)",
+          "example_wrong": "1/3 > 1/2 because 3 > 2",
+          "id": "larger_denominator_judged_larger_unit_fraction",
+          "name": "Larger denominator judged larger fraction",
+          "root_concept_id": "unit_fractions_parts_of_whole"
+        }
+      ],
+      "name": "Unit fractions, numerator and denominator",
+      "ncert_ref": "Maths Mela (Class 5), Ch. 2 Fractions; Ganita Prakash (Class 6), Ch. 7 Fractions",
+      "prereqs": [
+        "fraction_equal_parts"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Find a fraction of a collection by dividing the collection into equal groups and taking the required number of groups.",
+      "grade": 5,
+      "id": "fractions_of_collections",
+      "misconceptions": [
+        {
+          "description": "Reports the denominator itself as the fraction of the collection.",
+          "example_right": "1/4 of 20 = 20 / 4 = 5",
+          "example_wrong": "1/4 of 20 = 4",
+          "id": "fraction_of_collection_equals_denominator",
+          "name": "Denominator given as the answer",
+          "root_concept_id": "division_grouping"
+        },
+        {
+          "description": "Divides the collection by the numerator instead of the denominator.",
+          "example_right": "2/3 of 12 = 12 / 3 x 2 = 8",
+          "example_wrong": "2/3 of 12 = 12 / 2 = 6",
+          "id": "fraction_of_collection_divides_by_numerator",
+          "name": "Divides by the numerator",
+          "root_concept_id": "unit_fractions_parts_of_whole"
+        }
+      ],
+      "name": "Fractions of collections",
+      "ncert_ref": "Maths Mela (Class 5), Ch. 2 Fractions",
+      "prereqs": [
+        "unit_fractions_parts_of_whole",
+        "division_grouping"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Make equivalent fractions by multiplying (or dividing) numerator and denominator by the same number.",
+      "grade": 5,
+      "id": "fraction_equivalence",
+      "misconceptions": [
+        {
+          "description": "Changes only the numerator when making an equivalent fraction.",
+          "example_right": "1/2 = 2/4 (multiply top and bottom by 2)",
+          "example_wrong": "1/2 = 2/2 (multiply only the top by 2)",
+          "id": "equivalent_fraction_changes_numerator_only",
+          "name": "Only the numerator changed",
+          "root_concept_id": "multiplication_tables"
+        },
+        {
+          "description": "Adds the same number to numerator and denominator and expects the value to stay the same.",
+          "example_right": "1/2 = 2/4",
+          "example_wrong": "1/2 = 2/3 (add 1 to top and bottom)",
+          "id": "equivalent_fraction_adds_same_to_top_bottom",
+          "name": "Adds the same to top and bottom",
+          "root_concept_id": "fraction_equivalence"
+        }
+      ],
+      "name": "Equivalent fractions",
+      "ncert_ref": "Maths Mela (Class 5), Ch. 2 Fractions; Ganita Prakash (Class 6), Ch. 7 Fractions",
+      "prereqs": [
+        "unit_fractions_parts_of_whole",
+        "multiplication_tables"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Compare fractions using unit-fraction size, equivalent fractions and a common denominator.",
+      "grade": 6,
+      "id": "fraction_comparison",
+      "misconceptions": [
+        {
+          "description": "With the same numerator, judges the fraction with the larger denominator to be larger.",
+          "example_right": "2/5 < 2/3",
+          "example_wrong": "2/5 > 2/3 because 5 > 3",
+          "id": "same_numerator_larger_denominator_judged_larger",
+          "name": "Same numerator, larger denominator judged larger",
+          "root_concept_id": "unit_fractions_parts_of_whole"
+        },
+        {
+          "description": "Compares only numerators when denominators differ.",
+          "example_right": "3/8 < 1/2 because 3/8 < 4/8",
+          "example_wrong": "3/8 > 1/2 because 3 > 1",
+          "id": "compares_numerators_only_unlike_denominators",
+          "name": "Compares numerators only",
+          "root_concept_id": "fraction_equivalence"
+        }
+      ],
+      "name": "Comparing fractions",
+      "ncert_ref": "Ganita Prakash (Class 6), Ch. 7 Fractions",
+      "prereqs": [
+        "fraction_equivalence",
+        "comparing_ordering_numbers"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Add fractions with the same denominator by adding numerators and keeping the denominator.",
+      "grade": 6,
+      "id": "fraction_addition_like_denominators",
+      "misconceptions": [
+        {
+          "description": "Adds the denominators as well as the numerators for like fractions.",
+          "example_right": "2/5 + 1/5 = 3/5",
+          "example_wrong": "2/5 + 1/5 = 3/10",
+          "id": "like_fractions_denominators_added",
+          "name": "Denominators added (like fractions)",
+          "root_concept_id": "unit_fractions_parts_of_whole"
+        },
+        {
+          "description": "Refuses an answer greater than one whole when adding fractions.",
+          "example_right": "3/5 + 3/5 = 6/5 = 1 1/5",
+          "example_wrong": "3/5 + 3/5 cannot be done, it is more than a whole",
+          "id": "fraction_sum_over_one_rejected",
+          "name": "Sum over one whole rejected",
+          "root_concept_id": "fraction_equal_parts"
+        }
+      ],
+      "name": "Adding fractions with like denominators",
+      "ncert_ref": "Ganita Prakash (Class 6), Ch. 7 Fractions",
+      "prereqs": [
+        "unit_fractions_parts_of_whole",
+        "addition_count_on"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Add fractions with unlike denominators by first converting to equivalent fractions with a common denominator.",
+      "grade": 6,
+      "id": "fraction_addition_unlike_denominators",
+      "misconceptions": [
+        {
+          "description": "Adds numerators and adds denominators straight across.",
+          "example_right": "3/4 + 1/2 = 3/4 + 2/4 = 5/4",
+          "example_wrong": "3/4 + 1/2 = 4/6",
+          "id": "unlike_fractions_added_straight_across",
+          "name": "Adds numerators and denominators",
+          "root_concept_id": "fraction_equivalence"
+        },
+        {
+          "description": "Changes both fractions incorrectly instead of converting each to the common denominator.",
+          "example_right": "1/2 + 1/4 = 2/4 + 1/4 = 3/4",
+          "example_wrong": "1/2 + 1/4 = 2/4 + 2/4 = 4/4",
+          "id": "unlike_fractions_both_converted_wrongly",
+          "name": "Conversion to common denominator faulty",
+          "root_concept_id": "fraction_equivalence"
+        }
+      ],
+      "name": "Adding fractions with unlike denominators",
+      "ncert_ref": "Ganita Prakash (Class 6), Ch. 7 Fractions",
+      "prereqs": [
+        "fraction_addition_like_denominators",
+        "fraction_equivalence"
+      ],
+      "sources": [],
+      "strand": "fractions"
+    },
+    {
+      "description": "Understand tenths and hundredths as fractions (1/10, 1/100) written with a decimal point, via money and measurement.",
+      "grade": 5,
+      "id": "decimal_tenths_hundredths",
+      "misconceptions": [
+        {
+          "description": "Writes three tenths in the hundredths place.",
+          "example_right": "3 tenths = 0.3",
+          "example_wrong": "3 tenths = 0.03",
+          "id": "tenths_written_as_hundredths",
+          "name": "Tenths written as hundredths",
+          "root_concept_id": "unit_fractions_parts_of_whole"
+        },
+        {
+          "description": "Writes a hundredths fraction using only the tenths place.",
+          "example_right": "3/100 = 0.03",
+          "example_wrong": "3/100 = 0.3",
+          "id": "hundredths_fraction_written_as_tenths",
+          "name": "Hundredths written as tenths",
+          "root_concept_id": "decimal_tenths_hundredths"
+        }
+      ],
+      "name": "Decimals as tenths and hundredths",
+      "ncert_ref": "Math-Magic (Class 5, older series), Ch. 10 Tenths and Hundredths",
+      "prereqs": [
+        "unit_fractions_parts_of_whole",
+        "place_value_2_digit"
+      ],
+      "sources": [],
+      "strand": "decimals"
+    },
+    {
+      "description": "Read place value to the right of the decimal point (tenths, hundredths) and expand decimals; trailing zeros do not change value.",
+      "grade": 5,
+      "id": "decimal_place_value",
+      "misconceptions": [
+        {
+          "description": "Adds the digits after the point as whole numbers when expanding a decimal.",
+          "example_right": "2.35 = 2 + 0.3 + 0.05",
+          "example_wrong": "2.35 = 2 + 3 + 5 = 10",
+          "id": "decimal_digits_expanded_as_whole_numbers",
+          "name": "Decimal digits treated as whole numbers",
+          "root_concept_id": "decimal_place_value"
+        },
+        {
+          "description": "Thinks a trailing zero after the decimal point makes the number larger.",
+          "example_right": "0.50 = 0.5",
+          "example_wrong": "0.50 > 0.5 because 50 > 5",
+          "id": "trailing_zero_judged_to_add_value",
+          "name": "Trailing zero adds value",
+          "root_concept_id": "decimal_tenths_hundredths"
+        }
+      ],
+      "name": "Decimal place value",
+      "ncert_ref": "Math-Magic (Class 5, older series), Ch. 10 Tenths and Hundredths; Mathematics (Class 6, older series), Ch. 8 Decimals",
+      "prereqs": [
+        "decimal_tenths_hundredths",
+        "place_value_3_digit"
+      ],
+      "sources": [],
+      "strand": "decimals"
+    },
+    {
+      "description": "Convert between fractions with denominators 10/100 and decimals in both directions.",
+      "grade": 5,
+      "id": "decimal_fraction_conversion",
+      "misconceptions": [
+        {
+          "description": "Writes a hundredths fraction with the numerator in the tenths place.",
+          "example_right": "7/100 = 0.07",
+          "example_wrong": "7/100 = 0.7",
+          "id": "hundredths_converted_to_tenths_decimal",
+          "name": "Hundredths converted wrongly",
+          "root_concept_id": "decimal_place_value"
+        },
+        {
+          "description": "Uses tenths as the denominator for a two-decimal-place number.",
+          "example_right": "0.25 = 25/100",
+          "example_wrong": "0.25 = 25/10",
+          "id": "decimal_to_fraction_wrong_denominator",
+          "name": "Wrong denominator converting decimal to fraction",
+          "root_concept_id": "decimal_tenths_hundredths"
+        }
+      ],
+      "name": "Converting between fractions and decimals",
+      "ncert_ref": "Math-Magic (Class 5, older series), Ch. 10 Tenths and Hundredths",
+      "prereqs": [
+        "decimal_place_value",
+        "fraction_equivalence"
+      ],
+      "sources": [],
+      "strand": "decimals"
+    },
+    {
+      "description": "Compare and order decimals by place value from the left, padding with trailing zeros where helpful.",
+      "grade": 5,
+      "id": "decimal_comparison",
+      "misconceptions": [
+        {
+          "description": "Judges a longer decimal to be larger because it has more digits.",
+          "example_right": "0.125 < 0.9 because 0.125 < 0.900",
+          "example_wrong": "0.125 > 0.9 because 125 > 9",
+          "id": "longer_decimal_judged_larger",
+          "name": "Longer-is-larger for decimals",
+          "root_concept_id": "decimal_place_value"
+        },
+        {
+          "description": "Compares the parts after the point as unrelated whole numbers.",
+          "example_right": "0.5 > 0.25 because 0.50 > 0.25",
+          "example_wrong": "0.5 < 0.25 because 5 < 25",
+          "id": "decimal_parts_compared_as_whole_numbers",
+          "name": "Whole-number thinking on decimal parts",
+          "root_concept_id": "decimal_tenths_hundredths"
+        }
+      ],
+      "name": "Comparing and ordering decimals",
+      "ncert_ref": "Math-Magic (Class 5, older series), Ch. 10 Tenths and Hundredths; Mathematics (Class 6, older series), Ch. 8 Decimals",
+      "prereqs": [
+        "decimal_place_value",
+        "comparing_ordering_numbers"
+      ],
+      "sources": [],
+      "strand": "decimals"
+    },
+    {
+      "description": "Add decimals by aligning decimal points (tenths under tenths, hundredths under hundredths) and regrouping as with whole numbers.",
+      "grade": 6,
+      "id": "decimal_addition",
+      "misconceptions": [
+        {
+          "description": "Right-aligns decimals like whole numbers so places do not line up.",
+          "example_right": "2.5 + 1.25 = 3.75",
+          "example_wrong": "2.5 + 1.25 = 3.30 (aligned on the last digit)",
+          "id": "decimal_addition_points_not_aligned",
+          "name": "Decimal points not aligned",
+          "root_concept_id": "decimal_place_value"
+        },
+        {
+          "description": "Ignores the decimal point and adds the digits as a whole number.",
+          "example_right": "1.4 + 0.6 = 2.0",
+          "example_wrong": "1.4 + 0.6 = 20",
+          "id": "decimal_point_dropped_in_addition",
+          "name": "Decimal point dropped in addition",
+          "root_concept_id": "addition_with_carry"
+        }
+      ],
+      "name": "Decimal addition",
+      "ncert_ref": "Mathematics (Class 6, older series), Ch. 8 Decimals",
+      "prereqs": [
+        "decimal_place_value",
+        "addition_with_carry"
+      ],
+      "sources": [],
+      "strand": "decimals"
+    }
+  ],
+  "meta": {
+    "built_by": "muse-wonder-1.0 with web_search",
+    "research_notes": "Building your diagnostic concept map — I'll search NCERT's NCF-SE textbooks and misconception research to anchor each topic, class, and wrong-answer example.Found the early-year and fraction patterns; now I'll pull the exact chapter lists for Classes 2–4 and 6 to complete the progression.Class 6 has no standalone decimals chapter in the new book, so I'll verify where decimals and Class 4 topics sit in the older series.# Diagnostic Concept Map: Indian Primary Maths — Number & Operations\n\n**Context:** ASER 2024 found only 33.7% of Std III children could do subtraction and 30.7% of Std V children could do division, so diagnostics should test *sub-skills in order*, not just final answers.\n\n---\n\n## 1. Place Value\n\n**NCERT mapping:** Class 1 *Joyful Mathematics* Ch.8 *Fun with Numbers* (21–99); Class 2 *Joyful Mathematics* Ch.3 *Fun with Numbers* (1–100); Class 3 *Maths Mela* Ch.3 *Double Century*, Ch.6/9 *House of Hundreds I–II*; Class 4 *Maths Mela* Ch.4 *Thousands Around Us*; Class 6 *Ganita Prakash* Ch.3 *Number Play* (revisits place value).\n\n**Sub-skills in order:** count/sequence → group in tens → face vs. place value (2-digit) → hundreds, expanded form → thousands, Indian grouping/commas → comparing/ordering large numbers.\n\n**Misconceptions:**\n- **Digit = value:** in 342, “3” is worth 3, so 342 = 3+40+2 = *45*.\n- **Zero as placeholder ignored:** writes “three hundred five” as *3005* (documented error) or reads 305 as 35.\n- **Concatenation:** 400+30+5 written as *400305*.\n- **More digits = larger (overgeneralised later):** judges 0.125 > 0.9 because 125 > 9 (see Decimals).\n\n## 2. Addition\n\n**NCERT mapping:** Class 1 Ch.5 *How Many?* and Ch.6 *Vegetable Farm* (addition/subtraction to 20); Class 2 Ch.6 *Decoration for Festival* (to 100); Class 3 Ch.12 *Give and Take*; applied in Class 5 *Maths Mela* Ch.6 *The Dairy Farm* / Ch.9 *Coconut Farm* word problems.\n\n**Sub-skills in order:** count-on → number bonds to 10/20 → add tens → 2-digit without regrouping → with regrouping (carry) → 3-digit/column alignment → estimation.\n\n**Misconceptions:**\n- **Misalignment:** 34 + 5 = *84* (adds 5 to the tens digit).\n- **Carry dropped:** 47 + 38 = *75* (7+8=15, writes 5, never carries the 1).\n- **Carry written as digit:** 47 + 38 = *715*.\n- **Addition as counting-all:** cannot do 28+5 without recounting from 1 — flags missing number-bond fluency, not column error.\n\n## 3. Subtraction\n\n**NCERT mapping:** Same chapters as Addition (Class 1 Ch.5–6; Class 2 Ch.6; Class 3 Ch.12 *Give and Take*); extended to integers in Class 6 *Ganita Prakash* Ch.10 *The Other Side of Zero*. NCERT Grade III outcome: read/write to 999 using place value and solve 3-digit addition/subtraction with or without regrouping.\n\n**Sub-skills in order:** take-away/count-back → difference as comparison → subtract tens → no borrowing → borrowing once → borrowing across zero → inverse check with addition.\n\n**Misconceptions:**\n- **Smaller-from-larger in each column:** 52 − 28 = *36* (does 8−2 in units) — the classic documented error.\n- **Borrows but doesn’t decrement:** 52 − 28 = *34* (12−8=4, but tens still 5−2=3).\n- **Zero column flipped:** 50 − 23 = *33* (0−3 treated as 3−0).\n- **“Can’t take bigger from smaller”** blocks negative results later: 5 − 8 = *3* or “impossible”.\n\n## 4. Multiplication\n\n**NCERT mapping:** Class 2 Ch.8 *Grouping and Sharing* (repeated addition); Class 3 Ch.7 *Raksha Bandhan*; Class 4 Ch.9 *Equal Groups* and Ch.13 *The Transport Museum*; Class 6 Ch.5 *Prime Time* (factors/multiples).\n\n**Sub-skills in order:** equal groups → repeated addition → arrays/area model → tables → ×10/×100 → partial products (23×4) → 2-digit × 2-digit → factors/multiples, HCF/LCM.\n\n**Misconceptions:**\n- **Multiplication as addition:** 4 × 3 = *7*.\n- **Partial products concatenated:** 23 × 4 = *812* (2×4=8, 3×4=12 side by side).\n- **×10 = “add a zero” applied blindly:** 2.3 × 10 = *2.30*.\n- **“Multiplication always makes bigger”:** rejects 6 × ½ = 3 or 0.5 × 10 = 5 as impossible.\n\n## 5. Division\n\n**NCERT mapping:** Class 2 Ch.8 *Grouping and Sharing*; Class 4 Ch.5 *Sharing and Measuring* (equal sharing) and Ch.9 *Equal Groups*; Class 5 Ch.9 *Coconut Farm* (grouping/division in context); supported by Class 6 *Prime Time* (divisibility, HCF/LCM).\n\n**Sub-skills in order:** fair sharing → grouping (measurement division) → repeated subtraction → inverse of multiplication → division with remainder → long division → divide by 10/100, smaller ÷ larger (fraction link).\n\n**Misconceptions:**\n- **Remainder dropped/forced:** 17 ÷ 5 = *3* (ignores remainder) or *4* (rounds up unthinkingly).\n- **Dividend/divisor swapped:** 12 ÷ 3 solved as 3 ÷ 12 = *0 r 3* or “can’t be done”.\n- **“Division always makes smaller”:** 6 ÷ ½ answered *3* instead of 12.\n- **Smaller ÷ larger impossible:** 3 ÷ 6 = *0*, missing 0.5 / ½.\n\n## 6. Fractions\n\n**NCERT mapping:** Class 4 *Maths Mela* Ch.5 *Sharing and Measuring* (equal sharing); Class 5 *Maths Mela* Ch.2 *Fractions*; Class 6 *Ganita Prakash* Ch.7 *Fractions* — proper/improper/mixed, equivalence, comparison, addition/subtraction, number line.\n\n**Sub-skills in order:** equal parts of a whole → unit fractions → numerator/denominator meaning → fractions of collections → equivalence → comparing (same, then different denominators) → number line → add/subtract like, then unlike denominators.\n\n**Misconceptions:**\n- **Adds numerators and denominators:** ¾ + ½ = *4/6* (documented).\n- **Larger denominator = larger fraction:** ⅓ > ½ “because 3 > 2”.\n- **Unequal parts counted:** shades 1 of 3 *unequal* pieces and calls it ⅓ — misses the equal-parts condition built into Class 4 sharing.\n- **Same numerator, larger denominator judged larger:** ²⁄₅ > ²⁄₃.\n\n## 7. Decimals\n\n**NCERT mapping:** No standalone decimals chapter exists in the new Class 6 *Ganita Prakash* (10 chapters end with *Fractions* and *The Other Side of Zero*), so use the older series: Class 5 *Math-Magic* Ch.10 *Tenths and Hundredths* formally introduces decimals via money/measurement, and old Class 6 *Mathematics* Ch.8 *Decimals*.\n\n**Sub-skills in order:** tenths as fractions → hundredths → place-value chart right of the point → conversion fraction ↔ decimal → comparing/ordering → number line → add/subtract with aligned points → ×/÷ by 10, 100.\n\n**Misconceptions:**\n- **Longer-is-larger:** 0.125 > 0.9 “because it has more digits” — held by ~40% of Year 5 students in cited research.\n- **Whole-number thinking on parts:** 0.5 < 0.25 “because 5 < 25”.\n- **Decimal point ignored in addition:** 2.5 + 1.25 aligned right as whole numbers → *1.50* or *3.30* instead of 3.75.\n- **Trailing zero adds value:** 0.5 < 0.50 judged different numbers, or 3.0 read as “three point zero = 30”.\n\n**Diagnostic tip:** for each topic, probe the *earliest* failing sub-skill first (e.g., test zero-placeholder before borrowing-across-zero); most later “procedure” errors trace back to place-value or equal-parts gaps.",
+    "n_nodes": 36,
+    "n_misconceptions": 73
+  }
+}
