@@ -4,7 +4,7 @@
 
 **Teach once. Every child learns at their own pace, with homework that fits their capacity.**
 
-Apni Gati is an AI teaching assistant for India's single-teacher, multi-grade classrooms. The teacher enters the children (name, class, language) and the syllabus **once**. From then on, every evening one tap gives **every child a different homework sheet**, built from that child's own knowledge graph:
+Apni Gati is an AI teaching assistant built on one observation: **even in the same class, every child learns at a different pace.** A Class 5 room holds children who are still at Class 2 level next to children ready for Class 6, and they all get the same homework. The teacher enters the children (name, class, language) and the syllabus **once**. From then on, every evening one tap gives **every child a different homework sheet**, built from that child's own knowledge graph:
 
 - a child who is flying gets fewer, harder, multi-step problems on the next topics;
 - a child who is behind gets the gap concept underneath, easier questions, more of them, starting with ones they can already do.
@@ -17,9 +17,9 @@ Built for the Meta Global AI Developer Hackathon (Indie Dev track, "Build for Yo
 
 ## Why
 
-- Around half of Class 5 children in rural India can't read a Class 2 text, and many can't do Class 2 subtraction (ASER surveys). Children fall years behind the grade they sit in.
-- Over a lakh (100,000+) government schools have a single teacher handling several grades at once.
-- The fix is known: Pratham's **Teaching at the Right Level** (assess each child, group by actual level, teach the group) has strong evidence behind it. But it needs hours of one-to-one assessment that a lone teacher doesn't have.
+- **Children in the same class are at very different levels.** Around half of Class 5 children in rural India can't yet read a Class 2 text while their classmates read fluently, and the spread in maths is similar (ASER surveys). One homework for everyone is too hard for many, too easy for some, and right for only a few.
+- **Teachers can't personalise by hand.** Writing, checking and tracking a different sheet for each of 40 children every evening isn't possible, so the slowest fall further behind and the fastest are bored.
+- The fix is known: teach each child at their own level (Pratham's **Teaching at the Right Level** has strong evidence behind it). It needs per-child assessment and per-child practice, which is exactly the work Apni Gati automates. It also helps the many schools where one teacher handles several grades at once.
 
 Apni Gati does the assessment from what already exists: the children's notebooks and their voices.
 

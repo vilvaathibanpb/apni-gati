@@ -1,7 +1,7 @@
 [project]
 name = "apnigati"
 version = "0.1.0"
-description = "Apni Gati: every child learns at their own pace. Personalised homework and red-pen marking for multi-grade classrooms, built on Meta models"
+description = "Apni Gati: every child learns at their own pace. Every child in the class gets homework that fits their own level, marked in red pen, built on Meta models"
 authors = [
     { name = "Vilva Athiban P B", email = "vilvaathiban@gmail.com" }
 ]

@@ -13,10 +13,10 @@ export default function ClassList() {
     <div>
       <div className="mb-5 mt-2">
         <div className="hand text-[2.6rem] font-bold leading-[0.95] text-ink">
-          Mark 40 notebooks <span className="text-pen">before the bell.</span>
+          Forty children. <span className="text-pen">Forty different paces.</span>
         </div>
         <p className="mt-2 max-w-md text-sm text-ink-2">
-          One teacher, many grades, one room. Photograph the notebooks, see each child’s real learning level, and plan tomorrow by level — not by grade.
+          Every child in the class learns at a different pace. Give each one homework that fits, mark it in red pen, and watch each child’s progress.
         </p>
       </div>
 

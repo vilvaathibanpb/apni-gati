@@ -14,6 +14,9 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+from PIL import Image
+
+from . import overlay as overlay_module
 from . import agents, capture, concepts, config, db, grading, guardrails, homework, llm, reading, tracing, worksheets
 
 log = logging.getLogger("apnigati.api")
@@ -331,11 +334,16 @@ async def _grade(page_id: str) -> None:
             key = homework.apply_answer_key(hw, result)
             result["homework"] = {"id": hw["id"], **key}
             items = key["items"]
-            db.update("homeworks", hw["id"], status="graded", page_id=page_id, result={
+            score = {
                 "correct": sum(i["status"] == "correct" for i in items),
                 "attempted": sum(i["status"] not in ("not_attempted",) for i in items),
                 "total": len(items),
-            })
+            }
+            db.update("homeworks", hw["id"], status="graded", page_id=page_id, result=score)
+            # Score a homework page out of the questions that were set (blanks count as not done), so the
+            # teacher's view, the red-pen image and the child's page all agree.
+            result["score"] = {"correct": score["correct"], "total": score["total"]}
+            overlay_module.render(Image.open(img).convert("RGB"), result, overlay)
         db.update("pages", page_id, status="done", result=result, overlay_path=str(overlay), student_id=student_id)
         if student_id:
             _record_attempts(page_id, student_id, result)

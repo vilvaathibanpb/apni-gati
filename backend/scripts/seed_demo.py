@@ -1,7 +1,8 @@
 """Seed a demo district.
 
-- One demo multi-grade class (fictional roster). Real notebook pages and reading tests are added on
-  top of it through the app.
+- One demo Class 5 (fictional roster). Same class, very different levels: each child has a fixed
+  learning profile so the demo story is reproducible. Real homework, notebook pages and reading tests
+  are added on top of it through the app.
 - Optional simulated history for that class and 4 fully simulated schools, so grouping and the
   district view have something to show. Every simulated row is marked (attempts.source = 'simulated',
   schools.simulated = 1) and the UI labels it.
@@ -24,10 +25,21 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from apnigati import concepts, config, db, tracing  # noqa: E402
 
+DEMO_GRADE = 5
+# (name, hidden gap). None = secure at class level. Same class, different paces.
 DEMO_ROSTER = [
-    ("Kavin", 3), ("Meena", 3), ("Arun", 3), ("Nila", 3),
-    ("Divya", 4), ("Surya", 4), ("Priya", 4), ("Karthik", 4),
-    ("Anitha", 5), ("Vijay", 5), ("Lakshmi", 5), ("Ravi", 5),
+    ("Anitha", "place_value_2_digit"),        # still at early place value
+    ("Karthik", "grouping_in_tens"),
+    ("Nila", "subtraction_with_borrow"),
+    ("Ravi", "multiplication_tables"),
+    ("Surya", "multiplication_multi_digit"),
+    ("Vijay", "division_with_remainder"),
+    ("Kavin", "long_division"),
+    ("Meena", "fraction_equivalence"),
+    ("Divya", "decimal_place_value"),
+    ("Arun", None),
+    ("Priya", None),
+    ("Lakshmi", None),                       # ready for more
 ]
 SIM_SCHOOLS = [
     ("GPS Kottaiyur", "Block A"), ("GPS Melur", "Block A"), ("PUMS Vadakkupatti", "Block B"), ("GPS Sengulam", "Block B"),
@@ -39,11 +51,12 @@ def downstream(gap: str) -> set[str]:
     return {cid for cid in concepts.nodes() if cid == gap or gap in concepts.ancestors(cid)}
 
 
-def simulate_student(student_id: str, grade: int, rng: random.Random, n_attempts: int) -> str:
-    candidates = [c for c, n in concepts.nodes().items() if n["grade"] <= grade and n["strand"] != "counting"]
-    # Lower-grade gaps are common (ASER): weight earlier concepts more.
-    weights = [1.0 / (1 + abs(grade - 1 - concepts.nodes()[c]["grade"])) for c in candidates]
-    gap = rng.choices(candidates, weights=weights)[0] if rng.random() < 0.8 else None
+def simulate_student(student_id: str, grade: int, rng: random.Random, n_attempts: int, gap: str | None = "random") -> str:
+    if gap == "random":
+        candidates = [c for c, n in concepts.nodes().items() if n["grade"] <= grade and n["strand"] != "counting"]
+        # Lower-grade gaps are common (ASER): weight earlier concepts more.
+        weights = [1.0 / (1 + abs(grade - 1 - concepts.nodes()[c]["grade"])) for c in candidates]
+        gap = rng.choices(candidates, weights=weights)[0] if rng.random() < 0.8 else None
     affected = downstream(gap) if gap else set()
     practice = [c for c, n in concepts.nodes().items() if grade - 2 <= n["grade"] <= grade]
     for _ in range(n_attempts):
@@ -67,25 +80,30 @@ def main() -> None:
     ap.add_argument("--language", default="Tamil")
     ap.add_argument("--no-sim-history", action="store_true", help="demo class starts empty")
     args = ap.parse_args()
+    usage: list[dict] = []
     if args.reset and config.DB_PATH.exists():
+        usage = db.query("SELECT * FROM usage")  # the API cost ledger survives a demo reset
         for suffix in ("", "-wal", "-shm"):
             Path(str(config.DB_PATH) + suffix).unlink(missing_ok=True)
+        db._initialised = False
     db.init()
-    rng = random.Random(2026)
+    for u in usage:
+        db.insert("usage", **u)
+    rng = random.Random(2030)
     truth: dict[str, str] = {}
 
     school = db.insert("schools", id="sc_demo", name="Government Primary School (demo)", district="Demo District", block="Block A", simulated=0)
-    klass = db.insert("classes", id="cl_demo", school_id=school, name="Multi-grade Class 3–5", grades=[3, 4, 5], language=args.language)
-    for name, grade in DEMO_ROSTER:
-        sid = db.insert("students", id=f"st_{name.lower()}", class_id=klass, name=name, grade=grade, language=args.language)
+    klass = db.insert("classes", id="cl_demo", school_id=school, name="Class 5", grades=[DEMO_GRADE], language=args.language)
+    for name, gap in DEMO_ROSTER:
+        sid = db.insert("students", id=f"st_{name.lower()}", class_id=klass, name=name, grade=DEMO_GRADE, language=args.language)
         if not args.no_sim_history:
-            truth[sid] = simulate_student(sid, grade, rng, n_attempts=14)
+            truth[sid] = simulate_student(sid, DEMO_GRADE, rng, n_attempts=14, gap=gap)
 
     for i, (sname, block) in enumerate(SIM_SCHOOLS):
         sc = db.insert("schools", id=f"sc_sim{i}", name=sname, district="Demo District", block=block, simulated=1)
-        cl = db.insert("classes", id=f"cl_sim{i}", school_id=sc, name="Class 3–5", grades=[3, 4, 5], language=args.language)
+        cl = db.insert("classes", id=f"cl_sim{i}", school_id=sc, name="Class 5", grades=[DEMO_GRADE], language=args.language)
         for j, name in enumerate(rng.sample(SIM_NAMES, 20)):
-            sid = db.insert("students", id=f"st_sim{i}_{j}", class_id=cl, name=name, grade=rng.choice([3, 4, 5]), language=args.language)
+            sid = db.insert("students", id=f"st_sim{i}_{j}", class_id=cl, name=name, grade=DEMO_GRADE, language=args.language)
             truth[sid] = simulate_student(sid, db.get("students", sid)["grade"], rng, n_attempts=12)
 
     (config.RUNTIME_DIR / "sim_truth.json").write_text(json.dumps(truth, indent=1))

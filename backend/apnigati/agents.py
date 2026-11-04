@@ -17,7 +17,7 @@ from . import concepts, config, db, guardrails, llm, tracing, verifier
 MAX_TURNS = 8
 
 ROOT_CAUSE_SYSTEM = """You are a diagnostic agent for Indian primary maths, working for a teacher who has
-40 children across several grades and no time for one-to-one testing.
+40 children who all learn at different paces, and no time for one-to-one testing.
 
 Goal: find the ROOT CAUSE of this child's difficulties: the earliest prerequisite concept that the evidence
 says is not secure. A Class 5 long-division error might really be a Class 3 subtraction-with-borrow gap.
@@ -230,9 +230,9 @@ PLAN_SCHEMA = {
     "required": ["groups", "rotation"],
 }
 
-PLAN_SYSTEM = """You plan tomorrow's maths period for a single teacher in a rural Indian government school using
+PLAN_SYSTEM = """You plan tomorrow's maths period for one teacher in an Indian government school using
 Teaching at the Right Level (TaRL): children are grouped by what they are ready to learn, not by grade.
-The teacher runs groups in rotation in one room, so each group needs an activity it can partly do alone.
+Children in the same class are at very different levels, so the teacher runs groups in rotation in one room and each group needs an activity it can partly do alone.
 Use only free local materials (sticks and rubber bands for bundles of ten, pebbles, chalk on the floor,
 bottle caps, play money drawn on paper). Practice items: 6 per group, small numbers, Indian context
 (rupees, mangoes, cricket runs, bus tickets). Write teacher_script_local in the class language."""

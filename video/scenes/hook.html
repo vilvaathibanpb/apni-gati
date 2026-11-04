@@ -1,90 +1,96 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
 <style>
-  body { display: grid; grid-template-columns: 860px 1060px; }
-  .left { padding: 210px 0 0 170px; position: relative; }
+  .left { position: absolute; left: 150px; top: 200px; width: 700px; }
   .kicker { font-size: 26px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); }
   .line { font-family: "Caveat"; font-weight: 700; font-size: 104px; line-height: 1.02; color: var(--ink); }
   .line.red { color: var(--pen); }
-  .swap { position: absolute; left: 170px; top: 300px; }
+  .swap { position: absolute; left: 0; top: 80px; }
   .out { animation: fadeUp .7s cubic-bezier(.2,.8,.2,1) forwards, fadeOut .5s ease forwards; }
   @keyframes fadeOut { to { opacity: 0; transform: translateY(-20px); } }
-  .sub { font-size: 34px; line-height: 1.4; color: var(--ink2); margin-top: 28px; max-width: 640px; }
-  .room { position: relative; margin: 200px 0 0 20px; width: 1000px; height: 640px; }
-  .group { position: absolute; top: 60px; width: 330px; }
-  .glabel { font-weight: 700; font-size: 30px; color: var(--ink2); text-align: center; margin-bottom: 18px; }
-  .dots { display: grid; grid-template-columns: repeat(4, 66px); gap: 18px; justify-content: center; }
-  .dot { width: 66px; height: 66px; border-radius: 50%; background: #dfe6f3; border: 3px solid #c7d2e6; position: relative; }
-  .dot.pop { opacity: 0; animation: pop .45s cubic-bezier(.2,1.4,.4,1) forwards, var(--recolor, none) .5s ease forwards; }
-  .dot .sheet { position: absolute; left: 18px; top: 13px; width: 30px; height: 38px; background: white; border: 2px solid #b8c2d8; border-radius: 4px;
+  .sub { font-size: 34px; line-height: 1.4; color: var(--ink2); margin-top: 28px; }
+  .room { position: absolute; left: 880px; top: 130px; width: 960px; height: 760px; }
+  .classlabel { position: absolute; left: 0; top: 0; font-weight: 700; font-size: 30px; color: var(--ink2); }
+  .dot { position: absolute; width: 50px; height: 50px; margin: -25px 0 0 -25px; border-radius: 50%; background: #dfe6f3; border: 3px solid #c7d2e6;
+    opacity: 0; animation: pop .45s cubic-bezier(.2,1.4,.4,1) forwards, slide 1.4s cubic-bezier(.5,0,.2,1) forwards, var(--recolor, none) .5s ease forwards; }
+  @keyframes slide { to { transform: translate(var(--dx), var(--dy)); } }
+  .dot .sheet { position: absolute; left: 12px; top: 8px; width: 24px; height: 30px; background: white; border: 2px solid #b8c2d8; border-radius: 4px;
     opacity: 0; animation: sheetIn .45s ease forwards; }
-  .dot .sheet::after { content: ""; position: absolute; left: 4px; right: 4px; top: 8px; height: 2px; background: #c9d1e3; box-shadow: 0 6px 0 #c9d1e3, 0 12px 0 #c9d1e3; }
+  .dot .sheet::after { content: ""; position: absolute; left: 4px; right: 4px; top: 7px; height: 2px; background: #c9d1e3; box-shadow: 0 5px 0 #c9d1e3, 0 10px 0 #c9d1e3; }
   @keyframes sheetIn { from { opacity: 0; transform: translateY(-50px) scale(1.6);} to { opacity: 1; transform: none; } }
   @keyframes toHard { to { background: var(--pensoft); border-color: var(--pen); } }
   @keyframes toEasy { to { background: #eceef2; border-color: #b3b8c4; } }
   @keyframes toRight { to { background: var(--leafsoft); border-color: var(--leaf); } }
-  .bigsheet { position: absolute; left: 410px; top: -60px; z-index: 5; width: 180px; height: 230px; background: white; border: 3px solid var(--line); border-radius: 14px;
-    box-shadow: 0 20px 40px -20px rgba(29,43,83,.4); opacity: 0; animation: bigIn .6s ease forwards, bigOut .5s ease forwards; padding: 22px; }
-  .bigsheet b { display:block; font-size: 22px; color: var(--ink2); margin-bottom: 14px; }
-  .bigsheet i { display:block; height: 6px; border-radius: 3px; background: #d6dceb; margin: 14px 0; }
-  @keyframes bigIn { from { opacity: 0; transform: translateY(-30px) rotate(-6deg);} to { opacity: 1; transform: rotate(-3deg);} }
-  @keyframes bigOut { to { opacity: 0; transform: scale(.4) translateY(260px); } }
-  .legend { position: absolute; left: 230px; top: 470px; display: flex; gap: 34px; font-size: 26px; font-weight: 600; }
+  .axis { position: absolute; left: 30px; right: 30px; top: 640px; height: 3px; background: var(--ink3); }
+  .tick { position: absolute; top: 656px; transform: translateX(-50%); font-size: 24px; font-weight: 600; color: var(--ink3); white-space: nowrap; }
+  .axistitle { position: absolute; left: 0; right: 0; top: 700px; text-align: center; font-size: 26px; color: var(--ink2); }
+  .hw { position: absolute; top: 40px; height: 600px; border-left: 4px dashed var(--pen); }
+  .hw span { position: absolute; top: -6px; left: 14px; font-family: "Caveat"; font-size: 40px; color: var(--pen); white-space: nowrap; }
+  .legend { position: absolute; left: 30px; top: 752px; display: flex; gap: 34px; font-size: 26px; font-weight: 600; }
   .legend span { display: inline-flex; align-items: center; gap: 12px; }
   .legend em { width: 26px; height: 26px; border-radius: 50%; border: 3px solid; display: inline-block; }
-  .stat { position: absolute; left: 170px; right: 170px; bottom: 70px; padding: 30px 40px; display: flex; align-items: center; gap: 36px; }
-  .stat .num { font-size: 76px; font-weight: 800; color: var(--pen); white-space: nowrap; }
-  .stat .txt { font-size: 32px; line-height: 1.35; color: var(--ink); }
-  .stat .src { font-size: 22px; color: var(--ink3); margin-top: 6px; }
+  .stat { position: absolute; left: 150px; width: 680px; top: 760px; padding: 26px 32px; }
+  .stat .txt { font-size: 28px; line-height: 1.35; color: var(--ink); }
+  .stat .txt b { color: var(--pen); }
+  .stat .src { font-size: 20px; color: var(--ink3); margin-top: 8px; }
 </style></head>
 <body class="ruled">
   <div class="left">
-    <div class="kicker fade-up" data-at="0.2">A government school in rural India</div>
+    <div class="kicker fade-up" data-at="0.2">A government school in India</div>
     <div class="swap">
-      <div class="line out" style="animation-delay: .5s, 5.6s">One teacher.</div>
-      <div class="line out" style="animation-delay: 1.7s, 5.6s">Forty children.</div>
-      <div class="line red out" style="animation-delay: 2.9s, 5.6s">Three classes in<br>one room.</div>
+      <div class="line out" style="animation-delay: .5s, 5.7s">One class.</div>
+      <div class="line out" style="animation-delay: 1.4s, 5.7s">Forty children.</div>
+      <div class="line red out" style="animation-delay: 2.5s, 5.7s">Forty different<br>paces.</div>
     </div>
     <div class="swap">
       <div class="line fade-up" data-at="6.1">Everyone gets</div>
       <div class="line fade-up" data-at="6.4">the same</div>
       <div class="line red fade-up" data-at="6.7">homework.</div>
-      <div class="sub fade-up" data-at="9.0">Too hard for some. Too easy for others.<br>Right for only a few.</div>
+      <div class="sub fade-up" data-at="9.2">Too hard for many. Too easy for some.<br>Right for only a few.</div>
     </div>
   </div>
   <div class="room" id="room">
-    <div class="bigsheet" style="animation-delay: 5.8s, 6.9s"><b>Homework</b><i></i><i style="width:80%"></i><i></i><i style="width:60%"></i></div>
-    <div class="legend fade" data-at="9.0">
+    <div class="classlabel fade-up" data-at="1.0">Class 5</div>
+    <div class="axis fade" data-at="3.4"></div>
+    <div class="axistitle fade" data-at="3.6">learning level of each child</div>
+    <div class="hw fade" data-at="6.3" id="hw"><span>Class 5 homework</span></div>
+    <div class="legend fade" data-at="9.2">
       <span><em style="border-color:var(--pen);background:var(--pensoft)"></em>too hard</span>
       <span><em style="border-color:var(--leaf);background:var(--leafsoft)"></em>just right</span>
       <span><em style="border-color:#b3b8c4;background:#eceef2"></em>too easy</span>
     </div>
   </div>
   <div class="stat card fade-up" data-at="11.0">
-    <div class="num">~ 1 in 2</div>
-    <div><div class="txt">Class 5 children in rural India can't yet read a Class 2 text. Many are years behind in maths too.</div>
-      <div class="src">ASER 2024, Annual Status of Education Report</div></div>
+    <div class="txt">In Class 5, <b>about 1 in 2</b> children can't yet read a Class 2 text. Others read fluently. Same room, same homework.</div>
+    <div class="src">ASER 2024, Annual Status of Education Report</div>
   </div>
 <script>
   const room = document.getElementById('room');
-  const classes = ['Class 3', 'Class 4', 'Class 5'];
-  // fixed pseudo-random fit per child: hard / right / easy
-  const fit = 'HHRHEHRHHHERHHREHHRHEHHRHHEHRHHEHRHHHERH';
-  let k = 0;
-  classes.forEach((c, g) => {
-    const grp = document.createElement('div'); grp.className = 'group'; grp.style.left = (g * 340) + 'px';
-    grp.innerHTML = `<div class="glabel fade-up" style="animation-delay:${1.6 + g * 0.3}s">${c}</div><div class="dots"></div>`;
-    const dots = grp.querySelector('.dots');
-    const n = [14, 13, 13][g];
-    for (let i = 0; i < n; i++, k++) {
-      const d = document.createElement('div'); d.className = 'dot pop';
-      const f = fit[k % fit.length];
-      const recolor = f === 'H' ? 'toHard' : f === 'E' ? 'toEasy' : 'toRight';
-      d.style.setProperty('--recolor', recolor);
-      d.style.animationDelay = `${1.8 + k * 0.045}s, ${9.0 + (k % 7) * 0.06}s`;
-      const s = document.createElement('div'); s.className = 'sheet'; s.style.animationDelay = `${7.0 + k * 0.03}s`;
-      d.appendChild(s); dots.appendChild(d);
-    }
-    room.appendChild(grp);
+  const X0 = 60, X1 = 900;                       // axis span for levels 1..6
+  const lx = (lv) => X0 + (lv - 1) * (X1 - X0) / 6;   // levels 1.0 .. 7.0 across the axis
+  ['Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6'].forEach((t, i) => {
+    const d = document.createElement('div'); d.className = 'tick fade'; d.style.animationDelay = (3.6 + i * 0.08) + 's';
+    d.style.left = lx(i + 1.45) + 'px'; d.textContent = t; if (i % 1) d.style.display = 'none'; room.appendChild(d);
+  });
+  document.getElementById('hw').style.left = lx(5.45) + 'px';
+  // 40 children of one Class 5, at their real levels (spread similar to ASER-style surveys)
+  let seed = 11; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const counts = [4, 7, 9, 8, 8, 4];
+  const levels = []; counts.forEach((c, i) => { for (let k = 0; k < c; k++) levels.push(i + 1 + rnd() * 0.85); });
+  levels.sort(() => rnd() - 0.5);
+  const used = {};
+  levels.forEach((lv, k) => {
+    const col = k % 8, row = Math.floor(k / 8);
+    const gx = 120 + col * 92, gy = 110 + row * 92;          // start: neat class grid
+    const bucket = Math.round(lv * 2.4); used[bucket] = (used[bucket] || 0) + 1;
+    const tx = lx(bucket / 2.4), ty = 600 - used[bucket] * 56;           // end: stacked above their level on the axis
+    const d = document.createElement('div'); d.className = 'dot';
+    d.style.left = gx + 'px'; d.style.top = gy + 'px';
+    d.style.setProperty('--dx', (tx - gx) + 'px'); d.style.setProperty('--dy', (ty - gy) + 'px');
+    const fit = lv < 4.4 ? 'toHard' : lv < 6.1 ? 'toRight' : 'toEasy';
+    d.style.setProperty('--recolor', fit);
+    d.style.animationDelay = `${1.2 + k * 0.03}s, ${3.8 + (k % 10) * 0.05}s, ${9.2 + (k % 7) * 0.05}s`;
+    const s = document.createElement('div'); s.className = 'sheet'; s.style.animationDelay = `${7.0 + k * 0.025}s`;
+    d.appendChild(s); room.appendChild(d);
   });
 </script>
 </body></html>
