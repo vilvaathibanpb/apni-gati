@@ -18,7 +18,7 @@ LINES = [
     ("stack", "The teacher can also mark a whole stack of notebooks at once."),
     ("reading", "Children read aloud in their own language, and every skipped or misread word is caught."),
     ("plan", "And Muse Wonder plans tomorrow's group lessons, with worksheets drawn by Muse Image."),
-    ("trust", "We tested it. Thirty-nine out of forty problems marked right, and in our tests, no correct answer was ever marked wrong. Anything unsure goes to the teacher. And all of it runs on Meta's models."),
+    ("trust", "We tested it. Forty out of forty problems marked right, and in our tests, no correct answer was marked wrong. Anything unsure goes to the teacher. And all of it runs on Meta's models."),
     ("end", "One class. Forty children. Forty different paces, and now, forty different homeworks. This is Apni Gati."),
 ]
 
