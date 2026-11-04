@@ -9,6 +9,8 @@
   .aside { margin-top: 34px; align-self: flex-start; max-width: 980px; padding: 14px; }
   .aside img { display: block; max-width: 952px; max-height: 600px; width: auto; height: auto; border-radius: 16px; }
   .aside .cap { font-size: 22px; color: var(--ink3); margin: 10px 6px 2px; }
+  @keyframes capOut { to { opacity: 0; } }
+  @keyframes capIn { from { opacity: 0; } to { opacity: 1; } }
   .slot { position: absolute; left: 1310px; top: 72px; width: 432px; height: 936px; background: #e9e4d7; }
   .bezel { position: absolute; left: 1296px; top: 58px; width: 460px; height: 964px; border: 14px solid #1d2b53; border-radius: 64px;
     box-shadow: 0 40px 80px -40px rgba(29,43,83,.6); }
@@ -27,6 +29,11 @@
     ${q.get('body') ? `<div class="body fade-up" data-at="0.3">${q.get('body')}</div>` : ''}
     ${chips ? `<div class="chips fade-up" data-at="0.45">${chips}</div>` : ''}
     ${q.get('aside') ? `<div class="aside card fade-up" data-at="0.6"><img src="${q.get('aside')}"><div class="cap">${q.get('asidecap') || ''}</div></div>` : ''}`;
+  // Hide the caption while the camera is pushed in on the product: "hide=t1,t2" fades out at t1 and back in at t2.
+  if (q.get('hide')) {
+    const [h1, h2] = q.get('hide').split(',').map(Number);
+    t.style.animation = `capOut .45s ease forwards ${h1}s, capIn .45s ease forwards ${h2}s`;
+  }
   if (q.get('bezel')) { document.body.className = ''; document.body.style.background = 'transparent'; document.documentElement.style.background = 'transparent'; t.remove(); document.querySelector('.slot').remove();
     const b = document.createElement('div'); b.className = 'bezel'; document.body.appendChild(b); }
 </script>

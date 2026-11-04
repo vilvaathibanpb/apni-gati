@@ -10,6 +10,7 @@ and a lesson plan per group, with sympy-verified practice items.
 from __future__ import annotations
 
 import json
+import re
 from typing import Any, Callable
 
 from . import concepts, config, db, guardrails, llm, tracing, verifier
@@ -276,14 +277,21 @@ async def plan_class(class_id: str) -> dict[str, Any]:
             + (f"Frequent misconceptions: {', '.join(f'{m} x{c}' for m, c in top)}." if top else "")
         )
 
-    plan = await llm.json_call(
-        system=PLAN_SYSTEM,
-        user=f"Class language: {klass.get('language', 'Hindi')}.\n\n" + "\n".join(briefs) + "\n\nUse exactly these group keys.",
-        schema=PLAN_SCHEMA,
-        name="tarl_plan",
-        model=config.WONDER,
-        effort="medium",
-    )
+    language = klass.get("language", "Hindi")
+    user = f"Class language: {language}.\n\n" + "\n".join(briefs) + "\n\nUse exactly these group keys."
+    plan: dict[str, Any] = {}
+    for attempt in range(2):
+        plan = await llm.json_call(system=PLAN_SYSTEM, user=user, schema=PLAN_SCHEMA, name="tarl_plan", model=config.WONDER, effort="medium")
+        problems = guardrails.plan_text_issues(plan, language)
+        if not problems:
+            break
+        user += "\n\nYour previous answer was rejected: " + "; ".join(problems) + ". Write real, meaningful titles and a full teacher script in the class language."
+    for g in plan["groups"]:  # last resort: never show junk to a teacher
+        if guardrails.plan_text_issues({"groups": [g]}, language):
+            node = concepts.nodes().get(g.get("focus_concept_id") or g["key"])
+            g["title"] = node["name"] if node else g["key"].replace("_", " ").capitalize()
+            g["teacher_script_local"] = g.get("teacher_script_local") if guardrails.SCRIPTS_BY_LANGUAGE.get(language, re.compile(".")).search(g.get("teacher_script_local") or "") else ""
+            g["guardrail_note"] = "Title replaced: the generated one failed the quality check."
     for g in plan["groups"]:
         checked = [{**p, "verified": _check_probe(p["expr"], p["answer"])["correct"]} for p in g["practice"]]
         g["practice"] = [p for p in checked if p["verified"]]

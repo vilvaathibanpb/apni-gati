@@ -12,13 +12,13 @@ LINES = [
     ("hwopen", "Anitha and Lakshmi sit in the same Class 5. Anitha gets ten gentle questions on the gap underneath. Lakshmi gets six harder, multi-step problems. Same class, same evening, in Tamil."),
     ("child", "Anitha does it in her notebook. Her family opens her own link, with no app and no login, and sends one photo."),
     ("pipeline", "Muse Spark reads her handwriting. But the maths decides what's right."),
-    ("childmarked", "Her page comes back marked in red pen, against the answer key. Seven out of ten: two mistakes circled, one question not done."),
+    ("childmarked", "Her page comes back marked in red pen, against the answer key. Seven out of ten: two mistakes circled with a note, one question not done. The teacher, the child and the family all see the same marks."),
     ("detail", "And not just wrong, but why. She wrote fifty plus six as five-oh-six, joining the parts instead of adding them. Her hint nudges her without giving the answer, and the teacher sees every check."),
-    ("progress", "Her knowledge graph updates. A Muse Wonder agent reads all her work, traces it back to the root, grouping in tens, and writes quick questions to test it. Her next homework starts there."),
+    ("progress", "Her knowledge graph updates, and her progress bar moves as topics are earned. A Muse Wonder agent reads all her work, traces it back to the root, grouping in tens, and writes quick questions to test it. Her next homework starts there."),
     ("stack", "The teacher can also mark a whole stack of notebooks at once."),
     ("reading", "Children read aloud in their own language, and every skipped or misread word is caught."),
     ("plan", "And Muse Wonder plans tomorrow's group lessons, with worksheets drawn by Muse Image."),
-    ("trust", "We tested it. Forty out of forty problems marked right, and in our tests, no correct answer was marked wrong. Anything unsure goes to the teacher. And all of it runs on Meta's models."),
+    ("trust", "We tested it: forty out of forty problems marked right, and anything unsure goes to the teacher. All of it runs on Meta's models."),
     ("end", "One class. Forty children. Forty different paces, and now, forty different homeworks. This is Apni Gati."),
 ]
 

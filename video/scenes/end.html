@@ -4,7 +4,7 @@
   .wall { position: absolute; left: -40px; top: -60px; display: grid; grid-template-columns: repeat(6, 300px); gap: 26px; transform: rotate(-4deg); }
   .wall img { width: 300px; height: 585px; object-fit: cover; object-position: top; border-radius: 22px; border: 2px solid var(--line);
     box-shadow: 0 20px 40px -24px rgba(29,43,83,.45); opacity: 0; animation: pop .5s cubic-bezier(.2,1.2,.4,1) forwards; }
-  .veil { position: absolute; inset: 0; background: rgba(251,248,241,0); animation: veil .8s ease forwards; animation-delay: 4.2s; }
+  .veil { position: absolute; inset: 0; background: rgba(251,248,241,0); animation: veil .8s ease forwards; animation-delay: 2.6s; }
   @keyframes veil { to { background: rgba(251,248,241,.88); } }
   .center { position: absolute; left: 0; right: 0; top: 250px; text-align: center; }
   .name { font-family: "Caveat"; font-weight: 700; font-size: 150px; line-height: 1; }
@@ -19,14 +19,14 @@
 </style></head>
 <body>
   <div class="wall" id="wall"></div>
-  <div class="count fade" data-at="1.6" style="animation-delay:1.6s">12 children · 12 different sheets</div>
+  <div class="count fade" data-at="1.2" style="animation-delay:1.2s">12 children · 12 different sheets</div>
   <div class="veil"></div>
   <div class="center">
-    <div class="name fade-up" data-at="4.6"><svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="10" fill="white" stroke="#e6dfcf"/><path d="M9 21 l7 8 L31 11" fill="none" stroke="#d2161f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="a">Apni</span> Gati</div>
-    <div class="line fade-up" data-at="5.2">Teach once. Every child, <span>at their own pace.</span></div>
-    <div class="sub fade-up" data-at="5.6">Personal homework from each child's knowledge graph · red-pen marking · progress you can see</div>
-    <div class="url fade-up" data-at="6.3">github.com/vilvaathibanpb/apni-gati</div>
-    <div class="foot fade-up" data-at="6.9">Built Oct 27 – Nov 4, 2026 for the Meta Global AI Developer Hackathon · Muse Spark · Muse Wonder · SAM 3.1 · Muse Voice Transcribe · Muse Image</div>
+    <div class="name fade-up" data-at="3.0"><svg viewBox="0 0 40 40"><rect x="1" y="1" width="38" height="38" rx="10" fill="white" stroke="#e6dfcf"/><path d="M9 21 l7 8 L31 11" fill="none" stroke="#d2161f" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="a">Apni</span> Gati</div>
+    <div class="line fade-up" data-at="3.4">Teach once. Every child, <span>at their own pace.</span></div>
+    <div class="sub fade-up" data-at="3.7">Personal homework from each child's knowledge graph · red-pen marking · progress you can see</div>
+    <div class="url fade-up" data-at="4.1">github.com/vilvaathibanpb/apni-gati</div>
+    <div class="foot fade-up" data-at="4.5">Built Oct 27 – Nov 4, 2026 for the Meta Global AI Developer Hackathon · Muse Spark · Muse Wonder · SAM 3.1 · Muse Voice Transcribe · Muse Image</div>
   </div>
 <script>
   const wall = document.getElementById('wall');
@@ -34,7 +34,7 @@
   order.forEach((n, i) => {
     const img = document.createElement('img');
     img.src = `../assets/thumbs/${String(n).padStart(2, '0')}.png`;
-    img.style.animationDelay = `${0.15 + i * 0.12}s`;
+    img.style.animationDelay = `${0.1 + i * 0.08}s`;
     wall.appendChild(img);
   });
 </script>

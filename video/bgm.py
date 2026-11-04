@@ -66,11 +66,11 @@ def section_gain(t: np.ndarray, layer: str) -> np.ndarray:
     """Arrangement over the video timeline (seconds)."""
     g = np.ones_like(t)
     if layer == "pad":
-        g = np.interp(t, [0, 2.5, 14, 16, 147, 150, 165, 168, 175, 180], [0, .75, .75, .9, .9, .8, .8, 1.0, .9, 0])
+        g = np.interp(t, [0, 2.5, 14, 16, 157, 160, 169, 172, 176, 180], [0, .75, .75, .9, .9, .8, .8, 1.0, .9, 0])
     elif layer == "arp":
-        g = np.interp(t, [0, 13, 16, 146, 149, 164, 167, 174, 179.5], [0, 0, 1, 1, .65, .65, .9, .7, 0])
+        g = np.interp(t, [0, 13, 16, 156, 159, 168, 171, 176, 179.5], [0, 0, 1, 1, .65, .65, .9, .7, 0])
     elif layer == "bass":
-        g = np.interp(t, [0, 14, 17, 146, 149, 176, 180], [0, 0, 1, 1, .8, .7, 0])
+        g = np.interp(t, [0, 14, 17, 156, 159, 176, 180], [0, 0, 1, 1, .8, .7, 0])
     return g
 
 

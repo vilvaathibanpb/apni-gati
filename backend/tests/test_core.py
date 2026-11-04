@@ -118,3 +118,11 @@ def test_teaching_order_respects_prerequisites() -> None:
     pos = {c: i for i, c in enumerate(concepts.topo_order())}
     for c, n in concepts.nodes().items():
         assert all(pos[q] < pos[c] for q in n["prereqs"]), c
+
+
+def test_plan_guardrail_rejects_keyboard_mash() -> None:
+    bad = {"groups": [{"key": "g", "title": "sdfghjkl", "teacher_script_local": ""}]}
+    good = {"groups": [{"key": "g", "title": "பத்து பத்தாக கட்டு", "teacher_script_local": "இன்று நாம் பத்து குச்சிகளை ஒரு கட்டாகக் கட்டுவோம்."}]}
+    assert len(guardrails.plan_text_issues(bad, "Tamil")) == 2
+    assert guardrails.plan_text_issues(good, "Tamil") == []
+    assert not guardrails._looks_like_junk("Bundles of ten")

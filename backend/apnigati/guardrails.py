@@ -224,3 +224,34 @@ def validate_diagnosis(args: dict[str, Any]) -> list[str]:
             kept.append(p)
     args["probes"] = kept
     return fixes
+
+
+# ---------------------------------------------------------------- lesson plans
+
+SCRIPTS_BY_LANGUAGE = {"Hindi": SCRIPTS["hi"], "Tamil": SCRIPTS["ta"]}
+_KEYBOARD_ROWS = ("qwertyuiop", "asdfghjkl", "zxcvbnm")
+
+
+def _looks_like_junk(text: str) -> bool:
+    t = (text or "").strip()
+    if len(t) < 3:
+        return True
+    word = re.sub(r"[^a-z]", "", t.lower())
+    if word and word == t.lower().strip("!.") and " " not in t:
+        # a single latin "word" with no vowels or made of keyboard-row runs is keyboard mash
+        if not re.search(r"[aeiou]", word) or any(row[i:i + 4] in word for row in _KEYBOARD_ROWS for i in range(len(row) - 3)):
+            return True
+    return False
+
+
+def plan_text_issues(plan: dict[str, Any], language: str) -> list[str]:
+    """Problems in teacher-facing plan text (generated titles and scripts must be real text)."""
+    issues = []
+    script = SCRIPTS_BY_LANGUAGE.get(language)
+    for g in plan.get("groups", []):
+        if _looks_like_junk(g.get("title", "")):
+            issues.append(f"group {g.get('key')}: title {g.get('title')!r} is not meaningful")
+        local = g.get("teacher_script_local") or ""
+        if len(local.strip()) < 20 or (script and not script.search(local)):
+            issues.append(f"group {g.get('key')}: teacher_script_local is empty or not in {language}")
+    return issues

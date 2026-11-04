@@ -1,8 +1,8 @@
 <!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css"><script src="runtime.js"></script>
 <style>
   .part { position: absolute; inset: 0; }
-  .p1 { animation: fadeUp .6s ease forwards, out .5s ease forwards; animation-delay: 0s, 9.2s; }
-  .p2 { opacity: 0; animation: fadeUp .7s ease forwards; animation-delay: 9.6s; }
+  .p1 { animation: fadeUp .6s ease forwards, out .5s ease forwards; animation-delay: 0s, 5.9s; }
+  .p2 { opacity: 0; animation: fadeUp .7s ease forwards; animation-delay: 6.2s; }
   @keyframes out { to { opacity: 0; transform: translateY(-24px); } }
   h1 { position: absolute; left: 150px; top: 95px; font-size: 64px; font-weight: 800; }
   .sub { position: absolute; left: 150px; top: 180px; font-size: 30px; color: var(--ink2); }
@@ -16,7 +16,7 @@
   .guards { position: absolute; left: 150px; right: 150px; top: 640px; display: flex; flex-wrap: wrap; gap: 18px; }
   .guard { display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 999px; background: var(--leafsoft); color: var(--leaf); font-size: 28px; font-weight: 600; }
   .guard::before { content: "✓"; font-weight: 800; }
-  .foot { position: absolute; left: 150px; right: 150px; bottom: 70px; font-size: 22px; color: var(--ink3); }
+  .foot { position: absolute; left: 150px; right: 150px; top: 680px; font-size: 22px; color: var(--ink3); }
   .models { position: absolute; left: 150px; right: 150px; top: 270px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 26px; }
   .model { padding: 30px 26px; }
   .model .chip { font-size: 22px; padding: 8px 16px; }
@@ -34,24 +34,17 @@
       <div class="stat card green fade-up" data-at="1.2"><div class="big"><span data-count="82" data-at="1.4">0</span><small>/82</small></div><div class="lbl">homework answers verified with real maths. 0 identical sheets.</div></div>
       <div class="stat card fade-up" data-at="1.6"><div class="big"><span data-count="9" data-at="1.8">0</span><small>/9</small></div><div class="lbl">misread words caught in Tamil, Hindi and English reading tests</div></div>
     </div>
-    <div class="guards">
-      <div class="guard pop" data-at="3.0">Text written on a page can't change a grade</div>
-      <div class="guard pop" data-at="3.5">Faces blurred before storage</div>
-      <div class="guard pop" data-at="4.0">Hints never give away the answer (6/6 red-team cases)</div>
-      <div class="guard pop" data-at="4.5">The teacher has the final word</div>
-      <div class="guard pop" data-at="5.0">Children's data never used for training</div>
-    </div>
-    <div class="foot fade" data-at="5.5">Test pages were generated for evaluation; labels checked by hand. A plain one-call model also judged right/wrong well. Apni Gati adds proof, the step that went wrong, the reason, and safe failure.</div>
+        <div class="foot fade" data-at="2.4">Test pages were generated for evaluation; labels checked by hand. A plain one-call model also judged right/wrong well. Apni Gati adds proof, the step that went wrong, the reason, and safe failure.</div>
   </div>
   <div class="part p2">
     <h1>Built on Meta's models</h1>
     <div class="sub">Every part of the loop uses the Meta Model API.</div>
     <div class="models">
-      <div class="model card fade-up" data-at="9.9"><span class="chip meta">Muse Spark</span><ul><li>Reads children's handwriting</li><li>Writes each child's homework in their language</li><li>Diagnoses the misconception</li></ul></div>
-      <div class="model card fade-up" data-at="10.2"><span class="chip meta">Muse Wonder</span><ul><li>Built the NCERT concept graph with web search</li><li>Maps the teacher's syllabus</li><li>Root-cause agent and lesson plans</li></ul></div>
-      <div class="model card fade-up" data-at="10.5"><span class="chip meta">SAM 3.1</span><ul><li>Finds and straightens pages</li><li>Tracks pages in a flip-through video</li><li>Exact ink for red marks; blurs faces</li></ul></div>
-      <div class="model card fade-up" data-at="10.8"><span class="chip meta">Voice Transcribe</span><ul><li>Children reading aloud in Tamil, Hindi, English</li><li>Children explaining their working</li></ul></div>
-      <div class="model card fade-up" data-at="11.1"><span class="chip meta">Muse Image</span><ul><li>Illustrated, printable worksheets</li><li>Read back and verified before printing</li></ul></div>
+      <div class="model card fade-up" data-at="6.4"><span class="chip meta">Muse Spark</span><ul><li>Reads children's handwriting</li><li>Writes each child's homework in their language</li><li>Diagnoses the misconception</li></ul></div>
+      <div class="model card fade-up" data-at="6.6"><span class="chip meta">Muse Wonder</span><ul><li>Built the NCERT concept graph with web search</li><li>Maps the teacher's syllabus</li><li>Root-cause agent and lesson plans</li></ul></div>
+      <div class="model card fade-up" data-at="6.8"><span class="chip meta">SAM 3.1</span><ul><li>Finds and straightens pages</li><li>Tracks pages in a flip-through video</li><li>Exact ink for red marks; blurs faces</li></ul></div>
+      <div class="model card fade-up" data-at="7.0"><span class="chip meta">Voice Transcribe</span><ul><li>Children reading aloud in Tamil, Hindi, English</li><li>Children explaining their working</li></ul></div>
+      <div class="model card fade-up" data-at="7.2"><span class="chip meta">Muse Image</span><ul><li>Illustrated, printable worksheets</li><li>Read back and verified before printing</li></ul></div>
     </div>
   </div>
 </body></html>
