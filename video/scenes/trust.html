@@ -23,6 +23,8 @@
   .model ul { margin-top: 22px; list-style: none; font-size: 24px; color: var(--ink2); line-height: 1.4; }
   .model li { margin-bottom: 12px; padding-left: 22px; position: relative; }
   .model li::before { content: "–"; color: var(--pen); position: absolute; left: 0; }
+  body { transform-origin: 50% 46%; animation: kb 12s linear forwards; }
+  @keyframes kb { from { transform: scale(1); } to { transform: scale(1.07); } }
 </style></head>
 <body class="ruled">
   <div class="part p1">

@@ -14,7 +14,12 @@
   .arrow { align-self: center; width: 46px; }
   .loopback { position: absolute; left: 0; top: 0; }
   .once { position: absolute; left: 110px; top: 905px; font-family: "Caveat"; font-size: 46px; color: var(--ink2); }
+  .live { position: absolute; left: 0; right: 0; top: 990px; text-align: center; }
+  .live b { display: inline-flex; align-items: center; gap: 14px; padding: 14px 30px; border-radius: 999px; background: var(--ink); color: white; font-size: 30px; font-weight: 700; }
+  .live b i { width: 14px; height: 14px; border-radius: 50%; background: #ff5a5f; }
   .daily { position: absolute; left: 520px; right: 110px; top: 905px; text-align: center; font-family: "Caveat"; font-size: 46px; color: var(--pen); }
+  body { transform-origin: 50% 46%; animation: kb 12s linear forwards; }
+  @keyframes kb { from { transform: scale(1); } to { transform: scale(1.07); } }
 </style></head>
 <body class="ruled">
   <div class="logo">
@@ -42,4 +47,5 @@
   </svg>
   <div class="once fade" data-at="2.6">once</div>
   <div class="daily fade" data-at="7.0">every evening, the next sheet adapts</div>
+  <div class="live fade-up" data-at="8.6"><b><i></i>Everything that follows is the real, working app, recorded live. No mock-ups.</b></div>
 </body></html>

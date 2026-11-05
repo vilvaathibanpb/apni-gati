@@ -8,6 +8,9 @@
   .chip.plain { background: var(--leafsoft); color: var(--leaf); }
   .aside { margin-top: 34px; align-self: flex-start; max-width: 980px; padding: 14px; }
   .aside img { display: block; max-width: 952px; max-height: 600px; width: auto; height: auto; border-radius: 16px; }
+  .aside { overflow: hidden; }
+  .aside img.kb { animation: kbimg var(--kb) linear forwards; transform-origin: 40% 50%; }
+  @keyframes kbimg { from { transform: scale(1); } to { transform: scale(1.12); } }
   .aside .cap { font-size: 22px; color: var(--ink3); margin: 10px 6px 2px; }
   @keyframes capOut { to { opacity: 0; } }
   @keyframes capIn { from { opacity: 0; } to { opacity: 1; } }
@@ -28,7 +31,7 @@
     <h1 class="fade-up" data-at="0.15">${q.get('title') || ''}</h1>
     ${q.get('body') ? `<div class="body fade-up" data-at="0.3">${q.get('body')}</div>` : ''}
     ${chips ? `<div class="chips fade-up" data-at="0.45">${chips}</div>` : ''}
-    ${q.get('aside') ? `<div class="aside card fade-up" data-at="0.6"><img src="${q.get('aside')}"><div class="cap">${q.get('asidecap') || ''}</div></div>` : ''}`;
+    ${q.get('aside') ? `<div class="aside card fade-up" data-at="0.6"><img class="${q.get('kb') ? 'kb' : ''}" style="--kb:${q.get('kb') || 0}s" src="${q.get('aside')}"><div class="cap">${q.get('asidecap') || ''}</div></div>` : ''}`;
   // Hide the caption while the camera is pushed in on the product: "hide=t1,t2" fades out at t1 and back in at t2.
   if (q.get('hide')) {
     const [h1, h2] = q.get('hide').split(',').map(Number);

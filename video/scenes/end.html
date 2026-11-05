@@ -16,6 +16,8 @@
   .url { display: inline-block; margin-top: 46px; font-size: 34px; font-weight: 600; padding: 16px 34px; border-radius: 999px; background: var(--ink); color: white; }
   .foot { margin-top: 40px; font-size: 24px; color: var(--ink3); }
   .count { position: absolute; right: 120px; top: 70px; font-family: "Caveat"; font-size: 64px; color: var(--pen); }
+  body { transform-origin: 50% 46%; animation: kb 10s linear forwards; }
+  @keyframes kb { from { transform: scale(1); } to { transform: scale(1.07); } }
 </style></head>
 <body>
   <div class="wall" id="wall"></div>

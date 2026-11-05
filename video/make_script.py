@@ -6,7 +6,7 @@ OUT = Path(__file__).parent / "out"
 
 LINES = [
     ("hook", "Even in one class, every child learns at a different pace. Some are still at Class 2 level; others are ready for more. Yet they all get the same homework."),
-    ("loop", "Apni Gati means \"your own pace\". The teacher sets up once. After that, every child gets homework that fits them, every evening."),
+    ("loop", "Apni Gati means \"your own pace\". The teacher sets up once, and every child gets homework that fits them. Everything you'll see next is the real, working app."),
     ("setup", "Add the children, and paste the syllabus in plain words. Muse Wonder maps it onto the NCERT curriculum, and tells you what it couldn't match."),
     ("homework", "Then, one tap. Muse Spark writes a different homework for every child, from their own knowledge graph. Every answer is checked with real maths."),
     ("hwopen", "Anitha and Lakshmi sit in the same Class 5. Anitha gets ten gentle questions on the gap underneath. Lakshmi gets six harder, multi-step problems. Same class, same evening, in Tamil."),

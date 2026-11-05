@@ -2,10 +2,14 @@
 <style> html, body { background: transparent; }
   .b { position: absolute; left: 1360px; top: 92px; padding: 12px 22px; border-radius: 999px; background: rgba(29,43,83,.92); color: white; font-size: 24px; font-weight: 600;
     display: inline-flex; gap: 10px; align-items: center; box-shadow: 0 10px 24px -12px rgba(0,0,0,.5); }
+  .live { position: absolute; left: 36px; top: 30px; display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px; border-radius: 999px;
+    background: rgba(255,253,248,.94); border: 2px solid rgba(210,22,31,.35); color: var(--ink); font-size: 24px; font-weight: 700; box-shadow: 0 10px 24px -14px rgba(29,43,83,.5); }
+  .live i { width: 14px; height: 14px; border-radius: 50%; background: var(--pen); box-shadow: 0 0 0 5px rgba(210,22,31,.18); }
+  .live span { font-weight: 500; color: var(--ink2); }
   .l { position: absolute; left: 150px; bottom: 60px; padding: 10px 20px; border-radius: 12px; background: var(--ambersoft); color: var(--amber); font-size: 24px; font-weight: 600; }
 </style></head><body>
 <div id="x"></div>
 <script>
   const q = new URLSearchParams(location.search);
-  document.getElementById('x').innerHTML = (q.get('fast') ? `<div class="b">⏩ ${q.get('fast')}</div>` : '') + (q.get('label') ? `<div class="l">${q.get('label')}</div>` : '');
+  document.getElementById('x').innerHTML = (q.get('live') ? `<div class="live"><i></i>LIVE APP <span>· real screen recording · real API calls</span></div>` : '') + (q.get('fast') ? `<div class="b">⏩ ${q.get('fast')}</div>` : '') + (q.get('label') ? `<div class="l">${q.get('label')}</div>` : '');
 </script></body></html>

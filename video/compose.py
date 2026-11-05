@@ -24,10 +24,11 @@ FPS = 30
 PHONE_CX = 1526  # centre of the phone screen in the 1920x1080 frame
 
 
-def shot(d: float, z: float, cy: float, cx: float = PHONE_CX, t_in: float = 1.4, out_before: float = 1.4, ramp: float = 1.0) -> list:
-    """Camera keyframes (t, zoom, centre_x, centre_y): wide -> push in on the product -> back out before the cut."""
+def shot(d: float, z: float, cy: float, cx: float = PHONE_CX, t_in: float = 1.4, out_before: float = 1.4, ramp: float = 1.0, drift: float = 150) -> list:
+    """Camera keyframes (t, zoom, centre_x, centre_y): wide -> push in on the product (drifting slowly down the
+    screen, so the shot is never static) -> back out before the cut."""
     t_out = d - out_before
-    return [(0, 1, 960, 540), (t_in, 1, 960, 540), (t_in + ramp, z, cx, cy), (t_out - ramp, z, cx, cy), (t_out, 1, 960, 540), (d, 1, 960, 540)]
+    return [(0, 1, 960, 540), (t_in, 1, 960, 540), (t_in + ramp, z, cx, cy - drift / 2), (t_out - ramp, z, cx, cy + drift / 2), (t_out, 1, 960, 540), (d, 1, 960, 540)]
 
 
 def _piecewise(keys: list, idx: int) -> str:
@@ -61,8 +62,8 @@ def real_wait(clip: str, a: str = "wait_start", b: str = "wait_end") -> str:
 
 # kind, duration, spec
 SEGMENTS: list[dict] = [
-    {"scene": "hook", "dur": 14},
-    {"scene": "loop", "dur": 10},
+    {"scene": "hook", "dur": 13},
+    {"scene": "loop", "dur": 12},
     {"clip": "setup", "dur": 11, "camera": shot(11, 1.7, 560), "compress": [("wait_start", "wait_end", 2.0)], "fast": [("wait_start", "wait_end")],
      "panel": {"step": "Step 1 · once", "title": "Set up the class once.",
                "body": "Children, their class and language. Paste the syllabus in plain words: Muse Wonder maps it onto an NCERT concept graph and says honestly what it couldn't match.",
@@ -80,15 +81,15 @@ SEGMENTS: list[dict] = [
                "body": "Each child has their own link: questions in Tamil, Hindi or English, and one big button to photograph the page. No app, no login."}},
     {"scene": "pipeline", "dur": 6},
     {"clip": "childmarked", "dur": 16, "keep_caption": True,
-     "camera": [(0, 1, 960, 540), (1.2, 1, 960, 540), (2.3, 1.7, 600, 640), (7.0, 1.7, 600, 640), (8.4, 1.8, PHONE_CX, 420), (14.2, 1.8, PHONE_CX, 520), (15.2, 1, 960, 540), (16, 1, 960, 540)],
+     "camera": [(0, 1, 960, 540), (1.2, 1, 960, 540), (2.3, 1.7, 600, 560), (7.0, 1.7, 600, 720), (8.4, 1.8, PHONE_CX, 420), (14.2, 1.8, PHONE_CX, 520), (15.2, 1, 960, 540), (16, 1, 960, 540)],
      "panel": {"step": "Step 4 · red pen", "title": "Marked against the answer key.",
                "chips": "SAM 3.1,Muse Spark,~sympy", "aside": "../assets/anitha_marked.jpg",
-               "asidecap": "Anitha: 7 of 10. Two mistakes circled with \"add, don't join!\", one question not done."}},
+               "kb": "16", "asidecap": "Anitha: 7 of 10. Two mistakes circled with \"add, don't join!\", one question not done."}},
     {"clip": "detail", "dur": 14, "camera": shot(14, 1.8, 460),
      "panel": {"step": "Step 4 · red pen", "title": "Not just wrong: why.",
                "body": "She wrote 50 + 6 as 506: joining the parts instead of adding them. The child gets a hint in her language that never gives the answer, and the teacher sees every check behind the mark.",
                "chips": "Muse Spark,Muse Wonder"}},
-    {"clip": "progress", "dur": 22, "camera": shot(22, 1.7, 500), "compress": [("wait_start", "wait_end", 2.5)], "fast": [("wait_start", "wait_end")],
+    {"clip": "progress", "dur": 22, "camera": shot(22, 1.7, 520, drift=260), "trim": (0, 30.0), "compress": [("wait_start", "wait_end", 2.5)], "fast": [("wait_start", "wait_end")],
      "panel": {"step": "Step 5 · progress", "title": "Her knowledge graph updates.",
                "body": "Progress across the syllabus moves as topics are earned. A Muse Wonder agent reads all of her work and traces it to the root, grouping in tens, then writes questions to test it. Her next homework starts there.",
                "chips": "Muse Wonder"}},
@@ -102,7 +103,7 @@ SEGMENTS: list[dict] = [
      "panel": {"step": "And for the teacher", "title": "Group lessons and printable worksheets.",
                "body": "Children grouped by what they're ready to learn, not by class. Worksheets drawn, then read back and verified.", "chips": "Muse Wonder,Muse Image"}},
     {"scene": "trust", "dur": 12},
-    {"scene": "end", "dur": 11},
+    {"scene": "end", "dur": 10},
 ]
 
 
@@ -113,7 +114,13 @@ def run(cmd: list[str]) -> None:
 async def build_segment(i: int, s: dict) -> Path:
     out = SEG / f"{i:02d}.mp4"
     if "scene" in s:
-        await render_scene(s["scene"], s["dur"], out)
+        if not s.get("camera"):
+            await render_scene(s["scene"], s["dur"], out)
+            return out
+        raw = OUT / f"scene_{i:02d}.mp4"
+        await render_scene(s["scene"], s["dur"], raw)
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-vf", camera_filter(s["camera"]), "-t", str(s["dur"]),
+             "-c:v", "libx264", "-crf", "17", "-preset", "medium", "-pix_fmt", "yuv420p", str(out)])
         return out
 
     clip = FR / f"{s['clip']}.mp4"
@@ -128,7 +135,7 @@ async def build_segment(i: int, s: dict) -> Path:
     if cam and not s.get("keep_caption"):
         zoomed = [k for k in cam if k[1] > 1]
         params["hide"] = f"{zoomed[0][0] - 0.9:.2f},{zoomed[-1][0] + 0.3:.2f}"  # fade out as the push starts, back as it ends
-    await render_scene("panel", s["dur"] if "hide" in params else 1.2, panel, params=params)
+    await render_scene("panel", s["dur"] if ("hide" in params or "kb" in params) else 1.2, panel, params=params)
     bezel = FR / "bezel.png"
     if not bezel.exists():
         await render_still("panel", bezel, params={"bezel": "1"}, transparent=True)
@@ -162,6 +169,12 @@ async def build_segment(i: int, s: dict) -> Path:
     if s.get("camera"):
         fc.append(f"[{last}]{camera_filter(s['camera'])}[cam]")
         last = "cam"
+    live = OUT / "badge_live.png"
+    if not live.exists():
+        await render_still("badge", live, params={"live": "1"}, transparent=True)
+    inputs += ["-i", str(live)]
+    fc.append(f"[{last}][{3 + len(badges)}:v]overlay=0:0[live]")
+    last = "live"
     run(["ffmpeg", "-y", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc), "-map", f"[{last}]",
          "-t", str(d), "-r", str(FPS), "-c:v", "libx264", "-crf", "17", "-preset", "medium", "-pix_fmt", "yuv420p", str(out)])
     return out
