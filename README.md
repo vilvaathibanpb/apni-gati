@@ -2,6 +2,8 @@
 
 *अपनी गति, "your own pace"*. Even in the same class, every child learns at a different pace. Apni Gati gives each child homework that fits their level, marks it in red pen, and tracks their progress. Built on Meta's models for the Meta Global AI Developer Hackathon (Oct 27 – Nov 4, 2026).
 
+**Demo video (3 min):** https://youtu.be/defXvZw0LEs
+
 ## Run it
 
 ```bash

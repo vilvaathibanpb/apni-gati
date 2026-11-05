@@ -8,7 +8,7 @@
 
 **Links**
 - Code (public): https://github.com/vilvaathibanpb/apni-gati
-- Demo video (3:00): VIDEO_LINK
+- Demo video (3:00): https://youtu.be/defXvZw0LEs
 - Evaluation results: https://github.com/vilvaathibanpb/apni-gati/blob/main/backend/evals/RESULTS.md
 
 ## The problem
