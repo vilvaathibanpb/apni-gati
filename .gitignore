@@ -9,3 +9,8 @@ data/runtime/
 video/out/
 video/frames/
 video/.venv/
+video/voice/*.m4a
+video/voice/*.wav
+video/voice/asr.json
+video/voice/subs/
+video/voice/*_filter.txt
